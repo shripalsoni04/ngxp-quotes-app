@@ -1,0 +1,32 @@
+{
+  "name": "ngcp-starter",
+  "version": "1.0.0",
+  "description": "A cross platform starter application.",
+  "scripts": {
+    "postinstall": "cd web && npm install && cd ../nativescript && tns install && node ../tools/install.js && cd .. && typings install",
+    "build.prod": "cd web && ng build --prod",
+    "start": "cd web && ng serve",
+    "start.prod": "cd web && ng serve --prod",
+    "start.android": "cd nativescript && tns run android",
+    "start.ios": "cd nativescript && tns run ios",
+    "livesync.android": "cd nativescript && tns livesync android --watch",
+    "livesync.ios": "cd nativescript && tns livesync ios --watch",
+    "test": "cd web && ng test",
+    "test.android": "cd nativescript && tns test android --watch",
+    "test.ios": "cd nativescript && tns test ios --watch"
+  },
+  "keywords": [
+    "nativescript",
+    "angular2",
+    "ng2",
+    "angular"
+  ],
+  "author": "Shripal Soni",
+  "license": "ISC",
+  "devDependencies": {
+    "codelyzer": "0.0.28",
+    "@types/jasmine": "^2.2.30",
+    "typings": "^1.4.0",
+    "tslint": "^3.15.1"
+  }
+}

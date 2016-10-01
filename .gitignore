@@ -1,0 +1,13 @@
+nativescript/hooks
+nativescript/node_modules
+nativescript/platforms
+nativescript/**/*.js.map
+nativescript/app/**/*.js
+nativescript/app/x-shared
+node_modules
+x-shared/**/*.js.map
+x-shared/app/**/*.js
+typings
+web/node_modules
+web/src/x-shared
+web/dist
