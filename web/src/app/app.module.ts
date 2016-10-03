@@ -4,8 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { WebFirebaseService } from './shared';
-import { FirebaseService } from '../x-shared/app/core/firebase.service';
+import { appRouting } from './app.routing';
+import { CoreModule } from './core/core.module';
+import { QuotesModule } from './quotes/quotes.module';
 
 @NgModule({
   declarations: [
@@ -14,9 +15,11 @@ import { FirebaseService } from '../x-shared/app/core/firebase.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    appRouting,
+    CoreModule,
+    QuotesModule
   ],
-  providers: [{provide: FirebaseService, useExisting: WebFirebaseService}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

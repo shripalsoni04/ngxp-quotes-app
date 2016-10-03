@@ -1,4 +1,4 @@
-import { Pagination } from '../../models';
+import { Pagination } from '../shared/models';
 import * as firebase from 'firebase';
 
 export abstract class FirebaseService {
