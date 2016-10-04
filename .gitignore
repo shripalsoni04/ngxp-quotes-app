@@ -3,7 +3,9 @@ nativescript/node_modules
 nativescript/platforms
 nativescript/**/*.js.map
 nativescript/app/**/*.js
+nativescript/app/**/*.css
 nativescript/app/x-shared
+nativescript/lib
 node_modules
 x-shared/**/*.js.map
 x-shared/app/**/*.js

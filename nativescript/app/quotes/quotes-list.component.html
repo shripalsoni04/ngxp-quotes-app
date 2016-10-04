@@ -1,0 +1,11 @@
+<div class="quotes-list">
+  <GridLayout>
+    <ListView [items]="vm.lstQuotes">
+      <template let-item="item" let-i="index">
+        <StackLayout style="width: 100%;">
+          <Label [text]="item.body" textWrap="true"></Label>
+          <Label [text]="item.authorName"></Label>
+        </StackLayout>
+      </template>
+    </ListView>
+  </GridLayout>

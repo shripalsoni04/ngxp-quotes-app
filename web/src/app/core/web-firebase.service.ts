@@ -19,19 +19,19 @@ export class WebFirebaseService extends FirebaseService {
   }
 
   getOnce(path: string, pagination?: Pagination) {
-    let dbRef: firebase.database.Reference, startAt, endAt;
+    let query: firebase.database.Query, startAt, endAt;
 
-    dbRef = firebase.database().ref(path);
+    query = firebase.database().ref(path).orderByKey()
 
     if (pagination) {
       startAt = (pagination.page - 1) * pagination.size;
       endAt = pagination.page * pagination.size;
-      dbRef.orderByKey()
-        .startAt(startAt.toString())
+
+      query = query.startAt(startAt.toString())
         .endAt(endAt.toString());
     }
 
-    return dbRef.once('value').then((snapshot) => {
+    return query.once('value').then((snapshot) => {
       return snapshot.val();
     });
   }
