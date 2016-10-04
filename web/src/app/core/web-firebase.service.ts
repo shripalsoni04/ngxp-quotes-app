@@ -25,7 +25,7 @@ export class WebFirebaseService extends FirebaseService {
 
     if (pagination) {
       startAt = (pagination.page - 1) * pagination.size;
-      endAt = pagination.page * pagination.size;
+      endAt = pagination.page * pagination.size - 1;
 
       query = query.startAt(startAt.toString())
         .endAt(endAt.toString());
