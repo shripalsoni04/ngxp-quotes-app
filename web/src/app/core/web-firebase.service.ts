@@ -42,11 +42,7 @@ export class WebFirebaseService extends FirebaseService {
     }
 
     return query.once('value').then((snapshot) => {
-      let lstData = [];
-      snapshot.forEach(function (item) {
-        lstData.push(item.val());
-      });
-      return lstData;
+      return this.prepareResultListFromSnapshot(snapshot);
     });
   }
 
@@ -57,11 +53,19 @@ export class WebFirebaseService extends FirebaseService {
       .equalTo(filterValue)
       .once('value')
       .then((snapshot) => {
-        return snapshot.val();
+        return this.prepareResultListFromSnapshot(snapshot);
       });
   }
 
   initializeFirebase(config: any) {
     firebase.initializeApp(config);
+  }
+
+  private prepareResultListFromSnapshot(snapshot) {
+    let lstData = [];
+    snapshot.forEach(function (item) {
+      lstData.push(item.val());
+    });
+    return lstData;
   }
 }

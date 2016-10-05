@@ -11,6 +11,8 @@ export class AuthorService {
   }
 
   get(pagination?: Pagination) {
-    return this.firebaseService.getListOnce(this.path, pagination);
+    return this.firebaseService.getListOnce(this.path, pagination).then((lstAuthors) => {
+      return lstAuthors;
+    });
   }
 }

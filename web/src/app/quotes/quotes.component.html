@@ -1,0 +1,18 @@
+<div class="quotes-container">
+  <div
+      class="quotes-by-container"
+      *ngIf="quotesBy !== 'all'">
+    <authors-list
+        *ngIf="quotesBy === 'author'"
+        [selectedAuthorId]="authorId"
+        (authorSelect)="onAuthorSelect($event)">
+    </authors-list>
+  </div>
+  <div class="quotes-list-container">
+    <quotes-list
+        [quotesBy]="quotesBy"
+        [authorId]="authorId"
+        [categoryId]="categoryId">
+    </quotes-list>
+  </div>
+</div>

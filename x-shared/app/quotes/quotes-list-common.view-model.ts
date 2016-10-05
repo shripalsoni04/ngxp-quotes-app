@@ -15,6 +15,18 @@ export class QuotesListCommonVM {
     return this.quotesService.get(this.pagination);
   }
 
+  getQuotesByCategoryId(categoryId: number) {
+    return this.quotesService.getByAuthorId(categoryId);
+  }
+
+  getQuotesByAuthorId(authorId: number) {
+    return this.quotesService.getByAuthorId(authorId);
+  }
+
+  getMaxPageNumber() {
+    return Math.ceil(this.pagination.count / this.pagination.size);
+  }
+
   loadQuotes(): Promise<any> {
     return this.getQuotes().then((result) => {
       Array.prototype.push.apply(this.lstQuotes, result.lstQuotes);
@@ -28,15 +40,17 @@ export class QuotesListCommonVM {
     return this.loadQuotes();
   }
 
-  getQuotesByCategoryId() {
-
+  loadQuotesByAuthorId(authorId: number) {
+    this.lstQuotes.length = 0;
+    return this.getQuotesByAuthorId(authorId).then((lstQuotes) => {
+      Array.prototype.push.apply(this.lstQuotes, lstQuotes);
+    });
   }
 
-  getQuotesByAuthorId() {
-
-  }
-
-  getMaxPageNumber() {
-    return Math.ceil(this.pagination.count / this.pagination.size);
+  loadQuotesByCategoryId(categoryId: number) {
+    this.lstQuotes.length = 0;
+    return this.getQuotesByCategoryId(categoryId).then((lstQuotes) => {
+      Array.prototype.push.apply(this.lstQuotes, lstQuotes);
+    });
   }
 }

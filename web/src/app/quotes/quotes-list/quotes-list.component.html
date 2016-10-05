@@ -1,5 +1,5 @@
 <div class="quotes-list">
-  <div class="pagination-container">
+  <div class="pagination-container" *ngIf="quotesBy === 'all'">
     <button
         [disabled]="vm.isBackPaginationDisabled()"
         (click)="vm.loadFirstPage()">
@@ -22,7 +22,7 @@
     </button>
   </div>
   <div class="list-item" *ngFor="let quote of vm.lstQuotes">
-    <div>{{quote?.body}}</div>
-    <div>{{quote?.authorName}}</div>
+    <div>{{quote.body}}</div>
+    <div *ngIf="quotesBy !== 'author'">{{quote.authorName}}</div>
   </div>
 </div>

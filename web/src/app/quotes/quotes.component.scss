@@ -1,0 +1,13 @@
+.quotes-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.quotes-by-container{
+  width: 200px;
+}
+
+.quotes-list-container {
+  flex-grow: 1;
+}

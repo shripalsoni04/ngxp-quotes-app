@@ -1,0 +1,12 @@
+<div class="authors-list">
+  <ul>
+    <li
+        *ngFor="let author of vm.lstAuthors"
+        (click)="selectAuthor(author.id)"
+        [class.selected]="selectedAuthorId === author.id">
+      <div>
+        {{author.name}}
+      </div>
+    </li>
+  </ul>
+</div>
