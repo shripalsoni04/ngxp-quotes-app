@@ -14,7 +14,30 @@ export class NativeFirebaseService extends FirebaseService {
     });
   }
 
-  getOnce(path: string, pagination?: Pagination) {
+  getOnce(path: string) {
+    let options: firebase.QueryOptions = {
+      singleEvent: true,
+      orderBy: {
+        type: firebase.QueryOrderByType.KEY
+      }
+    };
+
+    return new Promise((resolve, reject) => {
+      firebase.query(
+        (result: any) => {
+          if (result.error) {
+            reject(result.error);
+          } else {
+            resolve(result.value);
+          }
+        },
+        path,
+        options
+      );
+    });
+  }
+
+  getListOnce(path: string, pagination?: Pagination) {
     let startAt, endAt;
 
     let options: firebase.QueryOptions = {
@@ -45,7 +68,7 @@ export class NativeFirebaseService extends FirebaseService {
           if (result.error) {
             reject(result.error);
           } else {
-            resolve(result.value);
+            resolve(this.prepareResultList(result.value));
           }
         },
         path,
@@ -85,5 +108,21 @@ export class NativeFirebaseService extends FirebaseService {
 
   initializeFirebase(config?: any) {
     firebase.init(config);
+  }
+
+  private prepareResultList(result) {
+    let lstData = [];
+    if (result.length) {
+      lstData = result.filter((item) => {
+        return !!item;
+      });
+    } else {
+      for (let key in result) {
+        if (result.hasOwnProperty(key)) {
+          lstData.push(result[key]);
+        }
+      }
+    }
+    return lstData;
   }
 }

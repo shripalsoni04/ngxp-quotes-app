@@ -1,10 +1,21 @@
 <div class="quotes-list">
   <GridLayout>
-    <ListView [items]="vm.lstQuotes">
-      <template let-item="item" let-i="index">
+    <ListView
+        [items]="vm.lstQuotes"
+        (loadMoreItems)="vm.onLoadMoreItemsRequested($event)">
+      <template
+          let-item="item"
+          let-i="index">
         <StackLayout style="width: 100%;">
           <Label [text]="item.body" textWrap="true"></Label>
           <Label [text]="item.authorName"></Label>
+          <ActivityIndicator
+            #activityIndicator
+            *ngIf="i === vm.lstQuotes.length -1 && i !== vm.pagination.count -1"
+            [busy]="i === vm.lstQuotes.length -1"
+            width="50"
+            height="50">
+          </ActivityIndicator>
         </StackLayout>
       </template>
     </ListView>

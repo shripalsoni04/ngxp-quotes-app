@@ -3,6 +3,7 @@ import { HttpModule } from '@angular/http';
 
 import { NativeScriptModule } from 'nativescript-angular/platform';
 import { NativeScriptRouterModule } from 'nativescript-angular/router';
+import { LISTVIEW_DIRECTIVES } from 'nativescript-telerik-ui/listview/angular';
 
 import { QuoteService } from '../x-shared/app/quotes';
 
@@ -16,7 +17,7 @@ import { quotesRouting } from './quotes.routing';
     HttpModule,
     quotesRouting
   ],
-  declarations: [QuotesListComponent],
+  declarations: [LISTVIEW_DIRECTIVES, QuotesListComponent],
   providers: [QuoteService]
 })
 export class QuotesModule { }

@@ -24,6 +24,7 @@
     "@angular/router": "3.0.0",
     "nativescript-angular": "1.0.0",
     "nativescript-plugin-firebase": "^3.6.3",
+    "nativescript-telerik-ui": "^1.4.1",
     "nativescript-unit-test-runner": "^0.3.3",
     "reflect-metadata": "^0.1.8",
     "tns-core-modules": "2.3.0"

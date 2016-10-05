@@ -1,6 +1,28 @@
 <div class="quotes-list">
+  <div class="pagination-container">
+    <button
+        [disabled]="vm.isBackPaginationDisabled()"
+        (click)="vm.loadFirstPage()">
+      <<
+    </button>
+    <button
+        [disabled]="vm.isBackPaginationDisabled()"
+        (click)="vm.loadPreviousPage()">
+      <
+    </button>
+    <button
+        [disabled]="vm.isForwardPaginationDisabled()"
+        (click)="vm.loadNextPage()">
+      >
+    </button>
+    <button
+        [disabled]="vm.isForwardPaginationDisabled()"
+        (click)="vm.loadLastPage()">
+      >>
+    </button>
+  </div>
   <div class="list-item" *ngFor="let quote of vm.lstQuotes">
-    <div>{{quote.body}}</div>
-    <div>{{quote.authorName}}</div>
+    <div>{{quote?.body}}</div>
+    <div>{{quote?.authorName}}</div>
   </div>
 </div>

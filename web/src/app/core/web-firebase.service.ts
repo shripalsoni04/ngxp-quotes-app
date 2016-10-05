@@ -18,7 +18,17 @@ export class WebFirebaseService extends FirebaseService {
     this.initializeFirebase(config);
   }
 
-  getOnce(path: string, pagination?: Pagination) {
+  getOnce(path: string) {
+    let query: firebase.database.Query;
+
+    query = firebase.database().ref(path).orderByKey()
+
+    return query.once('value').then((snapshot) => {
+      return snapshot.val();
+    });
+  }
+
+  getListOnce(path: string, pagination?: Pagination) {
     let query: firebase.database.Query, startAt, endAt;
 
     query = firebase.database().ref(path).orderByKey()
@@ -32,7 +42,11 @@ export class WebFirebaseService extends FirebaseService {
     }
 
     return query.once('value').then((snapshot) => {
-      return snapshot.val();
+      let lstData = [];
+      snapshot.forEach(function (item) {
+        lstData.push(item.val());
+      });
+      return lstData;
     });
   }
 

@@ -11,14 +11,21 @@ export class QuotesListCommonVM {
 
   }
 
-  getQuotes() {
+  getQuotes(): Promise<any> {
     return this.quotesService.get(this.pagination);
   }
 
-  loadQuotes() {
-    return this.getQuotes().then((quotes) => {
-      Array.prototype.push.apply(this.lstQuotes, quotes);
+  loadQuotes(): Promise<any> {
+    return this.getQuotes().then((result) => {
+      Array.prototype.push.apply(this.lstQuotes, result.lstQuotes);
+      this.pagination.count = result.count;
+      return result;
     });
+  }
+
+  loadNextPage(): Promise<any> {
+    this.pagination.page += 1;
+    return this.loadQuotes();
   }
 
   getQuotesByCategoryId() {
@@ -27,5 +34,9 @@ export class QuotesListCommonVM {
 
   getQuotesByAuthorId() {
 
+  }
+
+  getMaxPageNumber() {
+    return Math.ceil(this.pagination.count / this.pagination.size);
   }
 }
