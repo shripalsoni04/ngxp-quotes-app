@@ -5,7 +5,9 @@ export class QuotesListCommonVM {
 
   pagination: Pagination = new Pagination();
 
-  lstQuotes: any[] = [];
+  quotesPromise: Promise<any>;
+
+  protected lstQuotes: any[] = [];
 
   constructor(protected quotesService: QuoteService) {
 
@@ -28,11 +30,12 @@ export class QuotesListCommonVM {
   }
 
   loadQuotes(): Promise<any> {
-    return this.getQuotes().then((result) => {
+    this.quotesPromise = this.getQuotes().then((result) => {
       Array.prototype.push.apply(this.lstQuotes, result.lstQuotes);
       this.pagination.count = result.count;
-      return result;
+      return this.lstQuotes;
     });
+    return this.quotesPromise;
   }
 
   loadNextPage(): Promise<any> {
@@ -42,15 +45,19 @@ export class QuotesListCommonVM {
 
   loadQuotesByAuthorId(authorId: number) {
     this.lstQuotes.length = 0;
-    return this.getQuotesByAuthorId(authorId).then((lstQuotes) => {
+    this.quotesPromise = this.getQuotesByAuthorId(authorId).then((lstQuotes) => {
       Array.prototype.push.apply(this.lstQuotes, lstQuotes);
+      return this.lstQuotes;
     });
+    return this.quotesPromise;
   }
 
   loadQuotesByCategoryId(categoryId: number) {
     this.lstQuotes.length = 0;
-    return this.getQuotesByCategoryId(categoryId).then((lstQuotes) => {
+    this.quotesPromise = this.getQuotesByCategoryId(categoryId).then((lstQuotes) => {
       Array.prototype.push.apply(this.lstQuotes, lstQuotes);
+      return this.lstQuotes;
     });
+    return this.quotesPromise;
   }
 }

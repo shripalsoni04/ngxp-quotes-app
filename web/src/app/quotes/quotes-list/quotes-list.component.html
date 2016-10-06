@@ -21,7 +21,7 @@
       >>
     </button>
   </div>
-  <div class="list-item" *ngFor="let quote of vm.lstQuotes">
+  <div class="list-item" *ngFor="let quote of vm.quotesPromise | async">
     <div>{{quote.body}}</div>
     <div *ngIf="quotesBy !== 'author'">{{quote.authorName}}</div>
   </div>

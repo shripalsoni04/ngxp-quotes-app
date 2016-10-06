@@ -1,6 +1,5 @@
 import {
-  Component, OnChanges, Input, SimpleChanges, ChangeDetectionStrategy,
-  ChangeDetectorRef
+  Component, OnChanges, Input, SimpleChanges, ChangeDetectionStrategy
 } from '@angular/core';
 
 import { QuotesListVM } from './quotes-list.view-model';
@@ -9,7 +8,8 @@ import { QuotesListVM } from './quotes-list.view-model';
   selector: 'quotes-list',
   templateUrl: './quotes-list.component.html',
   styleUrls: ['./quotes-list.component.scss'],
-  providers: [QuotesListVM]
+  providers: [QuotesListVM],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class QuotesListComponent implements OnChanges {
 
@@ -19,26 +19,17 @@ export class QuotesListComponent implements OnChanges {
 
   @Input() quotesBy: 'author' | 'category' | 'all';
 
-  constructor(public vm: QuotesListVM, private changeDetectorRef: ChangeDetectorRef) {
+  constructor(public vm: QuotesListVM) {
 
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    let promise;
     if (this.quotesBy === 'all') {
-      promise = this.vm.loadQuotes();
+      this.vm.loadQuotes();
     } else if (this.quotesBy === 'author' && this.authorId) {
-      promise = this.vm.loadQuotesByAuthorId(+this.authorId);
+      this.vm.loadQuotesByAuthorId(+this.authorId);
     } else if (this.quotesBy === 'category' && this.categoryId) {
-      promise = this.vm.loadQuotesByCategoryId(+this.categoryId);
+      this.vm.loadQuotesByCategoryId(+this.categoryId);
     }
-
-    // if (!promise) {
-    //   return;
-    // }
-
-    // promise.then(() => {
-    //   this.changeDetectorRef.markForCheck();
-    // });
   }
 }
