@@ -7,6 +7,11 @@
         [selectedAuthorId]="authorId"
         (authorSelect)="onAuthorSelect($event)">
     </authors-list>
+    <categories-list
+        *ngIf="quotesBy === 'category'"
+        [selectedCategoryId]="categoryId"
+        (categorySelect)="onCategorySelect($event)">
+    </categories-list>
   </div>
   <div class="quotes-list-container">
     <quotes-list

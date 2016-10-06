@@ -1,6 +1,6 @@
 import { QuoteService } from './quotes.service';
 import { Pagination } from '../shared/models';
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs/Subject';
 
 export class QuotesListCommonVM {
 
@@ -19,7 +19,7 @@ export class QuotesListCommonVM {
   }
 
   getQuotesByCategoryId(categoryId: number) {
-    return this.quotesService.getByAuthorId(categoryId);
+    return this.quotesService.getByCategoryId(categoryId);
   }
 
   getQuotesByAuthorId(authorId: number) {

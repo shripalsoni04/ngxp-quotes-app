@@ -47,4 +47,12 @@ export class QuotesComponent implements OnInit {
       queryParams: { authorId: authorId }
     });
   }
+
+  onCategorySelect(categoryId) {
+    // we can just set category here, but to have navigation history
+    // navigating the component with categoryId in query parameter.
+    this.router.navigate(['quotes', 'category'], {
+      queryParams: { categoryId: categoryId }
+    });
+  }
 }

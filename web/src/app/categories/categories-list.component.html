@@ -1,0 +1,12 @@
+<div class="categories-list">
+  <ul>
+    <li
+        *ngFor="let category of vm.lstCategories"
+        (click)="selectCategory(category.id)"
+        [class.selected]="selectedCategoryId === category.id">
+      <div>
+        {{category.name}}
+      </div>
+    </li>
+  </ul>
+</div>
