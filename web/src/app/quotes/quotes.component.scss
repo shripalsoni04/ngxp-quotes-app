@@ -6,6 +6,9 @@
 
 .quotes-by-container{
   width: 200px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 200px;
 }
 
 .quotes-list-container {

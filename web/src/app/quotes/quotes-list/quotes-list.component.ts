@@ -24,6 +24,9 @@ export class QuotesListComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
+    if (changes['quotesBy']) {
+      this.vm.clearQuotesList();
+    }
     if (this.quotesBy === 'all') {
       this.vm.loadQuotes();
     } else if (this.quotesBy === 'author' && this.authorId) {

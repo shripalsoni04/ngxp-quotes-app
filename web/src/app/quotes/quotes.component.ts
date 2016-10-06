@@ -11,7 +11,7 @@ export class QuotesComponent implements OnInit {
   /**
    * Route parameter.
    */
-  quotesBy: string;
+  quotesBy: string = 'all';
 
   /**
    * Route query parameter.
@@ -32,11 +32,13 @@ export class QuotesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.quotesBy = this.route.snapshot.params['quotesBy'] || 'all';
+    this.route.params.subscribe((params) => {
+      this.quotesBy = params['quotesBy'] || 'all';
+    });
+
     this.route.queryParams.subscribe((queryParams) => {
       this.authorId = queryParams['authorId'];
       this.categoryId = queryParams['categoryId'];
-      this.changeDetectorRef.detectChanges();
     });
   }
 

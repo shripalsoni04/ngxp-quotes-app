@@ -41,7 +41,7 @@ export class QuotesListVM extends QuotesListCommonVM {
     return this.loadQuotes();
   }
 
-  private clearQuotesList(){
+  clearQuotesList() {
     this.lstQuotes.length = 0;
   }
 }
