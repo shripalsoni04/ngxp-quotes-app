@@ -12,7 +12,7 @@ export class AuthorsListComponent {
 
   @Input() selectedAuthorId: number;
 
-  @Output() authorSelect: EventEmitter<number> = new EventEmitter();
+  @Output() authorSelect: EventEmitter<number> = new EventEmitter<number>();
 
   constructor(public vm: AuthorsListVM) {
     this.vm.loadAuthorList().then(() => {

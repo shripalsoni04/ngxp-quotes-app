@@ -1,7 +1,7 @@
 <div class="quotes-list">
   <GridLayout>
     <ListView
-        [items]="vm.lstQuotes"
+        [items]="vm.quotes$ | async"
         (loadMoreItems)="vm.onLoadMoreItemsRequested($event)">
       <template
           let-item="item"

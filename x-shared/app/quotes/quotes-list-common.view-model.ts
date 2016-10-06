@@ -1,13 +1,14 @@
 import { QuoteService } from './quotes.service';
 import { Pagination } from '../shared/models';
+import { Subject } from 'rxjs';
 
 export class QuotesListCommonVM {
 
   pagination: Pagination = new Pagination();
 
-  quotesPromise: Promise<any>;
-
   protected lstQuotes: any[] = [];
+
+  quotes$: Subject<any[]> = new Subject<any[]>();
 
   constructor(protected quotesService: QuoteService) {
 
@@ -29,35 +30,35 @@ export class QuotesListCommonVM {
     return Math.ceil(this.pagination.count / this.pagination.size);
   }
 
-  loadQuotes(): Promise<any> {
-    this.quotesPromise = this.getQuotes().then((result) => {
+  loadQuotes() {
+    this.getQuotes().then((result) => {
       Array.prototype.push.apply(this.lstQuotes, result.lstQuotes);
       this.pagination.count = result.count;
-      return this.lstQuotes;
+      this.quotes$.next(this.lstQuotes);
     });
-    return this.quotesPromise;
+    return this.quotes$;
   }
 
-  loadNextPage(): Promise<any> {
+  loadNextPage() {
     this.pagination.page += 1;
     return this.loadQuotes();
   }
 
   loadQuotesByAuthorId(authorId: number) {
     this.lstQuotes.length = 0;
-    this.quotesPromise = this.getQuotesByAuthorId(authorId).then((lstQuotes) => {
+    this.getQuotesByAuthorId(authorId).then((lstQuotes) => {
       Array.prototype.push.apply(this.lstQuotes, lstQuotes);
-      return this.lstQuotes;
+      this.quotes$.next(this.lstQuotes);
     });
-    return this.quotesPromise;
+    return this.quotes$;
   }
 
   loadQuotesByCategoryId(categoryId: number) {
     this.lstQuotes.length = 0;
-    this.quotesPromise = this.getQuotesByCategoryId(categoryId).then((lstQuotes) => {
+    this.getQuotesByCategoryId(categoryId).then((lstQuotes) => {
       Array.prototype.push.apply(this.lstQuotes, lstQuotes);
-      return this.lstQuotes;
+      this.quotes$.next(this.lstQuotes);
     });
-    return this.quotesPromise;
+    return this.quotes$;
   }
 }
