@@ -8,10 +8,13 @@
           let-i="index">
         <StackLayout style="width: 100%;">
           <Label [text]="item.body" textWrap="true"></Label>
-          <Label [text]="item.authorName"></Label>
+          <Label
+              *ngIf="quotesBy !== 'author'"
+              [text]="item.authorName">
+          </Label>
           <ActivityIndicator
             #activityIndicator
-            *ngIf="i === vm.lstQuotes.length -1 && i !== vm.pagination.count -1"
+            *ngIf="i === vm.lstQuotes.length -1 && i !== vm.pagination.count -1 && quotesBy === 'all'"
             [busy]="i === vm.lstQuotes.length -1"
             width="50"
             height="50">

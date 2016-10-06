@@ -89,7 +89,7 @@ export class NativeFirebaseService extends FirebaseService {
         type: firebase.QueryRangeType.EQUAL_TO,
         value: filterValue
       }
-    }
+    };
 
     return new Promise((resolve, reject) => {
       firebase.query(
@@ -97,7 +97,7 @@ export class NativeFirebaseService extends FirebaseService {
           if (result.error) {
             reject(result.error);
           } else {
-            resolve(result.value);
+            resolve(this.prepareResultList(result.value));
           }
         },
         path,

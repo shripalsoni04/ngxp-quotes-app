@@ -1,4 +1,7 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component, OnInit, Input, ChangeDetectionStrategy, ChangeDetectorRef, NgZone
+} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { QuotesListVM } from './quotes-list.view-model';
 
@@ -11,9 +14,23 @@ import { QuotesListVM } from './quotes-list.view-model';
 })
 export class QuotesListComponent implements OnInit {
 
-  constructor(public vm: QuotesListVM) { }
+  quotesBy: 'author' | 'category' | 'all';
+
+  entityId: number;
+
+  constructor(
+    public vm: QuotesListVM,
+    private activatedRoute: ActivatedRoute,
+    private changeDetectorRef: ChangeDetectorRef,
+    private ngZone: NgZone
+  ) {
+
+  }
 
   ngOnInit() {
-    this.vm.loadQuotes();
+    let params = this.activatedRoute.snapshot.params;
+    this.quotesBy = params['quotesBy'] || 'all';
+    this.entityId = params['id'];
+    this.vm.loadQuotesByCriteria(this.quotesBy, this.entityId);
   }
 }

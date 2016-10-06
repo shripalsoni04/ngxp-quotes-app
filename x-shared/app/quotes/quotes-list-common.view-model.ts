@@ -61,4 +61,16 @@ export class QuotesListCommonVM {
     });
     return this.quotes$;
   }
+
+  loadQuotesByCriteria(quotesBy: 'category' | 'author' | 'all', id?: number): Subject<any>{
+    let subject;
+    if (quotesBy === 'all') {
+      subject = this.loadQuotes();
+    } else if (quotesBy === 'author' && id) {
+      subject = this.loadQuotesByAuthorId(+id);
+    } else if (quotesBy === 'category' && id) {
+      subject = this.loadQuotesByCategoryId(+id);
+    }
+    return subject;
+  }
 }

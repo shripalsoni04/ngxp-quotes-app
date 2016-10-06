@@ -27,12 +27,7 @@ export class QuotesListComponent implements OnChanges {
     if (changes['quotesBy']) {
       this.vm.clearQuotesList();
     }
-    if (this.quotesBy === 'all') {
-      this.vm.loadQuotes();
-    } else if (this.quotesBy === 'author' && this.authorId) {
-      this.vm.loadQuotesByAuthorId(+this.authorId);
-    } else if (this.quotesBy === 'category' && this.categoryId) {
-      this.vm.loadQuotesByCategoryId(+this.categoryId);
-    }
+
+    this.vm.loadQuotesByCriteria(this.quotesBy, this.authorId || this.categoryId);
   }
 }
