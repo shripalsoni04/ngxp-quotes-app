@@ -1,7 +1,7 @@
 <div class="authors-list">
   <ul>
     <li
-        *ngFor="let author of vm.lstAuthors"
+        *ngFor="let author of vm.authors$ | async"
         (click)="selectAuthor(author.id)"
         [class.selected]="selectedAuthorId === author.id">
       <div>

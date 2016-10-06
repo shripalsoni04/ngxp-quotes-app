@@ -15,7 +15,7 @@ export class AuthorsListComponent {
   @Output() authorSelect: EventEmitter<number> = new EventEmitter<number>();
 
   constructor(public vm: AuthorsListVM) {
-    this.vm.loadAuthorList().then(() => {
+    this.vm.loadAuthorList().subscribe(() => {
       this.selectFirst();
     });
   }
