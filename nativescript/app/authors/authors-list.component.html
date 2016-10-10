@@ -1,4 +1,8 @@
-<ListView
+<ActionBar title="Authors">
+</ActionBar>
+
+<ngxp-side-drawer>
+  <ListView
     [items]="vm.authors$ | async">
   <template let-item="item">
     <StackLayout (tap)="showQuotesByAuthor(item.id)">
@@ -6,3 +10,4 @@
     </StackLayout>
   </template>
 </ListView>
+</ngxp-side-drawer>

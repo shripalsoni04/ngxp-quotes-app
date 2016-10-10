@@ -1,0 +1,17 @@
+<RadSideDrawer [transition]="drawerTransition">
+  <StackLayout tkDrawerContent>
+    <StackLayout>
+      <Label text="Navigation Menu"></Label>
+    </StackLayout>
+    <StackLayout>
+      <Button text="Quotes" (tap)="navigateTo(['/quotes'])"></Button>
+      <Button text="Authors" (tap)="navigateTo(['/authors'])"></Button>
+      <Button text="Categories" (tap)="navigateTo(['/categories'])"></Button>
+      <Button text="My Favourites"></Button>
+      <Button text="My Quotes"></Button>
+    </StackLayout>
+  </StackLayout>
+  <StackLayout tkMainContent [visibility]="isContentVisible ? 'visible' : 'collapsed'">
+    <ng-content></ng-content>
+  </StackLayout>
+</RadSideDrawer>

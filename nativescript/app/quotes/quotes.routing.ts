@@ -1,10 +1,11 @@
 import { RouterModule, Routes } from '@angular/router';
 
-import { QuotesListComponent } from './quotes-list.component';
+import { AllQuotesComponent } from './all-quotes/all-quotes.component';
+import { QuotesByComponent } from './quotes-by/quotes-by.component';
 
 const quotesRoutes: Routes = [
-  { path: 'quotes', component: QuotesListComponent },
-  { path: 'quotes/:quotesBy/:id', component: QuotesListComponent }
+  { path: 'quotes', component: AllQuotesComponent },
+  { path: 'quotes/:quotesBy/:entityId', component: QuotesByComponent },
 ];
 
 export const quotesRouting = RouterModule.forChild(quotesRoutes);

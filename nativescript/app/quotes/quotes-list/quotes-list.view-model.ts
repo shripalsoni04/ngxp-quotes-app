@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { ListView } from 'ui/list-view';
 
-import { QuotesListCommonVM, QuoteService } from '../x-shared/app/quotes';
+import { QuotesListCommonVM, QuoteService } from '../../x-shared/app/quotes';
 
 @Injectable()
 export class QuotesListVM extends QuotesListCommonVM {

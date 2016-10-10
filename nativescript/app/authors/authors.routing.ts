@@ -6,4 +6,4 @@ const authorsRoutes: Routes = [
   { path: 'authors', component: AuthorsListComponent }
 ];
 
-export const authorsRouting = RouterModule.forRoot(authorsRoutes);
+export const authorsRouting = RouterModule.forChild(authorsRoutes);
