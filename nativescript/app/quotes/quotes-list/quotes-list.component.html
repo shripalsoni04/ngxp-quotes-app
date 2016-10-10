@@ -11,6 +11,11 @@
             *ngIf="quotesBy !== 'author'"
             [text]="item.authorName">
         </Label>
+        <Button
+            text="Fav"
+            [style.color]="item.isFavourite ? 'red' : 'blue'"
+            (tap)="vm.toggleFav(item, quotesBy)">
+        </Button>
         <ActivityIndicator
           #activityIndicator
           *ngIf="i === vm.lstQuotes.length -1 && i !== vm.pagination.count -1 && quotesBy === 'all'"

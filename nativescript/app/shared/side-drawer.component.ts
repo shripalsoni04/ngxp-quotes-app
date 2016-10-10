@@ -51,12 +51,14 @@ export class NGXPSideDrawerComponent implements AfterViewInit {
 
   navigateTo(routeCommands: any[]) {
     this.drawer.closeDrawer();
-    let currentUrl = this.activatedRoute.snapshot.url.toString();
+    let currentUrl = this.routerExtensions.router.routerState.snapshot.url;
+    let newUrlTree = this.routerExtensions.router.createUrlTree(routeCommands);
+    let newUrl = this.routerExtensions.router.serializeUrl(newUrlTree);
 
     // as main navigation has simple urls, comparing only first part of the
     // route command. For any complex url (ie. url with parameter), this logic
     // will not work)
-    if (currentUrl !== routeCommands[0].substring(1)) {
+    if (currentUrl !== newUrl) {
       this.isContentVisible = false;
 
       // starting navigation after drawer is closed.

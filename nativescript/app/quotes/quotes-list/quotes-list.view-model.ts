@@ -2,13 +2,18 @@ import { Injectable } from '@angular/core';
 
 import { ListView } from 'ui/list-view';
 
-import { QuotesListCommonVM, QuoteService } from '../../x-shared/app/quotes';
+import {
+  QuotesListCommonVM, QuoteService, MyFavouritesService
+} from '../../x-shared/app/quotes';
 
 @Injectable()
 export class QuotesListVM extends QuotesListCommonVM {
 
-  constructor(quotesService: QuoteService) {
-    super(quotesService);
+  constructor(
+    quotesService: QuoteService,
+    myFavouritesService: MyFavouritesService
+  ) {
+    super(quotesService, myFavouritesService);
   }
 
   onLoadMoreItemsRequested(args: any) {
