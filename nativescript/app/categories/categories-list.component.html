@@ -1,0 +1,13 @@
+<ActionBar title="Categories">
+</ActionBar>
+
+<ngxp-side-drawer>
+  <ListView
+      [items]="vm.categories$ | async">
+    <template let-item="item">
+      <StackLayout (tap)="showQuotesByCategory(item.id)">
+        <Label [text]="item.name" textWrap="true"></Label>
+      </StackLayout>
+    </template>
+  </ListView>
+</ngxp-side-drawer>

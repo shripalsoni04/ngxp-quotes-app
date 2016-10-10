@@ -6,6 +6,7 @@ import { NativeScriptRouterModule } from 'nativescript-angular/router';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { QuotesModule } from './quotes/quotes.module';
+import { CategoriesModule } from './categories/categories.module';
 import { appRouting } from './app.routing';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { appRouting } from './app.routing';
     NativeScriptRouterModule,
     CoreModule,
     QuotesModule,
+    CategoriesModule,
     appRouting
   ],
   bootstrap: [AppComponent]
