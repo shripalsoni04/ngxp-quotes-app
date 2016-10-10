@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { QuoteService } from '@xapp/quotes';
+import { QuoteService, MyFavouritesService } from '@xapp/quotes';
 
 import { AuthorsModule } from '../authors/authors.module';
 import { CategoriesModule } from '../categories/categories.module';
@@ -19,6 +19,6 @@ import { quotesRouting } from './quotes.routing';
     quotesRouting
   ],
   declarations: [QuotesComponent, QuotesListComponent],
-  providers: [QuoteService]
+  providers: [QuoteService, MyFavouritesService]
 })
 export class QuotesModule { }

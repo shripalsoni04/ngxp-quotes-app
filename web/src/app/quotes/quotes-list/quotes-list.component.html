@@ -24,5 +24,6 @@
   <div class="list-item" *ngFor="let quote of vm.quotes$ | async">
     <div>{{quote.body}}</div>
     <div *ngIf="quotesBy !== 'author'">{{quote.authorName}}</div>
+    <div><button (click)="vm.toggleFav(quote, quotesBy)" [style.color]="quote.isFavourite ? 'red' : 'black'">Favourite</button></div>
   </div>
 </div>

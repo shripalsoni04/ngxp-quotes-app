@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
-import { FirebaseService } from '@xapp/core';
+import { FirebaseService, StorageService } from '@xapp/core';
 
 import { WebFirebaseService } from './web-firebase.service';
+import { LocalStorageService } from './local-storage.service';
+import { LocalDatabaseService } from '@xapp/core/local-database.service';
 
 @NgModule({
-  imports: [BrowserModule],
   providers: [
+    WebFirebaseService,
+    LocalStorageService,
+    LocalDatabaseService,
     { provide: FirebaseService, useExisting: WebFirebaseService },
-    WebFirebaseService
+    { provide: StorageService, useExisting: LocalStorageService },
   ],
 })
 export class CoreModule { }

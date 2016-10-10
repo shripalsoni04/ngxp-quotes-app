@@ -1,7 +1,7 @@
 <div class="quotes-container">
   <div
       class="quotes-by-container"
-      *ngIf="quotesBy !== 'all'">
+      *ngIf="quotesBy !== 'all' && quotesBy !== 'favourites'">
     <authors-list
         *ngIf="quotesBy === 'author'"
         [selectedAuthorId]="authorId"

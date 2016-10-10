@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 
-import { QuotesListCommonVM, QuoteService } from '@xapp/quotes';
+import {
+  QuotesListCommonVM, QuoteService, MyFavouritesService
+} from '@xapp/quotes';
 
 @Injectable()
 export class QuotesListVM extends QuotesListCommonVM {
 
-  constructor(quotesService: QuoteService) {
-    super(quotesService);
+  constructor(
+    quotesService: QuoteService,
+    myFavouritesService: MyFavouritesService
+  ) {
+    super(quotesService, myFavouritesService);
   }
 
   isBackPaginationDisabled() {
