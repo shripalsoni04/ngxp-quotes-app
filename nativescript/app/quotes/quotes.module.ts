@@ -6,7 +6,6 @@ import { LISTVIEW_DIRECTIVES } from 'nativescript-telerik-ui/listview/angular';
 
 import { QuoteService } from '../x-shared/app/quotes';
 
-import { AuthorsModule } from '../authors/authors.module';
 import { SharedModule } from '../shared/shared.module';
 import { QuotesListComponent } from './quotes-list/quotes-list.component';
 import { AllQuotesComponent } from './all-quotes/all-quotes.component';
@@ -17,7 +16,6 @@ import { quotesRouting } from './quotes.routing';
   imports: [
     NativeScriptModule,
     NativeScriptRouterModule,
-    AuthorsModule,
     SharedModule,
     quotesRouting
   ],
