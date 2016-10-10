@@ -1,7 +1,7 @@
 <div class="categories-list">
   <ul>
     <li
-        *ngFor="let category of vm.lstCategories"
+        *ngFor="let category of vm.categories$ | async"
         (click)="selectCategory(category.id)"
         [class.selected]="selectedCategoryId === category.id">
       <div>
