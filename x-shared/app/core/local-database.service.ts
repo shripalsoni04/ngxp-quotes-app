@@ -41,8 +41,7 @@ export class LocalDatabaseService {
             reject(`Data with ${obj.id} already exists in database.`);
           }
         } else {
-          let maxId = Math.max.apply(null, data.map(item => item.id));
-          obj.id = maxId + 1;
+          obj.id = this.getNextId(data);
         }
 
         data.push(obj);
@@ -98,5 +97,14 @@ export class LocalDatabaseService {
 
   private getCopy(obj: any) {
     return JSON.parse(JSON.stringify(obj));
+  }
+
+  private getNextId(data: any[]) {
+    if (data.length) {
+      let maxId = Math.max.apply(null, data.map(item => item.id));
+      return maxId + 1;
+    } else {
+      return 1;
+    }
   }
 }

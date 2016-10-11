@@ -1,0 +1,20 @@
+<div class="my-quotes-list">
+  <div class="list-item" *ngFor="let quote of vm.quotes$ | async">
+    <div>{{quote.body}}</div>
+    <div>{{quote.authorName}}</div>
+    <div>
+      <button (click)="vm.editQuote(quote)">Edit</button>
+      <button (click)="vm.deleteQuote(quote)">Delete</button>
+    </div>
+  </div>
+  <div *ngIf="vm.lstQuotes.length === 0">
+    No quotes are added.
+  </div>
+</div>
+<div class="quote-form-container">
+  <new-quote
+      [quote]="vm.quoteToEdit"
+      (quoteSave)="vm.updateQuoteInList($event)"
+      (formReset)="vm.onFormReset()">
+  </new-quote>
+</div>

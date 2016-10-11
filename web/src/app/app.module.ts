@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { appRouting } from './app.routing';
 import { CoreModule } from './core/core.module';
 import { QuotesModule } from './quotes/quotes.module';
+import { MyQuotesModule } from './my-quotes/my-quotes.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { QuotesModule } from './quotes/quotes.module';
     HttpModule,
     appRouting,
     CoreModule,
-    QuotesModule
+    QuotesModule,
+    MyQuotesModule
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,50 @@
+<div class="my-quote-form">
+  <div class="title">
+    {{vm.dataModel.id ? 'Edit Quote' : 'Create New Quote'}}
+  </div>
+  <form
+      *ngIf="isActive"
+      #form="ngForm"
+      (ngSubmit)="save(vm.dataModel)"
+      novalidate>
+    <div>
+      <label for="body">Quote</label>
+      <textarea
+          #body="ngModel"
+          id="body"
+          name="body"
+          [(ngModel)]="vm.dataModel.body"
+          required>
+      </textarea>
+      <div [hidden]="body.valid || body.pristine"
+             class="alert alert-danger">
+          Quote body is required.
+      </div>
+    </div>
+
+    <div>
+      <label for="authorName">Author Name</label>
+      <input
+          #authorName="ngModel"
+          id="authorName"
+          name="authorName"
+          type="text"
+          [(ngModel)]="vm.dataModel.authorName"
+          required />
+      <div [hidden]="authorName.valid || authorName.pristine"
+            class="alert alert-danger">
+          Author name is required.
+      </div>
+    </div>
+    <div>
+      <button
+          [disabled]="!form.valid">
+        {{vm.dataModel.id ? 'Save' : 'Create'}}
+      </button>
+      <button
+          type="button"
+          (click)="resetForm()">Cancel
+      </button>
+    </div>
+  </form>
+</div>
