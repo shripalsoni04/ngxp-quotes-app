@@ -8,40 +8,46 @@
       (ngSubmit)="save(vm.dataModel)"
       novalidate>
     <div>
-      <label for="body">Quote</label>
-      <textarea
+      <mdl-textfield
+          label="Quote Body"
           #body="ngModel"
-          id="body"
           name="body"
+          rows="5"
           [(ngModel)]="vm.dataModel.body"
-          required>
-      </textarea>
-      <div [hidden]="body.valid || body.pristine"
-             class="alert alert-danger">
-          Quote body is required.
-      </div>
+          [class.is-invalid]="body.invalid && body.dirty"
+          [error-msg]="vm.validationMsg.body"
+          required
+          floating-label>
+      </mdl-textfield>
     </div>
 
     <div>
-      <label for="authorName">Author Name</label>
-      <input
+       <mdl-textfield
+          label="Author Name"
           #authorName="ngModel"
-          id="authorName"
           name="authorName"
           type="text"
           [(ngModel)]="vm.dataModel.authorName"
-          required />
-      <div [hidden]="authorName.valid || authorName.pristine"
-            class="alert alert-danger">
-          Author name is required.
-      </div>
+          [class.is-invalid]="authorName.invalid && authorName.dirty"
+          [error-msg]="vm.validationMsg.authorName"
+          floating-label
+          required>
+      </mdl-textfield>
     </div>
     <div>
       <button
+          mdl-button
+          mdl-ripple
+          mdl-button-type="raised"
+          mdl-colored="accent"
           [disabled]="!form.valid">
         {{vm.dataModel.id ? 'Save' : 'Create'}}
       </button>
       <button
+          mdl-button
+          mdl-ripple
+          mdl-colored
+          mdl-button-type="raised"
           type="button"
           (click)="resetForm()">Cancel
       </button>

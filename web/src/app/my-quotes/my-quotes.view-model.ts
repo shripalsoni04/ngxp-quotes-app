@@ -20,10 +20,10 @@ export class MyQuotesVM extends MyQuotesCommonVM {
     // a checkbox to prevent dialog appears and if user tick that, this code will
     // fail.
     if (confirm('Are you sure you want to delete this quote?')) {
-      super.deleteQuote(quote);
       if (this.quoteToEdit && this.quoteToEdit.id === quote.id) {
         this.quoteToEdit = null;
       }
+      return super.deleteQuote(quote);
     }
   }
 

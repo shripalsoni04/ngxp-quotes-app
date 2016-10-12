@@ -5,8 +5,9 @@ import { MyQuotesVM } from './my-quotes.view-model';
 @Component({
   templateUrl: './my-quotes.component.html',
   styleUrls: ['./my-quotes.component.scss'],
-  providers: [MyQuotesVM],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  providers: [MyQuotesVM]
+  // TODO: Enable OnPush once angular2-mdl has its support.
+  //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MyQuotesComponent implements OnInit {
 

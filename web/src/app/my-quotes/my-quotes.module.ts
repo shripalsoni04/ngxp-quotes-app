@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { MyQuotesService } from '@xapp/my-quotes';
 import { MyQuotesComponent } from './my-quotes.component';
 import { NewQuoteComponent } from './new-quote/new-quote.component';
 import { MyQuotesRoutingModule } from './my-quotes-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
     FormsModule,
-    MyQuotesRoutingModule
+    MyQuotesRoutingModule,
+    SharedModule
   ],
   declarations: [
     MyQuotesComponent,

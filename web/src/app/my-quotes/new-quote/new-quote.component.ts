@@ -9,8 +9,9 @@ import { NewQuoteVM } from './new-quote.view-model';
   selector: 'new-quote',
   templateUrl: './new-quote.component.html',
   styleUrls: ['./new-quote.component.scss'],
-  providers: [NewQuoteVM],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  providers: [NewQuoteVM]
+  // TODO: Enable OnPush once angular2-mdl has its support.
+  //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NewQuoteComponent {
 
@@ -21,7 +22,6 @@ export class NewQuoteComponent {
     } else {
       this.vm.dataModel = new MyQuoteModel();
     }
-
   }
 
   @Output() quoteSave: EventEmitter<MyQuoteModel> = new EventEmitter<MyQuoteModel>();

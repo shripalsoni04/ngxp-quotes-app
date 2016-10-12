@@ -8,6 +8,7 @@ import { appRouting } from './app.routing';
 import { CoreModule } from './core/core.module';
 import { QuotesModule } from './quotes/quotes.module';
 import { MyQuotesModule } from './my-quotes/my-quotes.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MyQuotesModule } from './my-quotes/my-quotes.module';
     appRouting,
     CoreModule,
     QuotesModule,
-    MyQuotesModule
+    MyQuotesModule,
+    SharedModule
   ],
   bootstrap: [AppComponent]
 })

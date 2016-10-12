@@ -7,6 +7,11 @@ export class NewQuoteCommonVM {
 
   validationErrors: { [key: string]: string } = {};
 
+  validationMsg = {
+    body: 'Quote body is required.',
+    authorName: 'Author Name is required.'
+  };
+
   constructor(protected myQuotesService: MyQuotesService) {
 
   }
@@ -31,11 +36,11 @@ export class NewQuoteCommonVM {
   validateQuoteModel(quote: MyQuoteModel): { [key: string]: string } {
     let validationErrors = {};
     if (!quote.body || !quote.body.trim().length) {
-      validationErrors['body'] = 'Quote body is required.';
+      validationErrors['body'] = this.validationMsg.body;
     }
 
     if (!quote.authorName || !quote.authorName.trim().length) {
-      validationErrors['authorName'] = 'Author Name is required.';
+      validationErrors['authorName'] = this.validationMsg.authorName;
     }
     return validationErrors;
   }

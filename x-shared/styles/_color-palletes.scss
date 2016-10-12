@@ -1,0 +1,92 @@
+$color-black: "0,0,0";
+$color-white: "255,255,255";
+
+$palette-pink:
+"252,228,236"
+"248,187,208"
+"244,143,177"
+"240,98,146"
+"236,64,122"
+"233,30,99"
+"216,27,96"
+"194,24,91"
+"173,20,87"
+"136,14,79"
+"255,128,171"
+"255,64,129"
+"245,0,87"
+"197,17,98";
+
+$palette-pink-50: nth($palette-pink, 1);
+$palette-pink-100: nth($palette-pink, 2);
+$palette-pink-200: nth($palette-pink, 3);
+$palette-pink-300: nth($palette-pink, 4);
+$palette-pink-400: nth($palette-pink, 5);
+$palette-pink-500: nth($palette-pink, 6);
+$palette-pink-600: nth($palette-pink, 7);
+$palette-pink-700: nth($palette-pink, 8);
+$palette-pink-800: nth($palette-pink, 9);
+$palette-pink-900: nth($palette-pink, 10);
+$palette-pink-A100: nth($palette-pink, 11);
+$palette-pink-A200: nth($palette-pink, 12);
+$palette-pink-A400: nth($palette-pink, 13);
+$palette-pink-A700: nth($palette-pink, 14);
+
+$palette-indigo:
+"232,234,246"
+"197,202,233"
+"159,168,218"
+"121,134,203"
+"92,107,192"
+"63,81,181"
+"57,73,171"
+"48,63,159"
+"40,53,147"
+"26,35,126"
+"140,158,255"
+"83,109,254"
+"61,90,254"
+"48,79,254";
+
+$palette-indigo-50: nth($palette-indigo, 1);
+$palette-indigo-100: nth($palette-indigo, 2);
+$palette-indigo-200: nth($palette-indigo, 3);
+$palette-indigo-300: nth($palette-indigo, 4);
+$palette-indigo-400: nth($palette-indigo, 5);
+$palette-indigo-500: nth($palette-indigo, 6);
+$palette-indigo-600: nth($palette-indigo, 7);
+$palette-indigo-700: nth($palette-indigo, 8);
+$palette-indigo-800: nth($palette-indigo, 9);
+$palette-indigo-900: nth($palette-indigo, 10);
+$palette-indigo-A100: nth($palette-indigo, 11);
+$palette-indigo-A200: nth($palette-indigo, 12);
+$palette-indigo-A400: nth($palette-indigo, 13);
+$palette-indigo-A700: nth($palette-indigo, 14);
+
+
+$palette-brown:
+"239,235,233"
+"215,204,200"
+"188,170,164"
+"161,136,127"
+"141,110,99"
+"121,85,72"
+"109,76,65"
+"93,64,55"
+"78,52,46"
+"62,39,35";
+
+$palette-brown-50: nth($palette-brown, 1);
+$palette-brown-100: nth($palette-brown, 2);
+$palette-brown-200: nth($palette-brown, 3);
+$palette-brown-300: nth($palette-brown, 4);
+$palette-brown-400: nth($palette-brown, 5);
+$palette-brown-500: nth($palette-brown, 6);
+$palette-brown-600: nth($palette-brown, 7);
+$palette-brown-700: nth($palette-brown, 8);
+$palette-brown-800: nth($palette-brown, 9);
+$palette-brown-900: nth($palette-brown, 10);
+
+// The two possible colors for overlayed text.
+$color-dark-contrast: $color-white !default;
+$color-light-contrast: $color-black !default;

@@ -1,1 +1,8 @@
-@import "./variables/_colors.scss";
+@import "color-palletes";
+
+// Color Variables
+$color-primary: $palette-indigo-500;
+$color-secondary: $palette-indigo-700;
+$color-accent: $palette-pink-A200;
+$color-primary-contrast: $color-dark-contrast;
+$color-accent-contrast: $color-dark-contrast;
