@@ -33,8 +33,16 @@ export class CategoryService {
     });
   }
 
+  getCategoryById(categoryId: number): Promise<any> {
+    return this.get().then((lstCategories: any[]) => {
+      return lstCategories.filter(item => item.id === categoryId)[0];
+    });
+  }
+
+
   getNameById(categoryId: number) {
-    let category = this.lstCategories.filter(item => item.id === categoryId)[0];
-    return category.name;
+    return this.getCategoryById(categoryId).then((category) => {
+      return category.name;
+    });
   }
 }

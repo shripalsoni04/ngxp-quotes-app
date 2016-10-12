@@ -1,6 +1,10 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
+import { AppService } from '../app.service';
+import { AuthorService } from '@xapp/authors';
+import { CategoryService } from '@xapp/categories';
+
 @Component({
   selector: 'quotes',
   templateUrl: './quotes.component.html',
@@ -26,7 +30,10 @@ export class QuotesComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private changeDetectorRef: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef,
+    private appService: AppService,
+    private authorService: AuthorService,
+    private categoryService: CategoryService
   ) {
 
   }
@@ -34,11 +41,13 @@ export class QuotesComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.quotesBy = params['quotesBy'] || 'all';
+      this.setTitle();
     });
 
     this.route.queryParams.subscribe((queryParams) => {
-      this.authorId = queryParams['authorId'];
-      this.categoryId = queryParams['categoryId'];
+      this.authorId = +queryParams['authorId'];
+      this.categoryId = +queryParams['categoryId'];
+      this.setTitle();
     });
   }
 
@@ -56,5 +65,21 @@ export class QuotesComponent implements OnInit {
     this.router.navigate(['quotes', 'category'], {
       queryParams: { categoryId: categoryId }
     });
+  }
+
+  private setTitle() {
+    if (this.quotesBy === 'all') {
+      this.appService.setTitle('All Quotes');
+    } else if (this.quotesBy === 'author' && this.authorId) {
+      this.authorService.getNameById(this.authorId).then((authorName: string) => {
+        this.appService.setTitle(`Quotes by ${authorName}`);
+      });
+    } else if (this.quotesBy === 'category' && this.categoryId) {
+      this.categoryService.getNameById(this.categoryId).then((categoryName) => {
+        this.appService.setTitle(`${categoryName} Quotes`);
+      });
+    } else if (this.quotesBy === 'favourites') {
+      this.appService.setTitle('My Favourites');
+    }
   }
 }

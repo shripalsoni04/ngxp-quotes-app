@@ -22,7 +22,7 @@ export class AuthorService {
         // using timeout to let code run in ngZone.
         setTimeout(() => {
           resolve(this.lstAuthors);
-        })
+        });
       } else {
         this.firebaseService.getListOnce(this.path, pagination).then((lstAuthors) => {
           this.lstAuthors = lstAuthors;
@@ -34,8 +34,15 @@ export class AuthorService {
     });
   }
 
-  getNameById(authorId: number) {
-    let author = this.lstAuthors.filter(item => item.id === authorId)[0];
-    return author.name;
+  getAuthorById(authorId: number): Promise<any> {
+    return this.get().then((lstAuthors: any[]) => {
+      return lstAuthors.filter(item => item.id === authorId)[0];
+    });
+  }
+
+  getNameById(authorId: number): Promise<string> {
+    return this.getAuthorById(authorId).then((author) => {
+      return author.name;
+    });
   }
 }
