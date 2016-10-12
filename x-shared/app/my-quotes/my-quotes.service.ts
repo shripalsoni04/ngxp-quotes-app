@@ -15,6 +15,10 @@ export class MyQuotesService {
     return this.localDatabaseService.getList(this.collectionName);
   }
 
+  getById(id: number): Promise<MyQuoteModel> {
+    return this.localDatabaseService.getById(this.collectionName, id);
+  }
+
   create(quote: MyQuoteModel) {
     return this.localDatabaseService.insert(this.collectionName, quote);
   }

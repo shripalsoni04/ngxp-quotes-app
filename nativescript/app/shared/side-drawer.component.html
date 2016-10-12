@@ -8,7 +8,7 @@
       <Button text="Authors" (tap)="navigateTo(['/authors'])"></Button>
       <Button text="Categories" (tap)="navigateTo(['/categories'])"></Button>
       <Button text="My Favourites" (tap)="navigateTo(['/quotes', 'favourites'])"></Button>
-      <Button text="My Quotes"></Button>
+      <Button text="My Quotes" (tap)="navigateTo(['/my-quotes'])"></Button>
     </StackLayout>
   </StackLayout>
   <StackLayout tkMainContent [visibility]="isContentVisible ? 'visible' : 'collapsed'">

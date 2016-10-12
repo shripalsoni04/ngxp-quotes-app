@@ -1,0 +1,31 @@
+<ActionBar title="My Quotes">
+  <ActionItem (tap)="createQuote()" ios.position="right">
+    <Button text="Add"></Button>
+  </ActionItem>
+</ActionBar>
+
+<GridLayout>
+  <ngxp-side-drawer>
+    <GridLayout>
+      <ListView
+          [items]="vm.quotes$ | async">
+        <template let-item="item">
+          <StackLayout>
+            <Label [text]="item.body" textWrap="true"></Label>
+            <Label [text]="item.authorName" textWrap="true"></Label>
+            <StackLayout orientation="horizontal">
+              <Button
+                  text="Edit"
+                  (tap)="editQuote(item)">
+              </Button>
+              <Button
+                  text="Delete"
+                  (tap)="deleteQuote(item)">
+              </Button>
+            </StackLayout>
+          </StackLayout>
+        </template>
+      </ListView>
+    </GridLayout>
+  </ngxp-side-drawer>
+</GridLayout>

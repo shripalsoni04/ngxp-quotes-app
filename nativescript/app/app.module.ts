@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 import { QuotesModule } from './quotes/quotes.module';
 import { AuthorsModule } from './authors/authors.module';
 import { CategoriesModule } from './categories/categories.module';
+import { MyQuotesModule } from './my-quotes/my-quotes.module';
 import { appRouting } from './app.routing';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { appRouting } from './app.routing';
     AuthorsModule,
     CategoriesModule,
     QuotesModule,
+    MyQuotesModule,
     appRouting
   ],
   bootstrap: [AppComponent]

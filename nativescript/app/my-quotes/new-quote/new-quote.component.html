@@ -1,0 +1,40 @@
+<ActionBar [title]="vm.dataModel.id ? 'Edit Quote' : 'New Quote'">
+  <ActionItem (tap)="save(vm.dataModel)" ios.position="right">
+    <Button text="Save"></Button>
+  </ActionItem>
+  <NavigationButton
+      text="Back"
+      android.systemIcon="ic_menu_back"
+      (tap)="goBack()">
+  </NavigationButton>
+</ActionBar>
+
+<StackLayout>
+  <TextView
+      #body
+      hint="Quote"
+      name="body"
+      [(ngModel)]="vm.dataModel.body"
+      editable="true"
+      style="height: 300;"
+      autocorrect="false"
+      returnKeyType="next"
+      autocapitalizationType="sentences">
+  </TextView>
+  <Label
+      [visibility]="vm.validationErrors.body ? 'visible' : 'collapsed'"
+      [text]="vm.validationErrors.body">
+  </Label>
+  <TextField
+      #authorName
+      hint="Author Name"
+      name="authorName"
+      [(ngModel)]="vm.dataModel.authorName"
+      returnKeyType="done"
+      autocorrect="false">
+  </TextField>
+  <Label
+      [visibility]="vm.validationErrors.authorName ? 'visible' : 'collapsed'"
+      [text]="vm.validationErrors.authorName">
+  </Label>
+</StackLayout>

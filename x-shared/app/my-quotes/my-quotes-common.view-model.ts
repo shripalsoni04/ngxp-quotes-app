@@ -32,7 +32,7 @@ export class MyQuotesCommonVM {
   }
 
   deleteQuote(quote: MyQuoteModel) {
-    this.myQuotesService.remove(quote).then(() => {
+    return this.myQuotesService.remove(quote).then(() => {
       let quoteIndex = this.getQuoteIndex(quote);
       this.lstQuotes.splice(quoteIndex, 1);
     });
