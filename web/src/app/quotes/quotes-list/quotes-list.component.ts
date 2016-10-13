@@ -13,9 +13,7 @@ import { QuotesListVM } from './quotes-list.view-model';
 })
 export class QuotesListComponent implements OnChanges {
 
-  @Input() authorId: number;
-
-  @Input() categoryId: number;
+  @Input() entityId: number;
 
   @Input() quotesBy: 'author' | 'category' | 'all' | 'favourites';
 
@@ -28,6 +26,6 @@ export class QuotesListComponent implements OnChanges {
       this.vm.clearQuotesList();
     }
 
-    this.vm.loadQuotesByCriteria(this.quotesBy, this.authorId || this.categoryId);
+    this.vm.loadQuotesByCriteria(this.quotesBy, this.entityId);
   }
 }

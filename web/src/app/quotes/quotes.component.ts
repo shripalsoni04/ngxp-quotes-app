@@ -18,14 +18,9 @@ export class QuotesComponent implements OnInit {
   quotesBy: string = 'all';
 
   /**
-   * Route query parameter.
+   * Router parameter. Author/Category Id
    */
-  authorId: number;
-
-  /**
-   * Route query parameter.
-   */
-  categoryId: number;
+  entityId: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -41,12 +36,7 @@ export class QuotesComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.quotesBy = params['quotesBy'] || 'all';
-      this.setTitle();
-    });
-
-    this.route.queryParams.subscribe((queryParams) => {
-      this.authorId = +queryParams['authorId'];
-      this.categoryId = +queryParams['categoryId'];
+      this.entityId = params['entityId'] ? +params['entityId'] : null;
       this.setTitle();
     });
   }
@@ -54,28 +44,24 @@ export class QuotesComponent implements OnInit {
   onAuthorSelect(authorId) {
     // we can just set authorId here, but to have navigation history
     // navigating the component with authorId in query parameter.
-    this.router.navigate(['quotes', 'author'], {
-      queryParams: { authorId: authorId }
-    });
+    this.router.navigate(['quotes', 'author', authorId]);
   }
 
   onCategorySelect(categoryId) {
     // we can just set category here, but to have navigation history
     // navigating the component with categoryId in query parameter.
-    this.router.navigate(['quotes', 'category'], {
-      queryParams: { categoryId: categoryId }
-    });
+    this.router.navigate(['quotes', 'category', categoryId]);
   }
 
   private setTitle() {
     if (this.quotesBy === 'all') {
       this.appService.setTitle('All Quotes');
-    } else if (this.quotesBy === 'author' && this.authorId) {
-      this.authorService.getNameById(this.authorId).then((authorName: string) => {
+    } else if (this.quotesBy === 'author' && this.entityId) {
+      this.authorService.getNameById(this.entityId).then((authorName: string) => {
         this.appService.setTitle(`Quotes by ${authorName}`);
       });
-    } else if (this.quotesBy === 'category' && this.categoryId) {
-      this.categoryService.getNameById(this.categoryId).then((categoryName) => {
+    } else if (this.quotesBy === 'category' && this.entityId) {
+      this.categoryService.getNameById(this.entityId).then((categoryName) => {
         this.appService.setTitle(`${categoryName} Quotes`);
       });
     } else if (this.quotesBy === 'favourites') {

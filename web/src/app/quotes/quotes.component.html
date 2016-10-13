@@ -4,20 +4,19 @@
       *ngIf="quotesBy !== 'all' && quotesBy !== 'favourites'">
     <authors-list
         *ngIf="quotesBy === 'author'"
-        [selectedAuthorId]="authorId"
+        [selectedAuthorId]="entityId"
         (authorSelect)="onAuthorSelect($event)">
     </authors-list>
     <categories-list
         *ngIf="quotesBy === 'category'"
-        [selectedCategoryId]="categoryId"
+        [selectedCategoryId]="entityId"
         (categorySelect)="onCategorySelect($event)">
     </categories-list>
   </div>
   <div class="quotes-list-container">
     <quotes-list
         [quotesBy]="quotesBy"
-        [authorId]="authorId"
-        [categoryId]="categoryId">
+        [entityId]="entityId">
     </quotes-list>
   </div>
 </div>
