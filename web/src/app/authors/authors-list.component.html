@@ -1,12 +1,13 @@
 <div class="authors-list">
-  <ul>
-    <li
+  <mdl-list>
+    <mdl-list-item
         *ngFor="let author of vm.authors$ | async"
         (click)="selectAuthor(author.id)"
-        [class.selected]="selectedAuthorId === author.id">
-      <div>
+        [class.selected]="selectedAuthorId === author.id"
+        mdl-ripple>
+      <mdl-list-item-primary-content>
         {{author.name}}
-      </div>
-    </li>
-  </ul>
+      </mdl-list-item-primary-content>
+    </mdl-list-item>
+  </mdl-list>
 </div>

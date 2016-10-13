@@ -1,0 +1,25 @@
+@import "../../../scss/variables";
+
+.new-quote-component {
+  background-color: #fff;
+
+  .title {
+    background-color: $c-secondary;
+    color: $c-white;
+    padding: 10px 15px;
+    margin: 0;
+  }
+
+  form {
+    padding: 15px;
+
+    mdl-textfield {
+      width: 100%;
+    }
+
+    .btn-container {
+      text-align: right;
+    }
+  }
+
+}

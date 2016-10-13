@@ -1,20 +1,39 @@
-<div class="my-quotes-list">
-  <div class="list-item" *ngFor="let quote of vm.quotes$ | async">
-    <div>{{quote.body}}</div>
-    <div>{{quote.authorName}}</div>
-    <div>
-      <button (click)="vm.editQuote(quote)">Edit</button>
-      <button (click)="vm.deleteQuote(quote)">Delete</button>
+<div class="mdl-grid my-quotes-component">
+  <div class="my-quotes-list mdl-cell mdl-cell--8-col">
+    <div
+        class="quote-card"
+        *ngFor="let quote of vm.quotes$ | async">
+      <div class="quote-body">{{quote.body}}</div>
+      <div class="quote-author">{{"- "+quote.authorName}}</div>
+      <div class="actions-container">
+        <span class="form-actions">
+          <button
+              mdl-button
+              mdl-button-type="icon"
+              (click)="vm.editQuote(quote)"
+              mdl-colored="accent">
+            <mdl-icon>mode_edit</mdl-icon>
+          </button>
+          <button
+              mdl-button
+              mdl-button-type="icon"
+              (click)="vm.deleteQuote(quote)"
+              mdl-colored="accent">
+            <mdl-icon>delete</mdl-icon>
+          </button>
+        </span>
+      </div>
+    </div>
+
+    <div *ngIf="vm.lstQuotes.length === 0">
+      No quotes are added.
     </div>
   </div>
-  <div *ngIf="vm.lstQuotes.length === 0">
-    No quotes are added.
+  <div class="quote-form-container mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+    <new-quote
+        [quote]="vm.quoteToEdit"
+        (quoteSave)="vm.updateQuoteInList($event)"
+        (formReset)="vm.onFormReset()">
+    </new-quote>
   </div>
-</div>
-<div class="quote-form-container">
-  <new-quote
-      [quote]="vm.quoteToEdit"
-      (quoteSave)="vm.updateQuoteInList($event)"
-      (formReset)="vm.onFormReset()">
-  </new-quote>
 </div>

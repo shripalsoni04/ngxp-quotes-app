@@ -1,9 +1,23 @@
-.my-quotes-list{
-  float: left;
-  width: 70%;
+.my-quotes-component{
+  height: calc(100% - 16px);
+  padding: 0;
+
+  .my-quotes-list {
+    height: 100%;
+    overflow: auto;
+    margin-left: 0;
+  }
+
+  .quote-form-container {
+    margin-right: 0;
+  }
+
+  .actions-container {
+    height: 30px;
+
+    .form-actions{
+      float: right;
+    }
+  }
 }
 
-.quote-form-container{
-  float: left;
-  width: 30%;
-}

@@ -1,8 +1,23 @@
-@import "color-palletes";
-
 // Color Variables
-$color-primary: "40, 116, 240";//69, 83, 153";
-$color-secondary: "109, 164, 255";//121, 146, 199";
-$color-accent: "255, 193, 13";//69, 195, 171";
-$color-primary-contrast: $color-dark-contrast;
-$color-accent-contrast: $color-dark-contrast;
+
+// theme colors
+$c-primary: #2874f0;
+$c-secondary: #6da4ff;
+$c-accent: #ffc10d;
+
+// common colors
+$c-white: #fff;
+$c-black: #000;
+$c-dark-contrast: $c-white;
+$c-light-contrast: $c-black;
+
+// blue grey palette
+$c-blue-grey-50: #ECEFF1;
+
+// grey palette
+$c-grey-200: #EEEEEE;
+$c-grey-300: #E0E0E0;
+
+// As our primary and accent colors are dark, using dark-contrast colors.
+$c-primary-contrast: $c-dark-contrast;
+$c-accent-contrast: $c-dark-contrast;

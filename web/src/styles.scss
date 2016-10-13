@@ -1,3 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
-@import "./styles/variables";
+@import "./scss/variables";
 @import "../node_modules/angular2-mdl/scss/material-design-lite";
+
+body {
+  font-family: $font-family;
+}
+
+.mdl-wide-card {
+  width: 100%;
+}
+
+.quote-card {
+  background-color: $c-white;
+  padding: 15px 15px 0 15px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px $box-shadow-color;
+  margin: 15px 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .quote-body {
+    padding: 15px 0;
+    font-size: 18px;
+  }
+
+  .quote-author {
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: lighter;
+  }
+
+  .actions-container {
+    border-top: 1px solid $c-grey-200;
+    padding: 10px 15px;
+    margin: 0 -15px;
+  }
+}
+
+.mdl-list__item {
+  cursor: pointer;
+
+  &:hover {
+    background-color: #e0e0e0;
+  }
+
+  &.selected {
+    background-color: #e0e0e0;
+  }
+}

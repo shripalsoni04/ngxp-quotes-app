@@ -1,0 +1,15 @@
+@import "../x-shared/styles/variables";
+@import "./funcitons";
+
+// Setting mdl variables. As mdl library requires colors in "r,g,b" format, converting theme's hex colors to "r,g,b" format.
+$color-primary: hex-to-rgb-string($c-primary);
+$color-secondary: hex-to-rgb-string($c-secondary);
+$color-accent: hex-to-rgb-string($c-accent);
+$color-primary-contrast: hex-to-rgb-string($c-primary-contrast);
+$color-accent-contrast: hex-to-rgb-string($c-accent-contrast);
+$color-primary-dark: $color-secondary;
+
+$background-color: $c-blue-grey-50;
+$box-shadow-color: $c-grey-300;
+
+$font-family: Roboto;

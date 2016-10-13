@@ -6,6 +6,8 @@ import { QuoteService, MyFavouritesService } from '@xapp/quotes';
 
 import { AuthorsModule } from '../authors/authors.module';
 import { CategoriesModule } from '../categories/categories.module';
+import { SharedModule } from '../shared/shared.module';
+
 import { QuotesListComponent } from './quotes-list';
 import { QuotesComponent } from './quotes.component';
 import { quotesRouting } from './quotes.routing';
@@ -16,6 +18,7 @@ import { quotesRouting } from './quotes.routing';
     HttpModule,
     AuthorsModule,
     CategoriesModule,
+    SharedModule,
     quotesRouting
   ],
   declarations: [QuotesComponent, QuotesListComponent],

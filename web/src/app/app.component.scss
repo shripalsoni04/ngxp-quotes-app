@@ -1,3 +1,15 @@
-.mdl-navigation__link{
+@import "../scss/variables";
+
+.mdl-navigation__link {
   cursor: pointer;
+}
+
+.content-container {
+  padding: 15px;
+  background-color: $background-color;
+}
+
+mdl-layout-content, quote {
+  height: 100%;
+  display: block;
 }

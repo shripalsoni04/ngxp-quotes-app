@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
 import { CategoryService } from '@xapp/categories';
 import { CategoriesListComponent } from './categories-list.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  imports: [BrowserModule],
+  imports: [SharedModule],
   declarations: [CategoriesListComponent],
   providers: [CategoryService],
   exports: [CategoriesListComponent]

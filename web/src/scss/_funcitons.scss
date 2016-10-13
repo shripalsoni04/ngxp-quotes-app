@@ -1,0 +1,9 @@
+/**
+ * Converts hex color to r,g,b string.
+ * Example:
+ * Hex Color: #FFFFFF
+ * Returns: "255, 255, 255"
+ **/
+@function hex-to-rgb-string($hex){
+  @return "#{red($hex)}, #{green($hex)}, #{blue($hex)}"
+}

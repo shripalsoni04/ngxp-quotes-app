@@ -1,29 +1,71 @@
-<div class="quotes-list">
-  <div class="pagination-container" *ngIf="quotesBy === 'all'">
+<div class="quotes-list-component">
+  <div
+      class="quotes-list-section"
+      [class.list-with-pagination]="quotesBy === 'all'">
+    <div class="quotes-list">
+      <div
+          class="quote-card list-item"
+          *ngFor="let quote of vm.quotes$ | async">
+        <div class="quote-body">{{quote.body}}</div>
+        <div
+            class="quote-author"
+            *ngIf="quotesBy !== 'author'">{{"- "+quote.authorName}}
+        </div>
+        <div class="actions-container">
+          <button
+              mdl-button
+              mdl-button-type="icon"
+              (click)="vm.toggleFav(quote, quotesBy)"
+              mdl-colored="accent">
+            <mdl-icon>{{quote.isFavourite ? 'favorite' :'favorite_border'}}</mdl-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+        class="spinner-container"
+        [hidden]="vm.lstQuotes.length">
+      <mdl-spinner single-color active></mdl-spinner>
+    </div>
+  </div>
+
+  <div
+      class="pagination-container"
+      *ngIf="quotesBy === 'all'"
+      [class.invisible]="!vm.pagination.count">
     <button
+        mdl-button
+        mdl-button-type="icon"
+        mdl-colored="primary"
         [disabled]="vm.isBackPaginationDisabled()"
         (click)="vm.loadFirstPage()">
-      <<
+      <mdl-icon>first_page</mdl-icon>
     </button>
     <button
+        mdl-button
+        mdl-button-type="icon"
+        mdl-colored="primary"
         [disabled]="vm.isBackPaginationDisabled()"
         (click)="vm.loadPreviousPage()">
-      <
+      <mdl-icon>navigate_before</mdl-icon>
     </button>
+    <label>{{vm.getPaginationString()}}</label>
     <button
+        mdl-button
+        mdl-button-type="icon"
+        mdl-colored="primary"
         [disabled]="vm.isForwardPaginationDisabled()"
         (click)="vm.loadNextPage()">
-      >
+      <mdl-icon>navigate_next</mdl-icon>
     </button>
     <button
+        mdl-button
+        mdl-button-type="icon"
+        mdl-colored="primary"
         [disabled]="vm.isForwardPaginationDisabled()"
         (click)="vm.loadLastPage()">
-      >>
+      <mdl-icon>last_page</mdl-icon>
     </button>
-  </div>
-  <div class="list-item" *ngFor="let quote of vm.quotes$ | async">
-    <div>{{quote.body}}</div>
-    <div *ngIf="quotesBy !== 'author'">{{quote.authorName}}</div>
-    <div><button (click)="vm.toggleFav(quote, quotesBy)" [style.color]="quote.isFavourite ? 'red' : 'black'">Favourite</button></div>
   </div>
 </div>

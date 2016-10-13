@@ -1,7 +1,7 @@
-<div class="my-quote-form">
-  <div class="title">
+<div class="new-quote-component">
+  <h6 class="title">
     {{vm.dataModel.id ? 'Edit Quote' : 'Create New Quote'}}
-  </div>
+  </h6>
   <form
       *ngIf="isActive"
       #form="ngForm"
@@ -34,7 +34,7 @@
           required>
       </mdl-textfield>
     </div>
-    <div>
+    <div class="btn-container">
       <button
           mdl-button
           mdl-ripple

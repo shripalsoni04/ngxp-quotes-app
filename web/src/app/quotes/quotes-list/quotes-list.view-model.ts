@@ -49,4 +49,12 @@ export class QuotesListVM extends QuotesListCommonVM {
   clearQuotesList() {
     this.lstQuotes.length = 0;
   }
+
+  getPaginationString() {
+    let start = (this.pagination.page - 1) * this.pagination.size + 1;
+    let end = this.pagination.page * this.pagination.size;
+    let total = this.pagination.count;
+    end = end > total ? total : end;
+    return `${start} - ${end} of ${total}`;
+  }
 }

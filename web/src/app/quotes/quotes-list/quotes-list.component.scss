@@ -1,0 +1,35 @@
+.quotes-list-component {
+  background-color: #efeff7;
+  height: 100%;
+
+  .pagination-container {
+    height: 40px;
+    text-align: center;
+    padding: 10px;
+
+    &.invisible {
+      visibility: hidden;
+    }
+  }
+
+  .quotes-list-section {
+    height: 100%;
+
+    &.list-with-pagination {
+      height: calc(100% - 40px);
+    }
+
+    .quotes-list {
+      height: 100%;
+      overflow: auto;
+    }
+
+    .spinner-container {
+      position: absolute;
+      left: 50%;
+      bottom: 50%;
+    }
+  }
+}
+
+

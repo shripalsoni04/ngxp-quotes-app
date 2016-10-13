@@ -1,12 +1,13 @@
 <div class="categories-list">
-  <ul>
-    <li
+  <mdl-list>
+    <mdl-list-item
         *ngFor="let category of vm.categories$ | async"
         (click)="selectCategory(category.id)"
-        [class.selected]="selectedCategoryId === category.id">
-      <div>
+        [class.selected]="selectedCategoryId === category.id"
+        mdl-ripple>
+      <mdl-list-item-primary-content>
         {{category.name}}
-      </div>
-    </li>
-  </ul>
+      </mdl-list-item-primary-content>
+    </mdl-list-item>
+  </mdl-list>
 </div>
