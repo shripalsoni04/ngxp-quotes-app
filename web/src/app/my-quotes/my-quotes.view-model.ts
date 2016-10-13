@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { MyQuotesService, MyQuotesCommonVM, MyQuoteModel } from '@xapp/my-quotes';
+import { MdlDialogService } from 'angular2-mdl';
 
 @Injectable()
 export class MyQuotesVM extends MyQuotesCommonVM {
 
   quoteToEdit: MyQuoteModel;
 
-  constructor(myQuotesService: MyQuotesService) {
+  constructor(
+    myQuotesService: MyQuotesService,
+    private mdlDialogService: MdlDialogService) {
     super(myQuotesService);
   }
 
@@ -15,16 +18,9 @@ export class MyQuotesVM extends MyQuotesCommonVM {
   }
 
   deleteQuote(quote: MyQuoteModel) {
-    // Instead of using browser confirm dialog it is preferrable to use any
-    // other custom dialog like of mdl or bootstrap. Because in chrome,
-    // a checkbox to prevent dialog appears and if user tick that, this code will
-    // fail.
-    if (confirm('Are you sure you want to delete this quote?')) {
-      if (this.quoteToEdit && this.quoteToEdit.id === quote.id) {
-        this.quoteToEdit = null;
-      }
-      return super.deleteQuote(quote);
-    }
+    return this.mdlDialogService.confirm(
+      'Are you sure you want to delete this quote?', 'No', 'Yes'
+    ).toPromise().then(() => super.deleteQuote(quote), () => void 0);
   }
 
   onFormReset() {
