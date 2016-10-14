@@ -58,6 +58,10 @@ export class QuotesComponent implements OnInit {
     this.router.navigate(['quotes', 'category', categoryId]);
   }
 
+  /**
+   * Not showing quotesbySection when quotesBy is all/favourite for desktop.
+   * For mobile, if entityId is not there, then not showing quotesBySection.
+   */
   isShowQuotesBySection() {
     return ['all', 'favourites'].indexOf(this.quotesBy) === -1 && !(this.isSmallScreen && this.entityId);
   }
