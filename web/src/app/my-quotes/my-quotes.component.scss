@@ -1,6 +1,8 @@
-.my-quotes-component{
-  height: calc(100% - 16px);
+.my-quotes-component {
+  height: calc(100% - 31px);
+  width: calc(100% - 30px);
   padding: 0;
+  position: absolute;
 
   .my-quotes-list {
     height: 100%;
@@ -34,3 +36,10 @@
   }
 }
 
+
+@media (max-width: 480px) {
+  .my-quotes-component {
+    height: calc(100% - 5px);
+    width: calc(100% - 10px);
+  }
+}

@@ -9,7 +9,13 @@
   background-color: $background-color;
 }
 
-mdl-layout-content, quote {
+mdl-layout-content, quotes {
   height: 100%;
   display: block;
+}
+
+@media (max-width: 480px) {
+  .content-container {
+    padding: 5px 5px 0 5px;
+  }
 }
