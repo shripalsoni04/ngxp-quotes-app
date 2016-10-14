@@ -5,24 +5,23 @@
   "repository": "<fill-your-repository-here>",
   "nativescript": {
     "id": "io.ngxp.quotesapp",
-    "tns-android": {
+    "tns-ios": {
       "version": "2.3.0"
     },
-    "tns-ios": {
+    "tns-android": {
       "version": "2.3.0"
     }
   },
   "dependencies": {
-    "@angular/common": "^2.1.0",
-    "@angular/compiler": "^2.1.0",
-    "@angular/core": "^2.1.0",
-    "@angular/forms": "^2.1.0",
-    "@angular/http": "^2.1.0",
-    "@angular/platform-browser": "^2.1.0",
-    "@angular/platform-browser-dynamic": "^2.1.0",
-    "@angular/platform-server": "^2.1.0",
-    "@angular/router": "^3.1.0",
-    "nativescript-angular": "^1.1.0",
+    "@angular/common": "2.1.0",
+    "@angular/compiler": "2.1.0",
+    "@angular/core": "2.1.0",
+    "@angular/forms": "2.1.0",
+    "@angular/http": "2.1.0",
+    "@angular/platform-browser": "2.1.0",
+    "@angular/platform-browser-dynamic": "2.1.0",
+    "@angular/router": "3.1.0",
+    "nativescript-angular": "1.1.0",
     "nativescript-plugin-firebase": "^3.7.1",
     "nativescript-telerik-ui": "^1.4.1",
     "nativescript-unit-test-runner": "^0.3.3",
