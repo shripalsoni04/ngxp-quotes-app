@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 import { MyQuoteModel } from '@xapp/my-quotes';
 import { NewQuoteVM } from './new-quote.view-model';
+import { UtilityService } from '../../core/utility.service';
 
 @Component({
   selector: 'new-quote',
@@ -14,6 +15,8 @@ import { NewQuoteVM } from './new-quote.view-model';
   //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NewQuoteComponent {
+
+  isSmallScreen: boolean = false;
 
   @Input()
   set quote(quote: MyQuoteModel) {
@@ -37,8 +40,11 @@ export class NewQuoteComponent {
 
   constructor(
     public vm: NewQuoteVM,
-    private changeDetectorRef: ChangeDetectorRef
-  ) { }
+    private changeDetectorRef: ChangeDetectorRef,
+    private utilityService: UtilityService
+  ) {
+    this.isSmallScreen = this.utilityService.isSmallScreen();
+  }
 
   save(quote: MyQuoteModel) {
     this.vm.saveQuote(quote).then((updatedQuote) => {

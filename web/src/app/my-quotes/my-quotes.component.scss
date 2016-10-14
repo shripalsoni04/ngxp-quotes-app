@@ -19,5 +19,18 @@
       float: right;
     }
   }
+
+  .fab-button-container {
+    position:absolute;
+    bottom: 40px;
+    right: 30px;
+  }
+
+  &.small-screen {
+    .my-quotes-list {
+      width: 100%;
+      margin: 0;
+    }
+  }
 }
 

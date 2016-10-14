@@ -59,7 +59,7 @@ export class QuotesComponent implements OnInit {
   }
 
   isShowQuotesBySection() {
-    return !this.isSmallScreen || (['all', 'favourites'].indexOf(this.quotesBy) === -1 && !this.entityId);
+    return ['all', 'favourites'].indexOf(this.quotesBy) === -1 && !(this.isSmallScreen && this.entityId);
   }
 
   isShowQuotesListSection() {

@@ -1,4 +1,6 @@
-<div class="mdl-grid my-quotes-component">
+<div
+    class="mdl-grid my-quotes-component"
+    [class.small-screen]="isSmallScreen">
   <div class="my-quotes-list mdl-cell mdl-cell--8-col">
     <div
         class="quote-card"
@@ -10,7 +12,7 @@
           <button
               mdl-button
               mdl-button-type="icon"
-              (click)="vm.editQuote(quote)"
+              (click)="editQuote(quote)"
               mdl-colored="accent">
             <mdl-icon>mode_edit</mdl-icon>
           </button>
@@ -31,9 +33,33 @@
   </div>
   <div class="quote-form-container mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
     <new-quote
+        *ngIf="!isSmallScreen"
         [quote]="vm.quoteToEdit"
-        (quoteSave)="vm.updateQuoteInList($event)"
-        (formReset)="vm.onFormReset()">
+        (quoteSave)="onSave($event)"
+        (formReset)="onCancel()">
     </new-quote>
   </div>
+
+  <div
+      class="fab-button-container"
+      *ngIf="isSmallScreen">
+     <button
+          (click)="showQuoteDialogForSmallScreen()"
+          mdl-button
+          mdl-button-type="fab"
+          mdl-colored="accent"
+          mdl-ripple>
+        <mdl-icon>add</mdl-icon>
+    </button>
+  </div>
+
+  <mdl-dialog
+      *ngIf="isSmallScreen"
+      [mdl-modal]="true">
+    <new-quote
+        [quote]="vm.quoteToEdit"
+        (quoteSave)="onSave($event)"
+        (formReset)="onCancel()">
+    </new-quote>
+  </mdl-dialog>
 </div>

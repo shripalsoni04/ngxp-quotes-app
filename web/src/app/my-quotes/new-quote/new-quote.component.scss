@@ -22,4 +22,11 @@
     }
   }
 
+  &.small-screen {
+    .title {
+      background-color: transparent;
+      color: $c-black;
+      font-size: 24px;
+    }
+  }
 }

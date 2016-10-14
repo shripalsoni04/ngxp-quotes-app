@@ -1,4 +1,6 @@
-<div class="new-quote-component">
+<div
+    class="new-quote-component"
+    [class.small-screen]="isSmallScreen">
   <h6 class="title">
     {{vm.dataModel.id ? 'Edit Quote' : 'Create New Quote'}}
   </h6>
@@ -38,18 +40,17 @@
       <button
           mdl-button
           mdl-ripple
-          mdl-button-type="raised"
-          mdl-colored="accent"
-          [disabled]="!form.valid">
-        {{vm.dataModel.id ? 'Save' : 'Create'}}
+          mdl-colored
+          type="button"
+          (click)="resetForm()">Cancel
       </button>
       <button
           mdl-button
           mdl-ripple
-          mdl-colored
           mdl-button-type="raised"
-          type="button"
-          (click)="resetForm()">Cancel
+          mdl-colored="accent"
+          [disabled]="!form.valid">
+        {{vm.dataModel.id ? 'Save' : 'Create'}}
       </button>
     </div>
   </form>
