@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { AuthorsListVM } from './authors-list.view-model';
+import { UtilityService } from '../core/utility.service';
 
 @Component({
   selector: 'authors-list',
@@ -14,9 +15,17 @@ export class AuthorsListComponent {
 
   @Output() authorSelect: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor(public vm: AuthorsListVM) {
+  constructor(
+    public vm: AuthorsListVM,
+    private utilityService: UtilityService
+  ) {
     this.vm.loadAuthorList().subscribe(() => {
-      this.selectFirst();
+      // On small screens, not selecting first author by default, as we are
+      // not showing quotes of the author besides author list because screen
+      // size constraint.
+      if (!this.utilityService.isSmallScreen()) {
+        this.selectFirst();
+      }
     });
   }
 

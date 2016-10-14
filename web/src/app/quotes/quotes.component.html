@@ -1,7 +1,8 @@
 <div class="quotes-container">
   <div
       class="quotes-by-container"
-      *ngIf="quotesBy !== 'all' && quotesBy !== 'favourites'">
+      [class.small-screen]="isSmallScreen"
+      *ngIf="isShowQuotesBySection()">
     <authors-list
         *ngIf="quotesBy === 'author'"
         [selectedAuthorId]="entityId"
@@ -13,7 +14,9 @@
         (categorySelect)="onCategorySelect($event)">
     </categories-list>
   </div>
-  <div class="quotes-list-container">
+  <div
+      class="quotes-list-container"
+      *ngIf="isShowQuotesListSection()">
     <quotes-list
         [quotesBy]="quotesBy"
         [entityId]="entityId">

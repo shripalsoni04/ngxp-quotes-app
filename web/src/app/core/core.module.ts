@@ -5,6 +5,7 @@ import { FirebaseService, StorageService } from '@xapp/core';
 import { WebFirebaseService } from './web-firebase.service';
 import { LocalStorageService } from './local-storage.service';
 import { LocalDatabaseService } from '@xapp/core/local-database.service';
+import { UtilityService } from './utility.service';
 import { DISABLE_NATIVE_VALIDITY_CHECKING } from 'angular2-mdl';
 
 @NgModule({
@@ -12,6 +13,7 @@ import { DISABLE_NATIVE_VALIDITY_CHECKING } from 'angular2-mdl';
     WebFirebaseService,
     LocalStorageService,
     LocalDatabaseService,
+    UtilityService,
     { provide: FirebaseService, useExisting: WebFirebaseService },
     { provide: StorageService, useExisting: LocalStorageService },
     // disabling native browser validations and keeping all validation stuff

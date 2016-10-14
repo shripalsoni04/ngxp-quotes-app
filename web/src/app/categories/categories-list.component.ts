@@ -3,6 +3,7 @@ import {
 } from '@angular/core';
 
 import { CategoriesListVM } from './categories-list.view-model';
+import { UtilityService } from '../core/utility.service';
 
 @Component({
   selector: 'categories-list',
@@ -17,9 +18,17 @@ export class CategoriesListComponent {
 
   @Output() categorySelect: EventEmitter<number> = new EventEmitter<number>();
 
-  constructor(public vm: CategoriesListVM) {
+  constructor(
+    public vm: CategoriesListVM,
+    private utilityService: UtilityService
+  ) {
     this.vm.loadCategoriesList().subscribe(() => {
-      this.selectFirst();
+      // On small screens, not selecting first category by default, as we are
+      // not showing quotes of the category besides category list because screen
+      // size constraint.
+      if (!this.utilityService.isSmallScreen()) {
+        this.selectFirst();
+      }
     });
   }
 
