@@ -52,9 +52,13 @@ export class QuotesComponent implements OnInit {
 
   private setTitle() {
     if (this.quotesBy === 'author') {
-      this.title = this.authorService.getNameById(+this.entityId);
+      this.authorService.getNameById(+this.entityId).then((authorName) => {
+        this.title = authorName;
+      });
     } else if (this.quotesBy === 'category') {
-      this.title = this.categoryService.getNameById(+this.entityId);
+      this.categoryService.getNameById(+this.entityId).then((categoryName) => {
+        this.title = categoryName;
+      });
     } else if (this.quotesBy === 'favourites') {
       this.title = 'Favourites';
     } else {
