@@ -24,6 +24,7 @@
     "nativescript-angular": "1.1.0",
     "nativescript-plugin-firebase": "^3.7.1",
     "nativescript-telerik-ui": "^1.4.1",
+    "nativescript-theme-core": "^0.1.2",
     "reflect-metadata": "^0.1.8",
     "tns-core-modules": "2.3.0"
   },

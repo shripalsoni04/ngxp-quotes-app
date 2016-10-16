@@ -6,6 +6,13 @@ nativescript/app/**/*.js
 nativescript/app/**/*.css
 nativescript/app/x-shared
 nativescript/lib
+nativescript/app/theme-core-scss
+nativescript/app/core.dark.android.scss
+nativescript/app/core.dark.ios.scss
+nativescript/app/core.light.android.scss
+nativescript/app/core.light.ios.scss
+nativescript/app/_bootstrap-map.scss
+nativescript/app/app.css
 node_modules
 x-shared/**/*.js.map
 x-shared/app/**/*.js
