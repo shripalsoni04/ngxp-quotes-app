@@ -1,14 +1,21 @@
 <RadSideDrawer [transition]="drawerTransition">
-  <StackLayout tkDrawerContent>
-    <StackLayout>
-      <Label text="Navigation Menu"></Label>
+  <StackLayout tkDrawerContent class="sidedrawer-left">
+    <StackLayout class="sidedrawer-header">
+      <Label
+          class="sidedrawer-header-brand"
+          text="Quotes App">
+      </Label>
     </StackLayout>
-    <StackLayout>
-      <Button text="Quotes" (tap)="navigateTo(['/quotes'])"></Button>
-      <Button text="Authors" (tap)="navigateTo(['/authors'])"></Button>
-      <Button text="Categories" (tap)="navigateTo(['/categories'])"></Button>
-      <Button text="My Favourites" (tap)="navigateTo(['/quotes', 'favourites'])"></Button>
-      <Button text="My Quotes" (tap)="navigateTo(['/my-quotes'])"></Button>
+    <StackLayout class="sidedrawer-content">
+      <GridLayout
+          class="sidedrawer-list-item"
+          *ngFor="let nav of navMenu">
+        <Button
+            class="sidedrawer-list-item-text borderless-btn"
+            [text]="nav.name"
+            (tap)="navigateTo(nav.commands)">
+        </Button>
+      </GridLayout>
     </StackLayout>
   </StackLayout>
   <StackLayout tkMainContent [visibility]="isContentVisible ? 'visible' : 'collapsed'">

@@ -32,6 +32,14 @@ export class NGXPSideDrawerComponent implements AfterViewInit, OnDestroy {
    */
   drawerTransition: any;
 
+  navMenu: any[] = [
+    { name: 'Quotes', commands: ['/quotes'] },
+    { name: 'Authors', commands: ['/authors'] },
+    { name: 'Categories', commands: ['/categories'] },
+    { name: 'My Favourites', commands: ['/quotes', 'favourites'] },
+    { name: 'My Quotes', commands: ['/my-quotes'] }
+  ];
+
   private drawer: SideDrawerType;
 
   constructor(

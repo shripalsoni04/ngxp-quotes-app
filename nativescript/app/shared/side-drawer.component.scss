@@ -1,3 +1,9 @@
-StackLayout{
+@import "variables";
 
+.sidedrawer-header {
+  .sidedrawer-header-brand {
+    font-size: 18;
+    color: $c-white;
+  }
 }
+
