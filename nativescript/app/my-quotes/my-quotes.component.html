@@ -1,6 +1,10 @@
 <ActionBar title="My Quotes">
-  <ActionItem (tap)="createQuote()" ios.position="right">
-    <Button text="Add"></Button>
+  <ActionItem
+      (tap)="createQuote()"
+      ios.position="right">
+    <Button
+        class="mdi action-bar-icon"
+        [text]="'mdi-add' | fonticon"></Button>
   </ActionItem>
 </ActionBar>
 
@@ -9,6 +13,7 @@
     <GridLayout>
       <ListView
           [items]="vm.quotes$ | async"
+          (itemLoading)="onItemLoading($event)"
           separatorColor="transparent">
         <template let-item="item">
           <StackLayout>

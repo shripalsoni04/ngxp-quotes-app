@@ -11,6 +11,8 @@ import { RouterExtensions } from 'nativescript-angular/router';
 import { Page } from 'ui/page';
 import { confirm } from 'ui/dialogs';
 
+declare const UITableViewCellSelectionStyle: any;
+
 @Component({
   templateUrl: 'my-quotes/my-quotes.component.html',
   styleUrls: ['my-quotes/my-quotes.component.css'],
@@ -46,6 +48,14 @@ export class MyQuotesComponent {
           });
         }
       });
+  }
+
+  onItemLoading(args) {
+    // removing item selection style for ios.
+    if (args.ios) {
+      let cell = args.ios;
+      cell.selectionStyle = UITableViewCellSelectionStyle.UITableViewCellSelectionStyleNone;
+    }
   }
 
   private onPageLoad() {

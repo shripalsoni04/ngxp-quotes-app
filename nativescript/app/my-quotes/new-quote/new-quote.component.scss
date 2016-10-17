@@ -16,8 +16,14 @@
       color: $c-danger;
     }
 
-    .hr-light.error {
-      background-color: $c-danger;
+    &.error {
+      .label {
+        color: $c-danger;
+      }
+
+      .hr-light {
+        background-color: $c-danger;
+      }
     }
   }
 }

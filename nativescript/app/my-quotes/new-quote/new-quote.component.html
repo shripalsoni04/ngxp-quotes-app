@@ -16,7 +16,9 @@
 
 <StackLayout class="form">
 
-  <StackLayout class="input-field">
+  <StackLayout
+      class="input-field"
+      [class.error]="vm.validationErrors.body">
     <Label
         class="label font-weight-bold m-b-5"
         text="Quote Body">
@@ -31,18 +33,17 @@
         returnKeyType="Next"
         autocapitalizationType="sentences">
     </TextView>
-    <StackLayout
-        class="hr-light"
-        [class.error]="vm.validationErrors.body">
-    </StackLayout>
+    <StackLayout class="hr-light"></StackLayout>
     <Label
-        class="error-msg"
+        class="error-msg text-danger"
         [visibility]="vm.validationErrors.body ? 'visible' : 'collapsed'"
         [text]="vm.validationErrors.body">
     </Label>
   </StackLayout>
 
-  <StackLayout class="input-field">
+  <StackLayout
+      class="input-field"
+      [class.error]="vm.validationErrors.authorName">
     <Label
         class="label font-weight-bold m-b-5"
         text="Author Name">
@@ -55,12 +56,9 @@
         returnKeyType="Done"
         autocorrect="false">
     </TextField>
-    <StackLayout
-        class="hr-light"
-        [class.error]="vm.validationErrors.authorName">
-    </StackLayout>
+    <StackLayout class="hr-light"></StackLayout>
     <Label
-        class="error-msg"
+        class="error-msg text-danger"
         [visibility]="vm.validationErrors.authorName ? 'visible' : 'collapsed'"
         [text]="vm.validationErrors.authorName">
     </Label>
