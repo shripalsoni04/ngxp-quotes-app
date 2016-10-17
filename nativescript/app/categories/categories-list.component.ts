@@ -6,7 +6,6 @@ import { CategoriesListVM } from './categories-list.view-model';
 @Component({
   selector: 'categories-list',
   templateUrl: 'categories/categories-list.component.html',
-  styleUrls: ['categories/categories-list.component.css'],
   providers: [CategoriesListVM],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

@@ -3,10 +3,17 @@
 
 <ngxp-side-drawer>
   <ListView
+      class="list-group"
       [items]="vm.categories$ | async">
     <template let-item="item">
-      <StackLayout (tap)="showQuotesByCategory(item.id)">
-        <Label [text]="item.name" textWrap="true"></Label>
+      <StackLayout
+          class="list-group-item"
+          (tap)="showQuotesByCategory(item.id)">
+        <Label
+            class="list-group-item-text"
+            [text]="item.name"
+            textWrap="true">
+        </Label>
       </StackLayout>
     </template>
   </ListView>

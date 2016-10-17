@@ -6,7 +6,6 @@ import { AuthorsListVM } from './authors-list.view-model';
 @Component({
   selector: 'authors-list',
   templateUrl: 'authors/authors-list.component.html',
-  styleUrls: ['authors/authors-list.component.css'],
   providers: [AuthorsListVM],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

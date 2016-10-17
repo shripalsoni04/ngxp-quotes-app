@@ -15,3 +15,13 @@ Page {
 .mdi {
   font-family: "Material Icons", "MaterialIcons-Regular";
 }
+
+
+// overriding nativescript theme styles
+.list-group {
+  .list-group-item {
+    .list-group-item-text {
+      color: $c-grey-800;
+    }
+  }
+}
