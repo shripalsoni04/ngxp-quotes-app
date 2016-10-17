@@ -1,21 +1,43 @@
 <GridLayout>
   <ListView
       [items]="vm.quotes$ | async"
-      (loadMoreItems)="vm.onLoadMoreItemsRequested($event)">
+      (loadMoreItems)="vm.onLoadMoreItemsRequested($event)"
+      (itemLoading)="onItemLoading($event)"
+      separatorColor="transparent"
+      >
     <template
         let-item="item"
         let-i="index">
-      <StackLayout style="width: 100%;">
-        <Label [text]="item.body" textWrap="true"></Label>
-        <Label
-            *ngIf="quotesBy !== 'author'"
-            [text]="item.authorName">
-        </Label>
-        <Button
-            text="Fav"
-            [style.color]="item.isFavourite ? 'red' : 'blue'"
-            (tap)="vm.toggleFav(item, quotesBy)">
-        </Button>
+      <StackLayout>
+        <CardView
+            margin="10"
+            elevation="10">
+          <StackLayout class="quote-card">
+              <Label
+                class="quote-body"
+                [text]="item.body"
+                textWrap="true"></Label>
+              <Label
+                  class="quote-author text-light"
+                  *ngIf="quotesBy !== 'author'"
+                  [text]="'- '+item.authorName">
+              </Label>
+              <StackLayout class="hr-light"></StackLayout>
+              <StackLayout
+                  class="actions-container"
+                  orientation="horizontal">
+                <Button
+                    class="mdi borderless-btn"
+                    [text]="(item.isFavourite ? 'mdi-favorite' : 'mdi-favorite-border') | fonticon"
+                    (tap)="vm.toggleFav(item, quotesBy)">
+                </Button>
+                <Button
+                    class="mdi borderless-btn"
+                    [text]="'mdi-share' | fonticon">
+                </Button>
+              </StackLayout>
+          </StackLayout>
+        </CardView>
         <ActivityIndicator
           #activityIndicator
           *ngIf="i === vm.lstQuotes.length -1 && i !== vm.pagination.count -1 && quotesBy === 'all'"

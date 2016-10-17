@@ -1,2 +1,17 @@
 @import "variables";
 @import "core.dark.android.scss";
+
+// Using Roboto font-family for whole application
+Page {
+  font-family: "Roboto", "Roboto-Regular";
+  font-weight: 400;
+}
+
+.text-light {
+  font-family: "Roboto", "Roboto-Light";
+  font-weight: 300;
+}
+
+.mdi {
+  font-family: "Material Icons", "MaterialIcons-Regular";
+}

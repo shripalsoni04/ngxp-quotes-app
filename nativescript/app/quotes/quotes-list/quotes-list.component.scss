@@ -1,3 +1,26 @@
-GridLayout{
+@import "variables";
 
+.quote-card {
+  padding: 10 10 0 10;
+  background-color: $c-white;
+
+  .quote-body {
+    font-size: 16;
+    padding: 0 0 10 0;
+  }
+
+  .quote-author {
+    font-size: 14;
+    padding: 0 0 10 0;
+  }
+
+  .actions-container {
+    .mdi {
+      width: 40;
+      height: 40;
+      font-size: 18;
+      background-color: transparent;
+      color: $accent;
+    }
+  }
 }

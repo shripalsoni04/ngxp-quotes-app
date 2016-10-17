@@ -5,10 +5,10 @@
   "repository": "<fill-your-repository-here>",
   "nativescript": {
     "id": "io.ngxp.quotesapp",
-    "tns-android": {
+    "tns-ios": {
       "version": "2.3.0"
     },
-    "tns-ios": {
+    "tns-android": {
       "version": "2.3.0"
     }
   },
@@ -22,6 +22,9 @@
     "@angular/platform-browser-dynamic": "2.1.0",
     "@angular/router": "3.1.0",
     "nativescript-angular": "1.1.0",
+    "nativescript-cardview": "^1.2.0",
+    "nativescript-material-icons": "^1.0.1",
+    "nativescript-ng2-fonticon": "^1.2.6",
     "nativescript-plugin-firebase": "^3.7.1",
     "nativescript-telerik-ui": "^1.4.1",
     "nativescript-theme-core": "^0.1.2",
