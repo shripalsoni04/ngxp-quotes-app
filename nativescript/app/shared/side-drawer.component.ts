@@ -1,4 +1,6 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import {
+  Component, ViewChild, AfterViewInit, NgZone, OnDestroy
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RouterExtensions } from 'nativescript-angular/router';
 
@@ -17,7 +19,7 @@ import {
   templateUrl: 'shared/side-drawer.component.html',
   styleUrls: ['shared/side-drawer.component.css']
 })
-export class NGXPSideDrawerComponent implements AfterViewInit {
+export class NGXPSideDrawerComponent implements AfterViewInit, OnDestroy {
   @ViewChild(RadSideDrawerComponent) drawerComponent: RadSideDrawerComponent;
 
   /**
@@ -35,7 +37,8 @@ export class NGXPSideDrawerComponent implements AfterViewInit {
   constructor(
     private routerExtensions: RouterExtensions,
     private activatedRoute: ActivatedRoute,
-    private page: Page
+    private page: Page,
+    private ngZone: NgZone
   ) {
     this.setActionBarIcon(this.page);
     this.setDrawerTransition();
@@ -43,6 +46,10 @@ export class NGXPSideDrawerComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.drawer = this.drawerComponent.sideDrawer;
+  }
+
+  ngOnDestroy() {
+    this.drawer.off('drawerClosed');
   }
 
   toggleSideDrawer() {
@@ -54,22 +61,19 @@ export class NGXPSideDrawerComponent implements AfterViewInit {
     let currentUrl = this.routerExtensions.router.routerState.snapshot.url;
     let newUrlTree = this.routerExtensions.router.createUrlTree(routeCommands);
     let newUrl = this.routerExtensions.router.serializeUrl(newUrlTree);
-
-    // as main navigation has simple urls, comparing only first part of the
-    // route command. For any complex url (ie. url with parameter), this logic
-    // will not work)
     if (currentUrl !== newUrl) {
       this.isContentVisible = false;
 
-      // starting navigation after drawer is closed.
-      setTimeout(() => {
-        this.routerExtensions.navigate(routeCommands,
-          {
-            clearHistory: true,
-            animated: false
-          });
-        this.isContentVisible = true;
-      }, 300);
+      this.drawer.on('drawerClosed', () => {
+        this.ngZone.run(() => {
+          this.routerExtensions.navigate(routeCommands,
+            {
+              clearHistory: true,
+              animated: false
+            });
+          this.isContentVisible = true;
+        });
+      });
     }
   }
 
