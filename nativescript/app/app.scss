@@ -16,6 +16,11 @@ Page {
   font-family: "Material Icons", "MaterialIcons-Regular";
 }
 
+ActionBar {
+  background-color: $c-primary;
+  color: $c-white;
+}
+
 .quote-card {
   padding: 10 10 0 10;
   background-color: $c-white;

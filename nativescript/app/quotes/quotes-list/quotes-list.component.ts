@@ -11,6 +11,7 @@ declare const UITableViewCellSelectionStyle: any;
 @Component({
   selector: 'quotes-list',
   templateUrl: 'quotes/quotes-list/quotes-list.component.html',
+  styleUrls: ['quotes/quotes-list/quotes-list.component.css'],
   providers: [QuotesListVM],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
