@@ -4,6 +4,7 @@
 $c-primary: #2874f0;
 $c-secondary: #6da4ff;
 $c-accent: #ffc10d;
+$c-danger: #d50000 !default;
 
 // common colors
 $c-white: #fff;
@@ -17,6 +18,8 @@ $c-blue-grey-50: #ECEFF1;
 // grey palette
 $c-grey-200: #EEEEEE;
 $c-grey-300: #E0E0E0;
+$c-grey-400: #BDBDBD;
+$c-grey-500: #9E9E9E;
 $c-grey-800: #424242;
 
 // As our primary and accent colors are dark, using dark-contrast colors.

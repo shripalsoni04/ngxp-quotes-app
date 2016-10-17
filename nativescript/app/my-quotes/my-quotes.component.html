@@ -8,21 +8,41 @@
   <ngxp-side-drawer>
     <GridLayout>
       <ListView
-          [items]="vm.quotes$ | async">
+          [items]="vm.quotes$ | async"
+          separatorColor="transparent">
         <template let-item="item">
           <StackLayout>
-            <Label [text]="item.body" textWrap="true"></Label>
-            <Label [text]="item.authorName" textWrap="true"></Label>
-            <StackLayout orientation="horizontal">
-              <Button
-                  text="Edit"
-                  (tap)="editQuote(item)">
-              </Button>
-              <Button
-                  text="Delete"
-                  (tap)="deleteQuote(item)">
-              </Button>
-            </StackLayout>
+            <CardView
+                margin="10"
+                elevation="10">
+              <StackLayout class="quote-card">
+                <Label
+                    class="quote-body"
+                    [text]="item.body"
+                    textWrap="true">
+                </Label>
+                <Label
+                    class="quote-author text-light"
+                    [text]="'- '+item.authorName"
+                    textWrap="true">
+                </Label>
+                <StackLayout class="hr-light"></StackLayout>
+                <StackLayout
+                    class="actions-container"
+                    orientation="horizontal">
+                  <Button
+                      class="mdi borderless-btn"
+                      [text]="'mdi-mode-edit' | fonticon"
+                      (tap)="editQuote(item)">
+                  </Button>
+                  <Button
+                      class="mdi borderless-btn"
+                      [text]="'mdi-delete' | fonticon"
+                      (tap)="deleteQuote(item)">
+                  </Button>
+                </StackLayout>
+              </StackLayout>
+            </CardView>
           </StackLayout>
         </template>
       </ListView>

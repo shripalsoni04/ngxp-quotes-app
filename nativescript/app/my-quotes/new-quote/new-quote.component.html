@@ -1,6 +1,11 @@
 <ActionBar [title]="vm.dataModel.id ? 'Edit Quote' : 'New Quote'">
-  <ActionItem (tap)="save(vm.dataModel)" ios.position="right">
-    <Button text="Save"></Button>
+  <ActionItem
+      (tap)="save(vm.dataModel)"
+      ios.position="right">
+    <Button
+        class="mdi action-bar-icon"
+        [text]="'mdi-save' | fonticon">
+    </Button>
   </ActionItem>
   <NavigationButton
       text="Back"
@@ -9,32 +14,56 @@
   </NavigationButton>
 </ActionBar>
 
-<StackLayout>
-  <TextView
-      #body
-      hint="Quote"
-      name="body"
-      [(ngModel)]="vm.dataModel.body"
-      editable="true"
-      style="height: 300;"
-      autocorrect="false"
-      returnKeyType="next"
-      autocapitalizationType="sentences">
-  </TextView>
-  <Label
-      [visibility]="vm.validationErrors.body ? 'visible' : 'collapsed'"
-      [text]="vm.validationErrors.body">
-  </Label>
-  <TextField
-      #authorName
-      hint="Author Name"
-      name="authorName"
-      [(ngModel)]="vm.dataModel.authorName"
-      returnKeyType="done"
-      autocorrect="false">
-  </TextField>
-  <Label
-      [visibility]="vm.validationErrors.authorName ? 'visible' : 'collapsed'"
-      [text]="vm.validationErrors.authorName">
-  </Label>
+<StackLayout class="form">
+
+  <StackLayout class="input-field">
+    <Label
+        class="label font-weight-bold m-b-5"
+        text="Quote Body">
+    </Label>
+    <TextView
+        #body
+        class="input quote-body-input"
+        name="body"
+        [(ngModel)]="vm.dataModel.body"
+        editable="true"
+        autocorrect="false"
+        returnKeyType="Next"
+        autocapitalizationType="sentences">
+    </TextView>
+    <StackLayout
+        class="hr-light"
+        [class.error]="vm.validationErrors.body">
+    </StackLayout>
+    <Label
+        class="error-msg"
+        [visibility]="vm.validationErrors.body ? 'visible' : 'collapsed'"
+        [text]="vm.validationErrors.body">
+    </Label>
+  </StackLayout>
+
+  <StackLayout class="input-field">
+    <Label
+        class="label font-weight-bold m-b-5"
+        text="Author Name">
+    </Label>
+    <TextField
+        #authorName
+        class="input"
+        name="authorName"
+        [(ngModel)]="vm.dataModel.authorName"
+        returnKeyType="Done"
+        autocorrect="false">
+    </TextField>
+    <StackLayout
+        class="hr-light"
+        [class.error]="vm.validationErrors.authorName">
+    </StackLayout>
+    <Label
+        class="error-msg"
+        [visibility]="vm.validationErrors.authorName ? 'visible' : 'collapsed'"
+        [text]="vm.validationErrors.authorName">
+    </Label>
+  </StackLayout>
+
 </StackLayout>

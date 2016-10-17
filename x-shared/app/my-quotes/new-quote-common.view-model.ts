@@ -8,7 +8,7 @@ export class NewQuoteCommonVM {
   validationErrors: { [key: string]: string } = {};
 
   validationMsg = {
-    body: 'Quote body is required.',
+    body: 'Quote Body is required.',
     authorName: 'Author Name is required.'
   };
 

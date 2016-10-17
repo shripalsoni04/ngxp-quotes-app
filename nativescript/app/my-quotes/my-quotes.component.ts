@@ -2,6 +2,8 @@ import {
   Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef
 } from '@angular/core';
 
+import { TNSFontIconService } from 'nativescript-ng2-fonticon';
+
 import { MyQuotesVM } from './my-quotes.view-model';
 import { MyQuoteModel } from '../x-shared/app/my-quotes';
 
@@ -21,7 +23,8 @@ export class MyQuotesComponent {
     public vm: MyQuotesVM,
     private routerExtensions: RouterExtensions,
     private page: Page,
-    private changeDetectorRef: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef,
+    private fonticon: TNSFontIconService
   ) {
     this.page.on('loaded', this.onPageLoad.bind(this));
   }

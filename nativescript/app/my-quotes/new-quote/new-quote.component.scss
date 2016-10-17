@@ -1,3 +1,23 @@
-StackLayout{
+@import "variables";
 
+.quote-body-input {
+  height: 200;
+}
+
+
+.form {
+  .input-field {
+    .label {
+      color: $c-primary;
+    }
+
+    .error-msg {
+      font-size: 12;
+      color: $c-danger;
+    }
+
+    .hr-light.error {
+      background-color: $c-danger;
+    }
+  }
 }
