@@ -5,7 +5,8 @@
   <GridLayout>
     <ListView
         class="list-group"
-        [items]="vm.categories$ | async">
+        [items]="vm.categories$ | async"
+        [visibility]="vm.lstCategories.length ? 'visible' : 'collapsed'">
       <template let-item="item">
         <StackLayout
             class="list-group-item"

@@ -5,7 +5,8 @@
   <GridLayout>
     <ListView
         class="list-group"
-        [items]="vm.authors$ | async">
+        [items]="vm.authors$ | async"
+        [visibility]="vm.lstAuthors.length ? 'visible' : 'collapsed'">
       <template let-item="item">
         <StackLayout
             class="list-group-item"
