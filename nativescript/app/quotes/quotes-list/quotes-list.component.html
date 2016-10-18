@@ -8,7 +8,7 @@
     <template
         let-item="item"
         let-i="index">
-      <StackLayout class="quote-card-container">
+      <StackLayout class="quote-card-container" #quoteCardContainer>
         <CardView
             margin="10"
             elevation="10"
@@ -30,7 +30,7 @@
                 <Button
                     class="mdi borderless-btn"
                     [text]="(item.isFavourite ? 'mdi-favorite' : 'mdi-favorite-border') | fonticon"
-                    (tap)="vm.toggleFav(item, quotesBy)">
+                    (tap)="toggleFav(quoteCardContainer, item, quotesBy)">
                 </Button>
                 <Button
                     class="mdi borderless-btn"
