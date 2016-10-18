@@ -9,5 +9,6 @@ import { AppModule } from './app.module';
 
 // register nativescript plugins to use them with angular.
 registerElement('CardView', () => CardView);
+registerElement('Fab', () => require('nativescript-floatingactionbutton').Fab);
 
 platformNativeScriptDynamic().bootstrapModule(AppModule);

@@ -23,6 +23,7 @@
     "@angular/router": "3.1.0",
     "nativescript-angular": "1.1.0",
     "nativescript-cardview": "^1.2.0",
+    "nativescript-floatingactionbutton": "^2.2.5",
     "nativescript-iqkeyboardmanager": "^1.0.1",
     "nativescript-material-icons": "^1.0.1",
     "nativescript-ng2-fonticon": "^1.2.6",

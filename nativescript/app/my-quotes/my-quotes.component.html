@@ -1,5 +1,6 @@
 <ActionBar title="My Quotes">
   <ActionItem
+      *ngIf="!isAndroid"
       (tap)="createQuote()"
       ios.position="right">
     <Button
@@ -51,6 +52,12 @@
           </StackLayout>
         </template>
       </ListView>
+      <Fab
+          *ngIf="isAndroid"
+          icon="res://ic_add_white"
+          class="fab-button"
+          (tap)="createQuote()">
+      </Fab>
     </GridLayout>
   </ngxp-side-drawer>
 </GridLayout>

@@ -10,6 +10,7 @@ import { MyQuoteModel } from '../x-shared/app/my-quotes';
 import { RouterExtensions } from 'nativescript-angular/router';
 import { Page } from 'ui/page';
 import { confirm } from 'ui/dialogs';
+import { isAndroid } from 'platform';
 
 declare const UITableViewCellSelectionStyle: any;
 
@@ -20,6 +21,8 @@ declare const UITableViewCellSelectionStyle: any;
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MyQuotesComponent {
+
+  isAndroid: boolean = isAndroid;
 
   constructor(
     public vm: MyQuotesVM,
