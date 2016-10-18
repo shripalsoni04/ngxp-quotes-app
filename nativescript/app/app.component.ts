@@ -9,5 +9,8 @@ import { SwissArmyKnife } from 'nativescript-swiss-army-knife';
 export class AppComponent {
   constructor() {
     SwissArmyKnife.setAndroidStatusBarColor('#01579B');
+
+    // Setting StatusBarStyle to UIBarStyleBlack for iOS.
+    SwissArmyKnife.actionBarSetStatusBarStyle(1);
   }
 }
