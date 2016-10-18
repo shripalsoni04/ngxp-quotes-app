@@ -52,6 +52,6 @@
   <ActivityIndicator
       class="activity-indicator"
       [visibility]="!vm.lstQuotes.length ? 'visible' : 'collapsed'"
-      [busy]="!vm.lstQuotes.length">
+      [busy]="!vm.lstQuotes.length && quotesBy !== 'favourites'">
     </ActivityIndicator>
 </GridLayout>

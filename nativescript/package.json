@@ -27,6 +27,7 @@
     "nativescript-material-icons": "^1.0.1",
     "nativescript-ng2-fonticon": "^1.2.6",
     "nativescript-plugin-firebase": "^3.7.1",
+    "nativescript-swiss-army-knife": "^1.0.71",
     "nativescript-telerik-ui": "^1.4.1",
     "nativescript-theme-core": "^0.1.2",
     "reflect-metadata": "^0.1.8",
