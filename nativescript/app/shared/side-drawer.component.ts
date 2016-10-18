@@ -107,7 +107,7 @@ export class NGXPSideDrawerComponent implements AfterViewInit, OnDestroy {
 
   private getNavigationButton() {
     let navActionItem = new ActionItem();
-    navActionItem.icon = 'res://ic_menu_black';
+    navActionItem.icon = 'res://ic_menu_white';
     if (navActionItem.ios) {
       navActionItem.ios.position = 'left';
     }

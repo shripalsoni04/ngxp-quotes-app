@@ -2,19 +2,26 @@
 </ActionBar>
 
 <ngxp-side-drawer>
-  <ListView
-      class="list-group"
-      [items]="vm.categories$ | async">
-    <template let-item="item">
-      <StackLayout
-          class="list-group-item"
-          (tap)="showQuotesByCategory(item.id)">
-        <Label
-            class="list-group-item-text"
-            [text]="item.name"
-            textWrap="true">
-        </Label>
-      </StackLayout>
-    </template>
-  </ListView>
+  <GridLayout>
+    <ListView
+        class="list-group"
+        [items]="vm.categories$ | async">
+      <template let-item="item">
+        <StackLayout
+            class="list-group-item"
+            (tap)="showQuotesByCategory(item.id)">
+          <Label
+              class="list-group-item-text"
+              [text]="item.name"
+              textWrap="true">
+          </Label>
+        </StackLayout>
+      </template>
+    </ListView>
+    <ActivityIndicator
+      class="activity-indicator"
+      [visibility]="!vm.lstCategories.length ? 'visible' : 'collapsed'"
+      [busy]="!vm.lstCategories.length">
+    </ActivityIndicator>
+  </GridLayout>
 </ngxp-side-drawer>

@@ -2,19 +2,26 @@
 </ActionBar>
 
 <ngxp-side-drawer>
-  <ListView
-    class="list-group"
-    [items]="vm.authors$ | async">
-  <template let-item="item">
-    <StackLayout
-        class="list-group-item"
-        (tap)="showQuotesByAuthor(item.id)">
-      <Label
-          class="list-group-item-text"
-          [text]="item.name"
-          textWrap="true">
-      </Label>
-    </StackLayout>
-  </template>
-</ListView>
+  <GridLayout>
+    <ListView
+        class="list-group"
+        [items]="vm.authors$ | async">
+      <template let-item="item">
+        <StackLayout
+            class="list-group-item"
+            (tap)="showQuotesByAuthor(item.id)">
+          <Label
+              class="list-group-item-text"
+              [text]="item.name"
+              textWrap="true">
+          </Label>
+        </StackLayout>
+      </template>
+    </ListView>
+    <ActivityIndicator
+      class="activity-indicator"
+      [visibility]="!vm.lstAuthors.length ? 'visible' : 'collapsed'"
+      [busy]="!vm.lstAuthors.length">
+    </ActivityIndicator>
+  </GridLayout>
 </ngxp-side-drawer>

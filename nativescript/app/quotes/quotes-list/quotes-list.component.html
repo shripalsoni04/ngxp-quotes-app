@@ -1,4 +1,4 @@
-<GridLayout>
+<GridLayout class="quotes-list-container">
   <ListView
       [items]="vm.quotes$ | async"
       (loadMoreItems)="vm.onLoadMoreItemsRequested($event)"
@@ -49,4 +49,9 @@
       </StackLayout>
     </template>
   </ListView>
+  <ActivityIndicator
+      class="activity-indicator"
+      [visibility]="!vm.lstQuotes.length ? 'visible' : 'collapsed'"
+      [busy]="!vm.lstQuotes.length">
+    </ActivityIndicator>
 </GridLayout>
