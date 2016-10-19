@@ -1,6 +1,13 @@
 @import "variables";
 
 .sidedrawer-header {
+  padding-top: 25;
+  padding-bottom: 25;
+
+  .sidedrawer-header-image{
+    margin-bottom: 10;
+  }
+
   .sidedrawer-header-brand {
     font-size: 18;
     color: $c-white;
