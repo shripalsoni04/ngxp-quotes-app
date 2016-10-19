@@ -34,7 +34,8 @@
                 </Button>
                 <Button
                     class="mdi borderless-btn"
-                    [text]="'mdi-share' | fonticon">
+                    [text]="'mdi-share' | fonticon"
+                    (tap)="vm.shareQuote(item)">
                 </Button>
               </StackLayout>
           </StackLayout>

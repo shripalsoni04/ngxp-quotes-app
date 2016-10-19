@@ -101,6 +101,10 @@ export class QuotesListCommonVM {
     }
   }
 
+  getQuoteShareText(quote: any) {
+    return `"${quote.body}" - ${quote.authorName}`;
+  }
+
   /**
    * Sets quotes favourite status and loads the quotes into the list.
    */
