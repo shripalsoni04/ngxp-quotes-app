@@ -41,10 +41,9 @@
         </CardView>
         <ActivityIndicator
           #activityIndicator
+          class="activity-indicator"
           *ngIf="i === vm.lstQuotes.length -1 && i !== vm.pagination.count -1 && quotesBy === 'all'"
-          [busy]="i === vm.lstQuotes.length -1"
-          width="50"
-          height="50">
+          [busy]="i === vm.lstQuotes.length -1">
         </ActivityIndicator>
       </StackLayout>
     </template>
