@@ -19,3 +19,16 @@ mdl-layout-content, quotes {
     padding: 5px 5px 0 5px;
   }
 }
+
+.drawer-header {
+  padding: 25px 20px;
+  background-color: $c-accent;;
+
+  .drawer-header-image-container {
+    padding-bottom: 15px;
+  }
+
+  .mdl-layout-title {
+    color: $c-white;
+  }
+}

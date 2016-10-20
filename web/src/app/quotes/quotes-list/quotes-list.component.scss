@@ -1,5 +1,7 @@
+@import "../../../scss/variables";
+
 .quotes-list-component {
-  background-color: #efeff7;
+  background-color: $c-blue-grey-50;
   height: 100%;
 
   .pagination-container {

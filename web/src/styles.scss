@@ -46,10 +46,15 @@ body {
   cursor: pointer;
 
   &:hover {
-    background-color: #e0e0e0;
+    background-color: $c-grey-300;
   }
 
   &.selected {
-    background-color: #e0e0e0;
+    background-color: $c-primary;
+    color: $c-white;
   }
+}
+
+.mdl-layout__drawer-button {
+  color: $c-white;
 }

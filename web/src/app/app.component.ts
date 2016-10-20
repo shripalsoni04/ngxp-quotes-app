@@ -1,4 +1,5 @@
 import { Component, ViewContainerRef } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 import {
   MdlDialogOutletService
@@ -26,9 +27,11 @@ export class AppComponent {
   constructor(
     private appService: AppService,
     private viewContainerRef: ViewContainerRef,
-    private mdlDialogOutletService: MdlDialogOutletService) {
+    private mdlDialogOutletService: MdlDialogOutletService,
+    private titleService: Title) {
     this.appService.title.subscribe((title) => {
       this.title = title;
+      this.titleService.setTitle(title);
     });
 
     // This is a temporary workaround for issue https://github.com/mseemann/angular2-mdl/issues/147

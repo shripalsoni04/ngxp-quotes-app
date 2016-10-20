@@ -9,7 +9,12 @@
       </mdl-layout-header-row>
   </mdl-layout-header>
   <mdl-layout-drawer>
-      <mdl-layout-title>Quotes App</mdl-layout-title>
+      <div class="drawer-header">
+        <div class="drawer-header-image-container">
+          <img src="/x-shared/assets/logo.png" width="50" height="50" />
+        </div>
+        <mdl-layout-title>NGXP Quotes App</mdl-layout-title>
+      </div>
       <nav class="mdl-navigation">
         <a  *ngFor="let link of navMenu"
             class="mdl-navigation__link"
