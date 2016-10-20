@@ -5,7 +5,7 @@ import { registerElement } from 'nativescript-angular/element-registry';
 
 import { CardView } from 'nativescript-cardview';
 
-import { AppModule } from './app.module';
+import { AppModule } from './modules/app.module';
 
 // register nativescript plugins to use them with angular.
 registerElement('CardView', () => CardView);
