@@ -5,7 +5,7 @@
     <div class="quotes-list">
       <div
           class="quote-card list-item"
-          *ngFor="let quote of vm.quotes$ | async">
+          *ngFor="let quote of cvm.quotes$ | async">
         <div class="quote-body">{{quote.body}}</div>
         <div
             class="quote-author"
@@ -15,7 +15,7 @@
           <button
               mdl-button
               mdl-button-type="icon"
-              (click)="vm.toggleFav(quote, quotesBy)"
+              (click)="cvm.toggleFav(quote, quotesBy)"
               mdl-colored="accent">
             <mdl-icon>{{quote.isFavourite ? 'favorite' :'favorite_border'}}</mdl-icon>
           </button>
@@ -25,7 +25,7 @@
 
     <div
         class="spinner-container"
-        [hidden]="vm.lstQuotes.length">
+        [hidden]="cvm.lstQuotes.length">
       <mdl-spinner single-color active></mdl-spinner>
     </div>
   </div>
@@ -33,38 +33,38 @@
   <div
       class="pagination-container"
       *ngIf="quotesBy === 'all'"
-      [class.invisible]="!vm.pagination.count">
+      [class.invisible]="!cvm.pagination.count">
     <button
         mdl-button
         mdl-button-type="icon"
         mdl-colored="primary"
-        [disabled]="vm.isBackPaginationDisabled()"
-        (click)="vm.loadFirstPage()">
+        [disabled]="isBackPaginationDisabled()"
+        (click)="loadFirstPage()">
       <mdl-icon>first_page</mdl-icon>
     </button>
     <button
         mdl-button
         mdl-button-type="icon"
         mdl-colored="primary"
-        [disabled]="vm.isBackPaginationDisabled()"
-        (click)="vm.loadPreviousPage()">
+        [disabled]="isBackPaginationDisabled()"
+        (click)="loadPreviousPage()">
       <mdl-icon>navigate_before</mdl-icon>
     </button>
-    <label>{{vm.getPaginationString()}}</label>
+    <label>{{getPaginationString()}}</label>
     <button
         mdl-button
         mdl-button-type="icon"
         mdl-colored="primary"
-        [disabled]="vm.isForwardPaginationDisabled()"
-        (click)="vm.loadNextPage()">
+        [disabled]="isForwardPaginationDisabled()"
+        (click)="loadNextPage()">
       <mdl-icon>navigate_next</mdl-icon>
     </button>
     <button
         mdl-button
         mdl-button-type="icon"
         mdl-colored="primary"
-        [disabled]="vm.isForwardPaginationDisabled()"
-        (click)="vm.loadLastPage()">
+        [disabled]="isForwardPaginationDisabled()"
+        (click)="loadLastPage()">
       <mdl-icon>last_page</mdl-icon>
     </button>
   </div>

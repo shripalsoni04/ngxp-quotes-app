@@ -1,6 +1,6 @@
-<ActionBar [title]="vm.dataModel.id ? 'Edit Quote' : 'New Quote'">
+<ActionBar [title]="cvm.dataModel.id ? 'Edit Quote' : 'New Quote'">
   <ActionItem
-      (tap)="save(vm.dataModel)"
+      (tap)="save(cvm.dataModel)"
       ios.position="right">
     <Button
         class="mdi action-bar-icon borderless-btn"
@@ -18,7 +18,7 @@
 
   <StackLayout
       class="input-field"
-      [class.error]="vm.validationErrors.body">
+      [class.error]="cvm.validationErrors.body">
     <Label
         class="label font-weight-bold m-b-5"
         text="Quote Body">
@@ -27,7 +27,7 @@
         #body
         class="input quote-body-input"
         name="body"
-        [(ngModel)]="vm.dataModel.body"
+        [(ngModel)]="cvm.dataModel.body"
         editable="true"
         autocorrect="false"
         returnKeyType="Next"
@@ -36,14 +36,14 @@
     <StackLayout class="hr-light"></StackLayout>
     <Label
         class="error-msg text-danger"
-        [visibility]="vm.validationErrors.body ? 'visible' : 'collapsed'"
-        [text]="vm.validationErrors.body">
+        [visibility]="cvm.validationErrors.body ? 'visible' : 'collapsed'"
+        [text]="cvm.validationErrors.body">
     </Label>
   </StackLayout>
 
   <StackLayout
       class="input-field"
-      [class.error]="vm.validationErrors.authorName">
+      [class.error]="cvm.validationErrors.authorName">
     <Label
         class="label font-weight-bold m-b-5"
         text="Author Name">
@@ -52,15 +52,15 @@
         #authorName
         class="input"
         name="authorName"
-        [(ngModel)]="vm.dataModel.authorName"
+        [(ngModel)]="cvm.dataModel.authorName"
         returnKeyType="Done"
         autocorrect="false">
     </TextField>
     <StackLayout class="hr-light"></StackLayout>
     <Label
         class="error-msg text-danger"
-        [visibility]="vm.validationErrors.authorName ? 'visible' : 'collapsed'"
-        [text]="vm.validationErrors.authorName">
+        [visibility]="cvm.validationErrors.authorName ? 'visible' : 'collapsed'"
+        [text]="cvm.validationErrors.authorName">
     </Label>
   </StackLayout>
 

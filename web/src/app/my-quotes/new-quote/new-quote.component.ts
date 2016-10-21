@@ -2,15 +2,15 @@ import {
   Component, Input, Output, EventEmitter, ChangeDetectionStrategy,
   ChangeDetectorRef
 } from '@angular/core';
-import { MyQuoteModel } from '@xapp/my-quotes';
-import { NewQuoteVM } from './new-quote.view-model';
+
+import { MyQuoteModel, NewQuoteCommonVM } from '@xapp/my-quotes';
 import { UtilityService } from '../../core/utility.service';
 
 @Component({
   selector: 'new-quote',
   templateUrl: './new-quote.component.html',
   styleUrls: ['./new-quote.component.scss'],
-  providers: [NewQuoteVM]
+  providers: [NewQuoteCommonVM]
   // TODO: Enable OnPush once angular2-mdl has its support.
   //changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -21,9 +21,9 @@ export class NewQuoteComponent {
   @Input()
   set quote(quote: MyQuoteModel) {
     if (quote) {
-      this.vm.dataModel = new MyQuoteModel(quote.id, quote.body, quote.authorName);
+      this.cvm.dataModel = new MyQuoteModel(quote.id, quote.body, quote.authorName);
     } else {
-      this.vm.dataModel = new MyQuoteModel();
+      this.cvm.dataModel = new MyQuoteModel();
     }
   }
 
@@ -39,7 +39,7 @@ export class NewQuoteComponent {
   isActive: boolean = true;
 
   constructor(
-    public vm: NewQuoteVM,
+    public cvm: NewQuoteCommonVM,
     private changeDetectorRef: ChangeDetectorRef,
     private utilityService: UtilityService
   ) {
@@ -47,7 +47,7 @@ export class NewQuoteComponent {
   }
 
   save(quote: MyQuoteModel) {
-    this.vm.saveQuote(quote).then((updatedQuote) => {
+    this.cvm.saveQuote(quote).then((updatedQuote) => {
       this.quoteSave.emit(this.getCopy(updatedQuote));
       this.resetForm();
     });
@@ -55,7 +55,7 @@ export class NewQuoteComponent {
 
   resetForm() {
     this.isActive = false;
-    this.vm.resetForm();
+    this.cvm.resetForm();
     this.formReset.emit();
     setTimeout(() => {
       this.changeDetectorRef.markForCheck();
@@ -64,6 +64,6 @@ export class NewQuoteComponent {
   }
 
   private getCopy(obj: any) {
-    return JSON.parse(JSON.stringify(obj));
+    return JSON.parse(JSON.stringify(obj)); // TODO: Use Object.assign
   }
 }

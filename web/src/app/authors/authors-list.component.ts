@@ -1,13 +1,13 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { AuthorsListVM } from './authors-list.view-model';
+import { AuthorsListCommonVM } from '@xapp/authors';
 import { UtilityService } from '../core/utility.service';
 
 @Component({
   selector: 'authors-list',
   templateUrl: './authors-list.component.html',
   styleUrls: ['./authors-list.component.scss'],
-  providers: [AuthorsListVM]
+  providers: [AuthorsListCommonVM]
 })
 export class AuthorsListComponent {
 
@@ -16,10 +16,10 @@ export class AuthorsListComponent {
   @Output() authorSelect: EventEmitter<number> = new EventEmitter<number>();
 
   constructor(
-    public vm: AuthorsListVM,
+    public cvm: AuthorsListCommonVM,
     private utilityService: UtilityService
   ) {
-    this.vm.loadAuthorList().subscribe(() => {
+    this.cvm.loadAuthorList().subscribe(() => {
       // On small screens, not selecting first author by default, as we are
       // not showing quotes of the author besides author list because screen
       // size constraint.
@@ -37,7 +37,7 @@ export class AuthorsListComponent {
   private selectFirst() {
     // if selectedAuthorId is set, then not selecting first record by default.
     if (!this.selectedAuthorId) {
-      let firstAuthor = this.vm.lstAuthors && this.vm.lstAuthors[0];
+      let firstAuthor = this.cvm.lstAuthors && this.cvm.lstAuthors[0];
       this.selectAuthor(firstAuthor.id);
     }
   }

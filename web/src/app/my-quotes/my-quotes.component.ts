@@ -2,15 +2,15 @@ import {
   Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef
 } from '@angular/core';
 
-import { MyQuotesVM } from './my-quotes.view-model';
+import { MyQuotesCommonVM, MyQuoteModel } from '@xapp/my-quotes';
 import { AppService } from '../app.service';
-import { MdlDialogComponent } from 'angular2-mdl';
+import { MdlDialogComponent, MdlDialogService } from 'angular2-mdl';
 import { UtilityService } from '../core/utility.service';
 
 @Component({
   templateUrl: './my-quotes.component.html',
   styleUrls: ['./my-quotes.component.scss'],
-  providers: [MyQuotesVM]
+  providers: [MyQuotesCommonVM]
   // TODO: Enable OnPush once angular2-mdl has its support.
   //changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -20,31 +20,40 @@ export class MyQuotesComponent implements OnInit {
 
   isSmallScreen: boolean = false;
 
+  quoteToEdit: MyQuoteModel;
+
   constructor(
-    public vm: MyQuotesVM,
+    public cvm: MyQuotesCommonVM,
     private appService: AppService,
-    private utilityService: UtilityService
+    private utilityService: UtilityService,
+    private mdlDialogService: MdlDialogService
   ) {
     this.appService.setTitle('My Quotes');
   }
 
   ngOnInit() {
-    this.vm.loadMyQuotes();
+    this.cvm.loadMyQuotes();
     this.isSmallScreen = this.utilityService.isSmallScreen();
   }
 
-  editQuote(quote: MyQuotesVM) {
-    this.vm.editQuote(quote);
+  editQuote(quote: MyQuoteModel) {
+    this.quoteToEdit = quote;
     this.showQuoteDialogForSmallScreen();
   }
 
-  onSave(quote: MyQuotesVM) {
-    this.vm.updateQuoteInList(quote);
+  deleteQuote(quote: MyQuoteModel) {
+    return this.mdlDialogService.confirm(
+      'Are you sure you want to delete this quote?', 'No', 'Yes'
+    ).toPromise().then(() => this.cvm.deleteQuote(quote), () => void 0);
+  }
+
+  onSave(quote: MyQuoteModel) {
+    this.cvm.updateQuoteInList(quote);
     this.closeQuoteDialog();
   }
 
   onCancel() {
-    this.vm.onFormReset();
+    this.quoteToEdit = null;
     this.closeQuoteDialog();
   }
 

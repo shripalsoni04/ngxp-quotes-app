@@ -1,21 +1,21 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterExtensions } from 'nativescript-angular/router';
 
-import { CategoriesListVM } from './categories-list.view-model';
+import { CategoriesListCommonVM } from '../../x-shared/app/categories';
 
 @Component({
   selector: 'categories-list',
   templateUrl: 'modules/categories/categories-list.component.html',
-  providers: [CategoriesListVM],
+  providers: [CategoriesListCommonVM],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CategoriesListComponent {
 
   constructor(
-    public vm: CategoriesListVM,
+    public cvm: CategoriesListCommonVM,
     private routerExtensions: RouterExtensions
   ) {
-    this.vm.loadCategoriesList();
+    this.cvm.loadCategoriesList();
   }
 
   showQuotesByCategory(categoryId: number) {

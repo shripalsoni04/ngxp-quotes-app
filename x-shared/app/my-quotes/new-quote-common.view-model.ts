@@ -1,6 +1,9 @@
+import { Injectable } from '@angular/core';
+
 import { MyQuotesService } from './my-quotes.service';
 import { MyQuoteModel } from './my-quote.model';
 
+@Injectable()
 export class NewQuoteCommonVM {
 
   dataModel: MyQuoteModel = new MyQuoteModel();
@@ -14,6 +17,12 @@ export class NewQuoteCommonVM {
 
   constructor(protected myQuotesService: MyQuotesService) {
 
+  }
+
+  loadQuoteDetailsById(id: number) {
+    return this.myQuotesService.getById(id).then((myQuote) => {
+      this.dataModel = new MyQuoteModel(myQuote.id, myQuote.body, myQuote.authorName);
+    });
   }
 
   saveQuote(quote: MyQuoteModel) {

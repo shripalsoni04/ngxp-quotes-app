@@ -1,6 +1,9 @@
-import { AuthorService } from './author.service';
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
+import { AuthorService } from './author.service';
+
+@Injectable()
 export class AuthorsListCommonVM {
 
   lstAuthors: any[] = [];

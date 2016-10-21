@@ -1,7 +1,7 @@
 <div class="categories-list">
   <mdl-list>
     <mdl-list-item
-        *ngFor="let category of vm.categories$ | async"
+        *ngFor="let category of cvm.categories$ | async"
         (click)="selectCategory(category.id)"
         [class.selected]="selectedCategoryId === category.id"
         mdl-ripple>

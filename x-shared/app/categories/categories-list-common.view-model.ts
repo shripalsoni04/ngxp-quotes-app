@@ -1,6 +1,9 @@
-import { CategoryService } from './category.service';
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
+import { CategoryService } from './category.service';
+
+@Injectable()
 export class CategoriesListCommonVM {
 
   lstCategories: any[] = [];

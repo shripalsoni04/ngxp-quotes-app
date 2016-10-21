@@ -1,7 +1,7 @@
 <div class="authors-list">
   <mdl-list>
     <mdl-list-item
-        *ngFor="let author of vm.authors$ | async"
+        *ngFor="let author of cvm.authors$ | async"
         (click)="selectAuthor(author.id)"
         [class.selected]="selectedAuthorId === author.id"
         mdl-ripple>

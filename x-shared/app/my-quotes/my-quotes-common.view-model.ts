@@ -1,8 +1,10 @@
-import { MyQuotesService } from './my-quotes.service';
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
+import { MyQuotesService } from './my-quotes.service';
 import { MyQuoteModel } from './my-quote.model';
 
+@Injectable()
 export class MyQuotesCommonVM {
 
   quotes$: Subject<MyQuoteModel[]> = new Subject<MyQuoteModel[]>();

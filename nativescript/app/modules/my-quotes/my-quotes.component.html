@@ -13,7 +13,7 @@
   <ngxp-side-drawer>
     <GridLayout>
       <ListView
-          [items]="vm.quotes$ | async"
+          [items]="cvm.quotes$ | async"
           (itemLoading)="onItemLoading($event)"
           separatorColor="transparent">
         <template let-item="item">

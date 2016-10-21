@@ -4,8 +4,7 @@ import {
 
 import { TNSFontIconService } from 'nativescript-ng2-fonticon';
 
-import { MyQuotesVM } from './my-quotes.view-model';
-import { MyQuoteModel } from '../../x-shared/app/my-quotes';
+import { MyQuotesCommonVM, MyQuoteModel } from '../../x-shared/app/my-quotes';
 
 import { RouterExtensions } from 'nativescript-angular/router';
 import { Page } from 'ui/page';
@@ -17,7 +16,7 @@ declare const UITableViewCellSelectionStyle: any;
 @Component({
   templateUrl: 'modules/my-quotes/my-quotes.component.html',
   styleUrls: ['modules/my-quotes/my-quotes.component.css'],
-  providers: [MyQuotesVM],
+  providers: [MyQuotesCommonVM],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MyQuotesComponent {
@@ -25,7 +24,7 @@ export class MyQuotesComponent {
   isAndroid: boolean = isAndroid;
 
   constructor(
-    public vm: MyQuotesVM,
+    public cvm: MyQuotesCommonVM,
     private routerExtensions: RouterExtensions,
     private page: Page,
     private changeDetectorRef: ChangeDetectorRef,
@@ -46,7 +45,7 @@ export class MyQuotesComponent {
     confirm('Are you sure you want to delete this quote?').then(
       (isDelete: boolean) => {
         if (isDelete) {
-          this.vm.deleteQuote(quote).then(() => {
+          this.cvm.deleteQuote(quote).then(() => {
             this.changeDetectorRef.markForCheck();
           });
         }
@@ -62,7 +61,7 @@ export class MyQuotesComponent {
   }
 
   private onPageLoad() {
-    this.vm.loadMyQuotes().subscribe((lstQuotes) => {
+    this.cvm.loadMyQuotes().subscribe((lstQuotes) => {
       // as page load event is getting executed out of angular scope, manually
       // calling detectChanges, which will run changeDetection for this and its
       // children.

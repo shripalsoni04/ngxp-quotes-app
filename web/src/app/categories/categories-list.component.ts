@@ -2,14 +2,14 @@ import {
   Component, Input, Output, EventEmitter, ChangeDetectionStrategy
 } from '@angular/core';
 
-import { CategoriesListVM } from './categories-list.view-model';
+import { CategoriesListCommonVM } from '@xapp/categories';
 import { UtilityService } from '../core/utility.service';
 
 @Component({
   selector: 'categories-list',
   templateUrl: './categories-list.component.html',
   styleUrls: ['./categories-list.component.scss'],
-  providers: [CategoriesListVM],
+  providers: [CategoriesListCommonVM],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CategoriesListComponent {
@@ -19,10 +19,10 @@ export class CategoriesListComponent {
   @Output() categorySelect: EventEmitter<number> = new EventEmitter<number>();
 
   constructor(
-    public vm: CategoriesListVM,
+    public cvm: CategoriesListCommonVM,
     private utilityService: UtilityService
   ) {
-    this.vm.loadCategoriesList().subscribe(() => {
+    this.cvm.loadCategoriesList().subscribe(() => {
       // On small screens, not selecting first category by default, as we are
       // not showing quotes of the category besides category list because screen
       // size constraint.
@@ -40,7 +40,7 @@ export class CategoriesListComponent {
   private selectFirst() {
     // if selectedCategoryId is set, then not selecting first record by default.
     if (!this.selectedCategoryId) {
-      let firstCategory = this.vm.lstCategories && this.vm.lstCategories[0];
+      let firstCategory = this.cvm.lstCategories && this.cvm.lstCategories[0];
       this.selectCategory(firstCategory.id);
     }
   }

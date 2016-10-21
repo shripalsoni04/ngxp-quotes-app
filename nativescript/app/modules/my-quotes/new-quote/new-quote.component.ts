@@ -8,20 +8,19 @@ import { TNSFontIconService } from 'nativescript-ng2-fonticon';
 
 import { alert } from 'ui/dialogs';
 
-import { MyQuoteModel } from '../../../x-shared/app/my-quotes';
-import { NewQuoteVM } from './new-quote.view-model';
+import { NewQuoteCommonVM, MyQuoteModel } from '../../../x-shared/app/my-quotes';
 
 @Component({
   selector: 'new-quote',
   templateUrl: 'modules/my-quotes/new-quote/new-quote.component.html',
   styleUrls: ['modules/my-quotes/new-quote/new-quote.component.css'],
-  providers: [NewQuoteVM],
+  providers: [NewQuoteCommonVM],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NewQuoteComponent implements OnInit {
 
   constructor(
-    public vm: NewQuoteVM,
+    public cvm: NewQuoteCommonVM,
     private route: ActivatedRoute,
     private routerExtensions: RouterExtensions,
     private changeDetectorRef: ChangeDetectorRef,
@@ -31,7 +30,7 @@ export class NewQuoteComponent implements OnInit {
   ngOnInit() {
     let id = this.route.snapshot.params['id'];
     if (id) {
-      this.vm.loadQuoteDetailsById(+id).then(() => {
+      this.cvm.loadQuoteDetailsById(+id).then(() => {
         // as when data is loaded, it is actually not causing any input changes
         // for the compoennt and as changeDetectionStrategy is set to OnPush,
         // calling markForCheck so that this compoennt's change will be reflected
@@ -42,7 +41,7 @@ export class NewQuoteComponent implements OnInit {
   }
 
   save(quote: MyQuoteModel) {
-    this.vm.saveQuote(quote).then(() => {
+    this.cvm.saveQuote(quote).then(() => {
       this.routerExtensions.backToPreviousPage();
     }, (error) => {
       if (error.validationErrors) {

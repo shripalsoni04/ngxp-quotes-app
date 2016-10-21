@@ -5,8 +5,8 @@
   <GridLayout>
     <ListView
         class="list-group"
-        [items]="vm.categories$ | async"
-        [visibility]="vm.lstCategories.length ? 'visible' : 'collapsed'">
+        [items]="cvm.categories$ | async"
+        [visibility]="cvm.lstCategories.length ? 'visible' : 'collapsed'">
       <template let-item="item">
         <StackLayout
             class="list-group-item"
@@ -21,8 +21,8 @@
     </ListView>
     <ActivityIndicator
       class="activity-indicator"
-      [visibility]="!vm.lstCategories.length ? 'visible' : 'collapsed'"
-      [busy]="!vm.lstCategories.length">
+      [visibility]="!cvm.lstCategories.length ? 'visible' : 'collapsed'"
+      [busy]="!cvm.lstCategories.length">
     </ActivityIndicator>
   </GridLayout>
 </ngxp-side-drawer>

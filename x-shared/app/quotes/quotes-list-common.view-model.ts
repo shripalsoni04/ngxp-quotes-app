@@ -1,13 +1,16 @@
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+
 import { QuoteService } from './quotes.service';
 import { MyFavouritesService } from './my-favourites.service';
 import { Pagination } from '../shared/models';
-import { Subject } from 'rxjs/Subject';
 
+@Injectable()
 export class QuotesListCommonVM {
 
   pagination: Pagination = new Pagination();
 
-  protected lstQuotes: any[] = [];
+  lstQuotes: any[] = [];
 
   quotes$: Subject<any[]> = new Subject<any[]>();
 
@@ -106,7 +109,7 @@ export class QuotesListCommonVM {
   }
 
   /**
-   * Sets quotes favourite status and loads the quotes into the list.
+   * Loads the quotes into the list.
    */
   private loadQuotesInList(lstQuotes: any[]) {
     Array.prototype.push.apply(this.lstQuotes, lstQuotes);

@@ -2,13 +2,13 @@ import {
   Component, OnChanges, Input, SimpleChanges, ChangeDetectionStrategy
 } from '@angular/core';
 
-import { QuotesListVM } from './quotes-list.view-model';
+import { QuotesListCommonVM } from '@xapp/quotes';
 
 @Component({
   selector: 'quotes-list',
   templateUrl: './quotes-list.component.html',
   styleUrls: ['./quotes-list.component.scss'],
-  providers: [QuotesListVM],
+  providers: [QuotesListCommonVM],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class QuotesListComponent implements OnChanges {
@@ -17,15 +17,62 @@ export class QuotesListComponent implements OnChanges {
 
   @Input() quotesBy: 'author' | 'category' | 'all' | 'favourites';
 
-  constructor(public vm: QuotesListVM) {
+  constructor(public cvm: QuotesListCommonVM) {
 
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['quotesBy']) {
-      this.vm.clearQuotesList();
+      this.clearQuotesList();
     }
 
-    this.vm.loadQuotesByCriteria(this.quotesBy, this.entityId);
+    this.cvm.loadQuotesByCriteria(this.quotesBy, this.entityId);
+  }
+
+  // NOTE: we can keep all the pagination related code to commonVM, but as
+  // currently it is required only for web-app, why to increase the size
+  // of common code for other platforms.
+  isBackPaginationDisabled() {
+    return this.cvm.pagination.page === 1;
+  }
+
+  isForwardPaginationDisabled() {
+    return this.cvm.pagination.page === this.cvm.getMaxPageNumber();
+  }
+
+  loadFirstPage() {
+    this.clearQuotesList();
+    this.cvm.pagination.page = 1;
+    return this.cvm.loadQuotes();
+  }
+
+  loadPreviousPage() {
+    this.clearQuotesList();
+    this.cvm.pagination.page -= 1;
+    return this.cvm.loadQuotes();
+  }
+
+  loadNextPage() {
+    this.clearQuotesList();
+    this.cvm.lstQuotes.length = 0;
+    return this.cvm.loadNextPage();
+  }
+
+  loadLastPage() {
+    this.clearQuotesList();
+    this.cvm.pagination.page = this.cvm.getMaxPageNumber();
+    return this.cvm.loadQuotes();
+  }
+
+  clearQuotesList() {
+    this.cvm.lstQuotes.length = 0;
+  }
+
+  getPaginationString() {
+    let start = (this.cvm.pagination.page - 1) * this.cvm.pagination.size + 1;
+    let end = this.cvm.pagination.page * this.cvm.pagination.size;
+    let total = this.cvm.pagination.count;
+    end = end > total ? total : end;
+    return `${start} - ${end} of ${total}`;
   }
 }

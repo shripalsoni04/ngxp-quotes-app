@@ -4,7 +4,7 @@
   <div class="my-quotes-list mdl-cell mdl-cell--8-col">
     <div
         class="quote-card"
-        *ngFor="let quote of vm.quotes$ | async">
+        *ngFor="let quote of cvm.quotes$ | async">
       <div class="quote-body">{{quote.body}}</div>
       <div class="quote-author">{{"- "+quote.authorName}}</div>
       <div class="actions-container">
@@ -19,7 +19,7 @@
           <button
               mdl-button
               mdl-button-type="icon"
-              (click)="vm.deleteQuote(quote)"
+              (click)="deleteQuote(quote)"
               mdl-colored="accent">
             <mdl-icon>delete</mdl-icon>
           </button>
@@ -27,14 +27,14 @@
       </div>
     </div>
 
-    <div *ngIf="vm.lstQuotes.length === 0">
+    <div *ngIf="cvm.lstQuotes.length === 0">
       No quotes are added.
     </div>
   </div>
   <div class="quote-form-container mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
     <new-quote
         *ngIf="!isSmallScreen"
-        [quote]="vm.quoteToEdit"
+        [quote]="quoteToEdit"
         (quoteSave)="onSave($event)"
         (formReset)="onCancel()">
     </new-quote>
@@ -57,7 +57,7 @@
       *ngIf="isSmallScreen"
       [mdl-modal]="true">
     <new-quote
-        [quote]="vm.quoteToEdit"
+        [quote]="quoteToEdit"
         (quoteSave)="onSave($event)"
         (formReset)="onCancel()">
     </new-quote>

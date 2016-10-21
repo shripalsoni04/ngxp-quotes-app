@@ -1,7 +1,7 @@
 <GridLayout class="quotes-list-container">
   <ListView
-      [items]="vm.quotes$ | async"
-      (loadMoreItems)="vm.onLoadMoreItemsRequested($event)"
+      [items]="cvm.quotes$ | async"
+      (loadMoreItems)="onLoadMoreItemsRequested($event)"
       (itemLoading)="onItemLoading($event)"
       separatorColor="transparent"
       >
@@ -35,7 +35,7 @@
                 <Button
                     class="mdi borderless-btn"
                     [text]="'mdi-share' | fonticon"
-                    (tap)="vm.shareQuote(item)">
+                    (tap)="shareQuote(item)">
                 </Button>
               </StackLayout>
           </StackLayout>
@@ -43,15 +43,15 @@
         <ActivityIndicator
           #activityIndicator
           class="activity-indicator"
-          *ngIf="i === vm.lstQuotes.length -1 && i !== vm.pagination.count -1 && quotesBy === 'all'"
-          [busy]="i === vm.lstQuotes.length -1">
+          *ngIf="i === cvm.lstQuotes.length -1 && i !== cvm.pagination.count -1 && quotesBy === 'all'"
+          [busy]="i === cvm.lstQuotes.length -1">
         </ActivityIndicator>
       </StackLayout>
     </template>
   </ListView>
   <ActivityIndicator
       class="activity-indicator"
-      [visibility]="!vm.lstQuotes.length ? 'visible' : 'collapsed'"
-      [busy]="!vm.lstQuotes.length && quotesBy !== 'favourites'">
+      [visibility]="!cvm.lstQuotes.length ? 'visible' : 'collapsed'"
+      [busy]="!cvm.lstQuotes.length && quotesBy !== 'favourites'">
     </ActivityIndicator>
 </GridLayout>

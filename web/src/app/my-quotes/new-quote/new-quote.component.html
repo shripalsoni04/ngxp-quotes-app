@@ -2,12 +2,12 @@
     class="new-quote-component"
     [class.small-screen]="isSmallScreen">
   <h6 class="title">
-    {{vm.dataModel.id ? 'Edit Quote' : 'Create New Quote'}}
+    {{cvm.dataModel.id ? 'Edit Quote' : 'Create New Quote'}}
   </h6>
   <form
       *ngIf="isActive"
       #form="ngForm"
-      (ngSubmit)="save(vm.dataModel)"
+      (ngSubmit)="save(cvm.dataModel)"
       novalidate>
     <div>
       <mdl-textfield
@@ -15,9 +15,9 @@
           #body="ngModel"
           name="body"
           rows="5"
-          [(ngModel)]="vm.dataModel.body"
+          [(ngModel)]="cvm.dataModel.body"
           [class.is-invalid]="body.invalid && body.dirty"
-          [error-msg]="vm.validationMsg.body"
+          [error-msg]="cvm.validationMsg.body"
           required
           floating-label>
       </mdl-textfield>
@@ -29,9 +29,9 @@
           #authorName="ngModel"
           name="authorName"
           type="text"
-          [(ngModel)]="vm.dataModel.authorName"
+          [(ngModel)]="cvm.dataModel.authorName"
           [class.is-invalid]="authorName.invalid && authorName.dirty"
-          [error-msg]="vm.validationMsg.authorName"
+          [error-msg]="cvm.validationMsg.authorName"
           floating-label
           required>
       </mdl-textfield>
@@ -50,7 +50,7 @@
           mdl-button-type="raised"
           mdl-colored="accent"
           [disabled]="!form.valid">
-        {{vm.dataModel.id ? 'Save' : 'Create'}}
+        {{cvm.dataModel.id ? 'Save' : 'Create'}}
       </button>
     </div>
   </form>

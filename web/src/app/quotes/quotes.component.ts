@@ -60,7 +60,7 @@ export class QuotesComponent implements OnInit {
 
   /**
    * Not showing quotesbySection when quotesBy is all/favourite for desktop.
-   * For mobile, if entityId is not there, then not showing quotesBySection.
+   * For small screens, if entityId is not there, then not showing quotesBySection.
    */
   isShowQuotesBySection() {
     return ['all', 'favourites'].indexOf(this.quotesBy) === -1 && !(this.isSmallScreen && this.entityId);

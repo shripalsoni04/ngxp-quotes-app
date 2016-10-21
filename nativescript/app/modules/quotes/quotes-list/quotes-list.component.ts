@@ -2,11 +2,13 @@ import {
   Component, OnChanges, Input, ChangeDetectionStrategy, ChangeDetectorRef
 } from '@angular/core';
 
-import { QuotesListVM } from './quotes-list.view-model';
-
-import { TNSFontIconService } from 'nativescript-ng2-fonticon';
-
 import { StackLayout } from 'ui/layouts/stack-layout';
+import { ListView } from 'ui/list-view';
+import { TNSFontIconService } from 'nativescript-ng2-fonticon';
+import * as SocialShare from 'nativescript-social-share';
+
+
+import { QuotesListCommonVM } from '../../../x-shared/app/quotes';
 
 declare const UITableViewCellSelectionStyle: any;
 
@@ -14,7 +16,7 @@ declare const UITableViewCellSelectionStyle: any;
   selector: 'quotes-list',
   templateUrl: 'modules/quotes/quotes-list/quotes-list.component.html',
   styleUrls: ['modules/quotes/quotes-list/quotes-list.component.css'],
-  providers: [QuotesListVM],
+  providers: [QuotesListCommonVM],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class QuotesListComponent implements OnChanges {
@@ -24,7 +26,7 @@ export class QuotesListComponent implements OnChanges {
   @Input() quotesBy: 'author' | 'category' | 'all' | 'favourites';
 
   constructor(
-    public vm: QuotesListVM,
+    public cvm: QuotesListCommonVM,
     private fonticon: TNSFontIconService,
     private changeDetectorRef: ChangeDetectorRef
   ) {
@@ -32,7 +34,7 @@ export class QuotesListComponent implements OnChanges {
   }
 
   ngOnChanges() {
-    this.vm.loadQuotesByCriteria(this.quotesBy, this.entityId);
+    this.cvm.loadQuotesByCriteria(this.quotesBy, this.entityId);
   }
 
   onItemLoading(args) {
@@ -52,7 +54,7 @@ export class QuotesListComponent implements OnChanges {
         duration: 300,
         opacity: 0
       }).then(() => {
-        this.vm.toggleFav(quote, quotesBy).then(() => {
+        this.cvm.toggleFav(quote, quotesBy).then(() => {
           // as angular is not removing the actual stackLayout if the number of
           // items are more than that can be accomodated in screen and it is
           // only changing the data, we need to revert the stackLayout opacity
@@ -63,7 +65,22 @@ export class QuotesListComponent implements OnChanges {
         });
       });
     } else {
-      this.vm.toggleFav(quote, quotesBy);
+      this.cvm.toggleFav(quote, quotesBy);
     }
+  }
+
+  onLoadMoreItemsRequested(args: any) {
+    let lastPage = this.cvm.getMaxPageNumber();
+    let listView: ListView = args.object;
+    if (this.cvm.pagination.page < lastPage) {
+      this.cvm.loadNextPage();
+    } else {
+      listView.off('loadMoreItems');
+    }
+  }
+
+  shareQuote(quote: any) {
+    let quoteText = this.cvm.getQuoteShareText(quote);
+    SocialShare.shareText(quoteText, 'Quote of the Day!');
   }
 }
