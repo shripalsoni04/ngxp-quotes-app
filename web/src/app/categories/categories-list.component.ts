@@ -1,5 +1,5 @@
 import {
-  Component, Input, Output, EventEmitter, ChangeDetectionStrategy
+  Component, Input, Output, EventEmitter, ChangeDetectionStrategy, OnInit
 } from '@angular/core';
 
 import { CategoriesListCommonVM } from '@xapp/categories';
@@ -12,7 +12,7 @@ import { UtilityService } from '../core/utility.service';
   providers: [CategoriesListCommonVM],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CategoriesListComponent {
+export class CategoriesListComponent implements OnInit {
 
   @Input() selectedCategoryId: number;
 
@@ -22,6 +22,10 @@ export class CategoriesListComponent {
     public cvm: CategoriesListCommonVM,
     private utilityService: UtilityService
   ) {
+
+  }
+
+  ngOnInit() {
     this.cvm.loadCategoriesList().subscribe(() => {
       // On small screens, not selecting first category by default, as we are
       // not showing quotes of the category besides category list because screen
