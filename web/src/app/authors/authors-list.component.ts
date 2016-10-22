@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
 import { AuthorsListCommonVM } from '@xapp/authors';
 import { UtilityService } from '../core/utility.service';
@@ -9,7 +9,7 @@ import { UtilityService } from '../core/utility.service';
   styleUrls: ['./authors-list.component.scss'],
   providers: [AuthorsListCommonVM]
 })
-export class AuthorsListComponent {
+export class AuthorsListComponent implements OnInit {
 
   @Input() selectedAuthorId: number;
 
@@ -19,6 +19,10 @@ export class AuthorsListComponent {
     public cvm: AuthorsListCommonVM,
     private utilityService: UtilityService
   ) {
+
+  }
+
+  ngOnInit() {
     this.cvm.loadAuthorList().subscribe(() => {
       // On small screens, not selecting first author by default, as we are
       // not showing quotes of the author besides author list because screen
