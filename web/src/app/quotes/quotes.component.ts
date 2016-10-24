@@ -2,8 +2,8 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { AppService } from '../app.service';
-import { AuthorService } from '@xapp/authors';
-import { CategoryService } from '@xapp/categories';
+import { AuthorService } from '../../x-shared/app/authors';
+import { CategoryService } from '../../x-shared/app/categories';
 import { UtilityService } from '../core/utility.service';
 
 @Component({

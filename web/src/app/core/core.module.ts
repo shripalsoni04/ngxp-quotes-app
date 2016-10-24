@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 
-import { FirebaseService, StorageService } from '@xapp/core';
+import { FirebaseService, StorageService } from '../../x-shared/app/core';
 
 import { WebFirebaseService } from './web-firebase.service';
 import { LocalStorageService } from './local-storage.service';
-import { LocalDatabaseService } from '@xapp/core/local-database.service';
+import { LocalDatabaseService } from '../../x-shared/app/core/local-database.service';
 import { UtilityService } from './utility.service';
 import { DISABLE_NATIVE_VALIDITY_CHECKING } from 'angular2-mdl';
 

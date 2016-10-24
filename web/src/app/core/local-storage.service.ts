@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { StorageService } from '@xapp/core';
+import { StorageService } from '../../x-shared/app/core';
 
 @Injectable()
 export class LocalStorageService extends StorageService {

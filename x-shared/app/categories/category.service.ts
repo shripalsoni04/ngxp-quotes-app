@@ -21,7 +21,7 @@ export class CategoryService {
         // using timeout to let code run in ngZone.
         setTimeout(() => {
           resolve(this.lstCategories);
-        })
+        });
       } else {
         this.firebaseService.getListOnce(this.path, pagination).then((lstCategories) => {
           this.lstCategories = lstCategories;

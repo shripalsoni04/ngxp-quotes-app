@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
 
-import { Pagination } from '@xapp/shared';
-import { FirebaseService } from '@xapp/core';
+import { Pagination } from '../../x-shared/app/shared';
+import { FirebaseService } from '../../x-shared/app/core';
 
 @Injectable()
 export class WebFirebaseService extends FirebaseService {

@@ -3,7 +3,7 @@ import {
   ChangeDetectorRef
 } from '@angular/core';
 
-import { MyQuoteModel, NewQuoteCommonVM } from '@xapp/my-quotes';
+import { MyQuoteModel, NewQuoteCommonVM } from '../../../x-shared/app/my-quotes';
 import { UtilityService } from '../../core/utility.service';
 
 @Component({

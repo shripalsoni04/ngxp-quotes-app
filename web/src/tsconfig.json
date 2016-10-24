@@ -16,9 +16,17 @@
     "baseUrl": "./",
     "paths": {
       "@angular/*": ["../../node_modules/@angular/*"],
+      // Currently path mapping is not working with aot build as stated in the issue: https://github.com/angular/angular-cli/issues/1732 and PR:https://github.com/angular/angular-cli/pull/2470.
+      // Once it is supported, we can use absolute path for x-shared files. e.g @xapp/authors etc instead of '../../x-shared/app/authors'.
       "@xapp/*": [
         "../../x-shared/app/*"
       ]
     }
   }
+  // TODO: Remove this exclude once angular-cli bug of aot includes test files is resolved. https://github.com/angular/angular-cli/issues/2736
+  // If you want to create aot build, uncomment exclude config.
+  // "exclude": [
+  //   "**/*.spec.ts",
+  //   "testing/**/*.ts"
+  // ]
 }

@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
-import { AuthorsListCommonVM } from '@xapp/authors';
+import { AuthorsListCommonVM } from '../../x-shared/app/authors';
 import { UtilityService } from '../core/utility.service';
 
 @Component({

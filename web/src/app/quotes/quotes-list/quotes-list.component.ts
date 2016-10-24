@@ -2,7 +2,7 @@ import {
   Component, OnChanges, Input, SimpleChanges, ChangeDetectionStrategy
 } from '@angular/core';
 
-import { QuotesListCommonVM } from '@xapp/quotes';
+import { QuotesListCommonVM } from '../../../x-shared/app/quotes';
 
 @Component({
   selector: 'quotes-list',
@@ -29,7 +29,7 @@ export class QuotesListComponent implements OnChanges {
   }
 
   loadQuotesByCriteria() {
-    return this.cvm.loadQuotesByCriteria(this.quotesBy, this.entityId);
+    this.cvm.loadQuotesByCriteria(this.quotesBy, this.entityId);
   }
 
   // NOTE: we can keep all the pagination related code to commonVM, but as
@@ -46,25 +46,25 @@ export class QuotesListComponent implements OnChanges {
   loadFirstPage() {
     this.clearQuotesList();
     this.cvm.pagination.page = 1;
-    return this.cvm.loadQuotes();
+    this.cvm.loadQuotes();
   }
 
   loadPreviousPage() {
     this.clearQuotesList();
     this.cvm.pagination.page -= 1;
-    return this.cvm.loadQuotes();
+    this.cvm.loadQuotes();
   }
 
   loadNextPage() {
     this.clearQuotesList();
     this.cvm.lstQuotes.length = 0;
-    return this.cvm.loadNextPage();
+    this.cvm.loadNextPage();
   }
 
   loadLastPage() {
     this.clearQuotesList();
     this.cvm.pagination.page = this.cvm.getMaxPageNumber();
-    return this.cvm.loadQuotes();
+    this.cvm.loadQuotes();
   }
 
   clearQuotesList() {

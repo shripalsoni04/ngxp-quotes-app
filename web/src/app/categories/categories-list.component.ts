@@ -2,7 +2,7 @@ import {
   Component, Input, Output, EventEmitter, ChangeDetectionStrategy, OnInit
 } from '@angular/core';
 
-import { CategoriesListCommonVM } from '@xapp/categories';
+import { CategoriesListCommonVM } from '../../x-shared/app/categories';
 import { UtilityService } from '../core/utility.service';
 
 @Component({

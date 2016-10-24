@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { AuthorService } from '@xapp/authors';
+import { AuthorService } from '../../x-shared/app/authors';
 import { AuthorsListComponent } from './authors-list.component';
 import { SharedModule } from '../shared/shared.module';
 

@@ -2,7 +2,7 @@ import {
   Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef
 } from '@angular/core';
 
-import { MyQuotesCommonVM, MyQuoteModel } from '@xapp/my-quotes';
+import { MyQuotesCommonVM, MyQuoteModel } from '../../x-shared/app/my-quotes';
 import { AppService } from '../app.service';
 import { MdlDialogComponent, MdlDialogService } from 'angular2-mdl';
 import { UtilityService } from '../core/utility.service';

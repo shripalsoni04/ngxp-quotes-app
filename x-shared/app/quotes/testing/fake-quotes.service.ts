@@ -29,4 +29,4 @@ export class FakeQuotesService {
 export let fakeQuotesServiceProvider: ClassProvider = {
   provide: QuoteService,
   useClass: FakeQuotesService
-}
+};

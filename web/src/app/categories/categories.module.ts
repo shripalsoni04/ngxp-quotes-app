@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { CategoryService } from '@xapp/categories';
+import { CategoryService } from '../../x-shared/app/categories';
 import { CategoriesListComponent } from './categories-list.component';
 import { SharedModule } from '../shared/shared.module';
 

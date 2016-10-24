@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
-import { QuoteService, MyFavouritesService } from '@xapp/quotes';
+import { QuoteService, MyFavouritesService } from '../../x-shared/app/quotes';
 
 import { AuthorsModule } from '../authors/authors.module';
 import { CategoriesModule } from '../categories/categories.module';
