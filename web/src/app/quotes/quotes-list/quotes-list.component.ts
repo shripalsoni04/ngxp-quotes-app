@@ -15,7 +15,7 @@ export class QuotesListComponent implements OnChanges {
 
   @Input() entityId: number;
 
-  @Input() quotesBy: 'author' | 'category' | 'all' | 'favourites';
+  @Input() quotesBy: quotesByType;
 
   constructor(public cvm: QuotesListCommonVM) {
 

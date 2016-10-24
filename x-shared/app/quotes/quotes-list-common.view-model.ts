@@ -72,7 +72,7 @@ export class QuotesListCommonVM {
     return this.quotes$;
   }
 
-  loadQuotesByCriteria(quotesBy: 'category' | 'author' | 'all' | 'favourites', id?: number): Subject<any> {
+  loadQuotesByCriteria(quotesBy: quotesByType, id?: number): Subject<any> {
     let subject;
     if (quotesBy === 'all') {
       subject = this.loadQuotes();
@@ -91,7 +91,7 @@ export class QuotesListCommonVM {
    * If toggleFav is called from favourite quotes' list, then it also removes
    * the quote from quotes' list..
    */
-  toggleFav(quote: any, quotesBy: 'category' | 'author' | 'all' | 'favourites') {
+  toggleFav(quote: any, quotesBy: quotesByType) {
     if (quote.isFavourite) {
       return this.myFavouritesService.removeFromFavourite(quote).then(() => {
         if (quotesBy === 'favourites') {

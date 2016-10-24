@@ -66,15 +66,21 @@ export class QuotesComponent implements OnInit {
     return ['all', 'favourites'].indexOf(this.quotesBy) === -1 && !(this.isSmallScreen && this.entityId);
   }
 
+  /**
+   * Not showing quotes list only when entityId is not there for small screen.
+   */
   isShowQuotesListSection() {
     return !this.isSmallScreen || this.entityId || ['all', 'favourites'].indexOf(this.quotesBy) > -1;
   }
 
+  /**
+   * Sets Page title as per the quotesBy and entityId.
+   */
   private setTitle() {
     if (this.quotesBy === 'all') {
       this.appService.setTitle('All Quotes');
     } else if (this.quotesBy === 'author' && this.entityId) {
-      this.authorService.getNameById(this.entityId).then((authorName: string) => {
+      this.authorService.getNameById(this.entityId).then((authorName) => {
         this.appService.setTitle(
           this.isSmallScreen ? authorName : `Quotes by ${authorName}`
         );

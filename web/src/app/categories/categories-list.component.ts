@@ -28,8 +28,8 @@ export class CategoriesListComponent implements OnInit {
   ngOnInit() {
     this.cvm.loadCategoriesList().subscribe(() => {
       // On small screens, not selecting first category by default, as we are
-      // not showing quotes of the category besides category list because screen
-      // size constraint.
+      // not showing quotes of the category besides category list because of
+      // screen size constraint.
       if (!this.utilityService.isSmallScreen()) {
         this.selectFirst();
       }
