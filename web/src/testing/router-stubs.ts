@@ -1,8 +1,10 @@
 // export for convenience.
 export { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 
-import { Component, Directive, Injectable, Input } from '@angular/core';
-import { NavigationExtras } from '@angular/router';
+import {
+  Component, Directive, Injectable, Input, ClassProvider
+} from '@angular/core';
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 
 @Directive({
   selector: '[routerLink]',
@@ -52,6 +54,15 @@ export class ActivatedRouteStub {
   }
 }
 
+export const fakeRouterServiceProvider: ClassProvider = {
+  provide: Router,
+  useClass: RouterStub
+};
+
+export const fakeActivatedRouteServiceProvider: ClassProvider = {
+  provide: ActivatedRoute,
+  useClass: ActivatedRouteStub
+};
 
 /*
 Copyright 2016 Google Inc. All Rights Reserved.

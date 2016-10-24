@@ -73,7 +73,6 @@ function routerLinkTests() {
 
   describe('template', () => {
     beforeEach(() => {
-      console.log('router link beforeeach callled ');
       // trigger initial data binding
       fixture.detectChanges();
 

@@ -25,8 +25,11 @@ export class QuotesListComponent implements OnChanges {
     if (changes['quotesBy']) {
       this.clearQuotesList();
     }
+    this.loadQuotesByCriteria();
+  }
 
-    this.cvm.loadQuotesByCriteria(this.quotesBy, this.entityId);
+  loadQuotesByCriteria() {
+    return this.cvm.loadQuotesByCriteria(this.quotesBy, this.entityId);
   }
 
   // NOTE: we can keep all the pagination related code to commonVM, but as

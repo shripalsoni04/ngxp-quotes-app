@@ -1,5 +1,10 @@
+import { ClassProvider } from '@angular/core';
+
 import { Pagination } from '../../shared/models';
+import { AuthorService } from '../author.service';
 import { AUTHORS } from './mock-authors';
+
+export { AuthorService } from '../author.service';
 
 export class FakeAuthorService {
 
@@ -17,3 +22,8 @@ export class FakeAuthorService {
     });
   }
 }
+
+export let fakeAuthorServiceProvider: ClassProvider = {
+  provide: AuthorService,
+  useClass: FakeAuthorService
+};

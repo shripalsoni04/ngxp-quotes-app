@@ -1,5 +1,10 @@
+import { ClassProvider } from '@angular/core';
+
 import { Pagination } from '../../shared/models';
+import { CategoryService } from '../category.service';
 import { CATEGORIES } from './categories.mock';
+
+export { CategoryService } from '../category.service';
 
 export class FakeCategoryService {
 
@@ -17,3 +22,8 @@ export class FakeCategoryService {
     });
   }
 }
+
+export let fakeCategoryServiceProvider: ClassProvider = {
+  provide: CategoryService,
+  useClass: FakeCategoryService
+};
