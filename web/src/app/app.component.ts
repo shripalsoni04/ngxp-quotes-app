@@ -29,6 +29,10 @@ export class AppComponent {
     private viewContainerRef: ViewContainerRef,
     private mdlDialogOutletService: MdlDialogOutletService,
     private titleService: Title) {
+
+    // emitting appready event, which will remove pre-bootstrap-loader screen.
+    document.dispatchEvent(new Event('appready'));
+
     this.appService.title.subscribe((title) => {
       this.title = title;
       this.titleService.setTitle(title);

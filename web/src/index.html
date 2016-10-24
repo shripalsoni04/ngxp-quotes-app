@@ -12,6 +12,70 @@
 
 </head>
 <body>
-  <app-root>Loading...</app-root>
+  <app-root></app-root>
+
+  <!-- Pre Bootstrap Screen -->
+  <div id="pre-bootstrap-container">
+    <style type="text/css" id="style">
+      #pre-bootstrap-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #1d2532;
+        color: #fff;
+        transition: all 500ms;
+        z-index: 9999999;
+      }
+
+      .bootstrap-content-container {
+        position:absolute;
+        top: 40%;
+        width: 100%;
+        text-align:center;
+      }
+
+      .logo {
+        margin-bottom: 20px;
+      }
+
+      .app-name {
+        font-size: 30px;
+      }
+
+      .loading-text {
+        margin-top: 15px;
+        font-size: 14px;
+      }
+
+      .loaded {
+        opacity: 0;
+      }
+    </style>
+
+    <div class="bootstrap-content-container">
+      <div class="logo">
+        <img src="/x-shared/assets/logo.png" width="75" height="75" />
+      </div>
+      <div class="app-name">
+        NGXP Quotes App
+      </div>
+      <div class="loading-text">
+        Loading...
+      </div>
+    </div>
+
+    <script>
+      var bootstrapContainer = document.getElementById('pre-bootstrap-container');
+      document.addEventListener('appready', function(){
+        bootstrapContainer.className += ' loaded';
+
+        setTimeout(function(){
+          bootstrapContainer.parentNode.removeChild(bootstrapContainer);
+        }, 500);
+      });
+    </script>
+  </div>
 </body>
 </html>
