@@ -3,7 +3,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { FirebaseService } from '../core';
 import { FakeFirebaseService } from '../core/testing';
 import { AuthorService } from './author.service';
-import { AUTHORS } from './testing/mock-authors';
+import { AUTHORS } from './testing/authors.mock';
 
 
 let authorService: AuthorService;

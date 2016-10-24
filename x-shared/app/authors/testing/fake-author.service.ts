@@ -2,7 +2,7 @@ import { ClassProvider } from '@angular/core';
 
 import { Pagination } from '../../shared/models';
 import { AuthorService } from '../author.service';
-import { AUTHORS } from './mock-authors';
+import { AUTHORS } from './authors.mock';
 
 export { AuthorService } from '../author.service';
 
