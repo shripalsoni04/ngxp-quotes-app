@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 
 import { NativeScriptModule } from 'nativescript-angular/platform';
-import { NativeScriptRouterModule } from 'nativescript-angular/router';
 
 import { TNSFontIconService } from 'nativescript-ng2-fonticon';
 import { AppComponent } from './app.component';
@@ -10,7 +9,7 @@ import { QuotesModule } from './quotes/quotes.module';
 import { AuthorsModule } from './authors/authors.module';
 import { CategoriesModule } from './categories/categories.module';
 import { MyQuotesModule } from './my-quotes/my-quotes.module';
-import { appRouting } from './app.routing';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,13 +17,12 @@ import { appRouting } from './app.routing';
   ],
   imports: [
     NativeScriptModule,
-    NativeScriptRouterModule,
     CoreModule,
     AuthorsModule,
     CategoriesModule,
     QuotesModule,
     MyQuotesModule,
-    appRouting
+    AppRoutingModule
   ],
   providers: [{
     provide: TNSFontIconService,

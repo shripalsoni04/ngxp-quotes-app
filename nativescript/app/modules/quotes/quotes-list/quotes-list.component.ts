@@ -45,7 +45,7 @@ export class QuotesListComponent implements OnChanges {
     }
   }
 
-  toggleFav(quoteCardContainer: StackLayout, quote: any, quotesBy) {
+  toggleFav(quoteCardContainer: StackLayout, quote: any, quotesBy: quotesByType) {
     if (quotesBy === 'favourites') {
       // if quotesList is for favourites quotes, then on toggle of favourite
       // button, removing quoteCard by animating it to off the screen.

@@ -8,8 +8,7 @@ import { CategoryService } from '../../x-shared/app/categories/category.service'
 
 @Component({
   selector: 'quotes',
-  templateUrl: 'modules/quotes/quotes.component.html',
-  styleUrls: ['modules/quotes/quotes.component.css']
+  templateUrl: 'modules/quotes/quotes.component.html'
 })
 export class QuotesComponent implements OnInit {
 
@@ -40,10 +39,6 @@ export class QuotesComponent implements OnInit {
       this.entityId = params['entityId'];
       this.setTitle();
     });
-    // let params = this.route.snapshot.params;
-    // this.quotesBy = params['quotesBy'] || 'all';
-    // this.entityId = params['entityId'];
-    // console.log('quotes parameters are ', this.quotesBy, this.entityId);
   }
 
   goBack() {

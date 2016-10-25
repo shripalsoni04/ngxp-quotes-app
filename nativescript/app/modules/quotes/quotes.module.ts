@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 
 import { NativeScriptModule } from 'nativescript-angular/platform';
-import { NativeScriptRouterModule } from 'nativescript-angular/router';
 import { LISTVIEW_DIRECTIVES } from 'nativescript-telerik-ui/listview/angular';
 
 import { QuoteService, MyFavouritesService } from '../../x-shared/app/quotes';
@@ -9,14 +8,13 @@ import { QuoteService, MyFavouritesService } from '../../x-shared/app/quotes';
 import { SharedModule } from '../shared/shared.module';
 import { QuotesListComponent } from './quotes-list/quotes-list.component';
 import { QuotesComponent } from './quotes.component';
-import { quotesRouting } from './quotes.routing';
+import { QuotesRoutingModule } from './quotes-routing.module';
 
 @NgModule({
   imports: [
     NativeScriptModule,
-    NativeScriptRouterModule,
     SharedModule,
-    quotesRouting
+    QuotesRoutingModule
   ],
   declarations: [
     LISTVIEW_DIRECTIVES,

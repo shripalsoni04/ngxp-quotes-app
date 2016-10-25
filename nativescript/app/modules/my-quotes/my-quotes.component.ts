@@ -1,15 +1,15 @@
 import {
-  Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef
+  Component, ChangeDetectionStrategy, ChangeDetectorRef
 } from '@angular/core';
 
+import { RouterExtensions } from 'nativescript-angular/router';
 import { TNSFontIconService } from 'nativescript-ng2-fonticon';
 
-import { MyQuotesCommonVM, MyQuoteModel } from '../../x-shared/app/my-quotes';
-
-import { RouterExtensions } from 'nativescript-angular/router';
 import { Page } from 'ui/page';
 import { confirm } from 'ui/dialogs';
 import { isAndroid } from 'platform';
+
+import { MyQuotesCommonVM, MyQuoteModel } from '../../x-shared/app/my-quotes';
 
 declare const UITableViewCellSelectionStyle: any;
 
