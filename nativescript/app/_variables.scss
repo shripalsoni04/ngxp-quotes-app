@@ -1,6 +1,16 @@
+// Core variables
+@import 'theme-core-scss/variables';
+@import 'theme-core-scss/themes/core/variables_dark';
+
+// Cross platform shared variables. Basically contains brand colors.
 @import "x-shared/styles/variables";
 
-// assigning x-shared colors to nativescript theme color variables.
+// Nativescript theme color overrides.
 $primary: $c-primary;
 $secondary: $c-secondary;
 $accent: $c-accent;
+
+// Nativescript core theme variable overrides.
+$item-active-color:$accent;
+$side-drawer-header-background: $accent;
+$side-drawer-background: $c-grey-200;
