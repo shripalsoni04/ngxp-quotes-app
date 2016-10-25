@@ -17,6 +17,7 @@ node_modules
 x-shared/**/*.js.map
 x-shared/app/**/*.js
 typings
+!x-shared/typings
 web/node_modules
 web/src/x-shared
 web/dist
