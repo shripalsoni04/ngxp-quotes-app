@@ -26,7 +26,7 @@
 
     <div
         class="spinner-container"
-        [hidden]="cvm.lstQuotes.length">
+        [hidden]="cvm.lstQuotes.length || quotesBy === 'favourites'">
       <mdl-spinner single-color active></mdl-spinner>
     </div>
   </div>
