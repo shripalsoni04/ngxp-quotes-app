@@ -50,6 +50,8 @@ ActionBar {
 // overriding nativescript theme styles
 .list-group {
   .list-group-item {
+    background-color: $c-white;
+
     .list-group-item-text {
       color: $c-grey-800;
     }
