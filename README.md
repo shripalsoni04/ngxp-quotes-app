@@ -58,8 +58,9 @@ For convenince below are the commands which you can execute from root directory.
 | npm run start.aot.prod | Performs AOT, minification, uglification and starts web application.                                                               |
 | npm run build          | Builds the web application and copy the built project in web/dist folder.                                                          |
 | npm run build.prod     | Builds the web application in production mode and copy the built project in web/dist folder.                                       |
-| npm run build.aot      | Performs AOT, build the project and then copy the built project in web/dist folder.
-| npm run build.aot.prod | Performs AOT, prepares production build and then copy the built project in web/dist folder.        
+| npm run build.aot      | Performs AOT, build the project and then copy the built project in web/dist folder.                                                |
+| npm run build.aot.prod | Performs AOT, prepares production build and then copy the built project in web/dist folder.                                        |
+| npm test               | Runs web application and x-shared unit test cases.                                       
 
 ### Nativescript Application
 | Command                  | Description                                                                                                                        |
