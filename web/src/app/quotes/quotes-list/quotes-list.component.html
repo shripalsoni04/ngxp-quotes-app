@@ -4,6 +4,7 @@
       [class.list-with-pagination]="quotesBy === 'all'">
     <div class="quotes-list">
       <div
+          #quoteCard
           class="quote-card list-item"
           *ngFor="let quote of cvm.quotes$ | async">
         <div class="quote-body">{{quote.body}}</div>
@@ -16,7 +17,7 @@
               mdl-button
               mdl-button-type="icon"
               class="fav-button"
-              (click)="cvm.toggleFav(quote, quotesBy)"
+              (click)="toggleFav(quoteCard, quote, quotesBy)"
               mdl-colored="accent">
             <mdl-icon>{{quote.isFavourite ? 'favorite' :'favorite_border'}}</mdl-icon>
           </button>

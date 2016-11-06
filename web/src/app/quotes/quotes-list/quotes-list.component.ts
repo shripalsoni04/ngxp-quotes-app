@@ -1,5 +1,6 @@
 import {
-  Component, OnChanges, Input, SimpleChanges, ChangeDetectionStrategy
+  Component, OnChanges, Input, SimpleChanges, ChangeDetectionStrategy,
+  ChangeDetectorRef
 } from '@angular/core';
 
 import { QuotesListCommonVM } from '../../../x-shared/app/quotes';
@@ -17,7 +18,9 @@ export class QuotesListComponent implements OnChanges {
 
   @Input() quotesBy: quotesByType;
 
-  constructor(public cvm: QuotesListCommonVM) {
+  constructor(
+    public cvm: QuotesListCommonVM,
+    private changeDetectorRef: ChangeDetectorRef) {
 
   }
 
@@ -41,6 +44,21 @@ export class QuotesListComponent implements OnChanges {
 
   isForwardPaginationDisabled() {
     return this.cvm.pagination.page === this.cvm.getMaxPageNumber();
+  }
+
+  toggleFav(quoteCardEle: HTMLElement, quote: any, quotesBy: quotesByType) {
+    // If it is a favourite qutoes' screen, then performing slide transition and
+    // then removing the quote from favourites list.
+    if (quotesBy === 'favourites') {
+      quoteCardEle.className += ' removed';
+      setTimeout(() => {
+        this.cvm.toggleFav(quote, quotesBy).then(() => {
+          this.changeDetectorRef.markForCheck();
+        });
+      }, 300);
+    } else {
+      this.cvm.toggleFav(quote, quotesBy);
+    }
   }
 
   loadFirstPage() {
