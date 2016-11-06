@@ -46,7 +46,9 @@ export class AuthorsListComponent implements OnInit {
     // already there in url), then not selecting first record by default.
     if (!this.selectedAuthorId) {
       let firstAuthor = this.cvm.lstAuthors && this.cvm.lstAuthors[0];
-      this.selectAuthor(firstAuthor.id);
+      if (firstAuthor) {
+        this.selectAuthor(firstAuthor.id);
+      }
     }
   }
 }

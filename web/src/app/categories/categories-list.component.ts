@@ -45,7 +45,9 @@ export class CategoriesListComponent implements OnInit {
     // if selectedCategoryId is set, then not selecting first record by default.
     if (!this.selectedCategoryId) {
       let firstCategory = this.cvm.lstCategories && this.cvm.lstCategories[0];
-      this.selectCategory(firstCategory.id);
+      if (firstCategory) {
+        this.selectCategory(firstCategory.id);
+      }
     }
   }
 }

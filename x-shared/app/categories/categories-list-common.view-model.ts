@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { CategoryService } from './category.service';
 
@@ -8,7 +8,7 @@ export class CategoriesListCommonVM {
 
   lstCategories: any[] = [];
 
-  categories$: Subject<any[]> = new Subject<any[]>();
+  categories$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.lstCategories);
 
   constructor(protected categoryService: CategoryService) {
 

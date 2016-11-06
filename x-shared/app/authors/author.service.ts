@@ -18,11 +18,7 @@ export class AuthorService {
   get(pagination?: Pagination) {
     return new Promise((resolve, reject) => {
       if (this.lstAuthors && this.lstAuthors.length) {
-
-        // using timeout to let code run in ngZone.
-        setTimeout(() => {
-          resolve(this.lstAuthors);
-        });
+        resolve(this.lstAuthors);
       } else {
         this.firebaseService.getListOnce(this.path, pagination).then((lstAuthors) => {
           this.lstAuthors = lstAuthors;

@@ -7,5 +7,10 @@
 // Platform adjustments
 @import 'theme-core-scss/themes/core/platforms/index.android';
 
-// app style
+// App styles
 @import "app-common";
+
+// Android specific app styles
+.action-bar-icon {
+  width: 60;
+}

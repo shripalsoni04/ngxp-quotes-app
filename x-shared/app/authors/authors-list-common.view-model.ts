@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 import { AuthorService } from './author.service';
 
@@ -8,7 +8,7 @@ export class AuthorsListCommonVM {
 
   lstAuthors: any[] = [];
 
-  authors$: Subject<any[]> = new Subject<any[]>();
+  authors$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>(this.lstAuthors);
 
   constructor(protected authorService: AuthorService) {
 
