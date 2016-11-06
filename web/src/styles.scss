@@ -54,8 +54,7 @@ body {
   cursor: pointer;
 
   &:hover {
-    background-color: unquote("rgba(#{$color-accent}, 0.5)");
-    color: $c-white;
+    background-color: $c-grey-300;
   }
 
   &.selected {
