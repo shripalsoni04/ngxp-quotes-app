@@ -54,12 +54,17 @@ body {
   cursor: pointer;
 
   &:hover {
-    background-color: $c-grey-300;
+    background-color: unquote("rgba(#{$color-accent}, 0.5)");
+    color: $c-white;
   }
 
   &.selected {
-    background-color: $c-primary;
+    background-color: $c-accent;
     color: $c-white;
+  }
+
+  .mdl-ripple {
+    background: $c-white;
   }
 }
 
