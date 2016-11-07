@@ -14,3 +14,8 @@
 .action-bar-icon {
   width: 60;
 }
+
+// Globally applying button color to let it apply to dialog buttons.
+Button {
+  color: $c-accent;
+}
