@@ -60,7 +60,9 @@ For convenince below are the commands which you can execute from root directory.
 | npm run build.prod     | Builds the web application in production mode and copy the built project in web/dist folder.                                       |
 | npm run build.aot      | Performs AOT, build the project and then copy the built project in web/dist folder.                                                |
 | npm run build.aot.prod | Performs AOT, prepares production build and then copy the built project in web/dist folder.                                        |
-| npm test               | Runs web application and x-shared unit test cases.                                       
+| npm test               | Runs web application and x-shared unit test cases.                                                                                 |
+| npm run test-cc        | Runs web application and x-shared unit test cases and generates code coverage report.                                              |
+                                      
 
 ### Nativescript Application
 | Command                  | Description                                                                                                                        |

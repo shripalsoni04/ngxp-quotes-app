@@ -17,6 +17,7 @@
     "livesync.android": "cd nativescript && tns livesync android --watch",
     "livesync.ios": "cd nativescript && tns livesync ios --watch",
     "test": "cd web && ng test",
+    "test-cc": "npm test -- -cc",
     "test.android": "cd nativescript && tns test android --watch",
     "test.ios": "cd nativescript && tns test ios --watch"
   },
