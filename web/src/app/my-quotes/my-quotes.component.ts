@@ -2,6 +2,7 @@ import {
   Component, OnInit, ChangeDetectionStrategy, ViewChild, ElementRef
 } from '@angular/core';
 
+import 'rxjs/add/operator/toPromise';
 import { MyQuotesCommonVM, MyQuoteModel } from '../../x-shared/app/my-quotes';
 import { AppService } from '../app.service';
 import { MdlDialogComponent, MdlDialogService } from 'angular2-mdl';
