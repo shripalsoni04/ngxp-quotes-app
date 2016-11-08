@@ -33,10 +33,11 @@ describe('AuthorsListCommonVM', () => {
     expect(authorsListCommonVM.lstAuthors.length).toBeGreaterThan(0);
   }));
 
-  it('#loadAuthorList should emit loaded authors', async(() => {
+  it('#loadAuthorList should emit loaded authors', fakeAsync(() => {
+    authorsListCommonVM.loadAuthorList();
+    tick();
     authorsListCommonVM.authors$.subscribe((lstAuthors) => {
       expect(lstAuthors.length).toBeGreaterThan(0);
     });
-    authorsListCommonVM.loadAuthorList();
   }));
 });

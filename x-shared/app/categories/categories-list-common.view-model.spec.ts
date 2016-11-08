@@ -33,10 +33,11 @@ describe('CategoriesListCommonVM', () => {
     expect(categoriesListCommonVM.lstCategories.length).toBeGreaterThan(0);
   }));
 
-  it('#loadCategoriesList should emit loaded categories', async(() => {
+  it('#loadCategoriesList should emit loaded categories', fakeAsync(() => {
+    categoriesListCommonVM.loadCategoriesList();
+    tick();
     categoriesListCommonVM.categories$.subscribe((lstCategories) => {
       expect(lstCategories.length).toBeGreaterThan(0);
     });
-    categoriesListCommonVM.loadCategoriesList();
   }));
 });
