@@ -3,7 +3,6 @@ import {
 } from '@angular/core';
 
 import { RouterExtensions } from 'nativescript-angular/router';
-import { TNSFontIconService } from 'nativescript-ng2-fonticon';
 
 import { Page } from 'ui/page';
 import { confirm } from 'ui/dialogs';
@@ -27,8 +26,7 @@ export class MyQuotesComponent {
     public cvm: MyQuotesCommonVM,
     private routerExtensions: RouterExtensions,
     private page: Page,
-    private changeDetectorRef: ChangeDetectorRef,
-    private fonticon: TNSFontIconService
+    private changeDetectorRef: ChangeDetectorRef
   ) {
     this.page.on('loaded', this.onPageLoad.bind(this));
   }

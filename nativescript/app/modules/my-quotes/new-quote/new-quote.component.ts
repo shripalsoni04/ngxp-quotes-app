@@ -4,7 +4,6 @@ import {
 import { ActivatedRoute } from '@angular/router';
 
 import { RouterExtensions } from 'nativescript-angular/router';
-import { TNSFontIconService } from 'nativescript-ng2-fonticon';
 
 import { alert } from 'ui/dialogs';
 
@@ -23,8 +22,7 @@ export class NewQuoteComponent implements OnInit {
     public cvm: NewQuoteCommonVM,
     private route: ActivatedRoute,
     private routerExtensions: RouterExtensions,
-    private changeDetectorRef: ChangeDetectorRef,
-    private fonticon: TNSFontIconService
+    private changeDetectorRef: ChangeDetectorRef
   ) { }
 
   ngOnInit() {

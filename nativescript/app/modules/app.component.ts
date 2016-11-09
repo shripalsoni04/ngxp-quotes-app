@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TNSFontIconService } from 'nativescript-ng2-fonticon';
 
 import { SwissArmyKnife } from 'nativescript-swiss-army-knife';
 
@@ -7,7 +8,7 @@ import { SwissArmyKnife } from 'nativescript-swiss-army-knife';
   template: '<page-router-outlet></page-router-outlet>'
 })
 export class AppComponent {
-  constructor() {
+  constructor(private fonticon: TNSFontIconService) {
     SwissArmyKnife.setAndroidStatusBarColor('#161d27');
 
     // Setting StatusBarStyle to UIBarStyleBlack for iOS.

@@ -4,7 +4,6 @@ import {
 
 import { StackLayout } from 'ui/layouts/stack-layout';
 import { ListView } from 'ui/list-view';
-import { TNSFontIconService } from 'nativescript-ng2-fonticon';
 import * as SocialShare from 'nativescript-social-share';
 
 
@@ -27,7 +26,6 @@ export class QuotesListComponent implements OnChanges {
 
   constructor(
     public cvm: QuotesListCommonVM,
-    private fonticon: TNSFontIconService,
     private changeDetectorRef: ChangeDetectorRef
   ) {
 
