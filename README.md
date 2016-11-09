@@ -1,8 +1,11 @@
 # NGXP Quotes App
-This is a full quote application to show how to create cross platform application in angular with code sharing.
+Quotes application for Web and Mobile (Android, iOS) with single code base buit with Angular and Nativescript.
+
+## Previews and Screenshots
+You can check previews and screenshots of this application for Web, Android and iOS platforms at [ngxp.io](http://ngxp.io/product/quotes-application/) 
 
 ## Prerequisites
-1. Globally installed Nativecript CLI  - `npm install -g nativescript`
+1. Globally installed Nativecript  - `npm install -g nativescript`
 2. Globally installed Angular CLI - `npm install -g angular-cli`
 3. Mac OS to build iOS app.
 
@@ -31,24 +34,28 @@ This is a full quote application to show how to create cross platform applicatio
       - Uncomment `DEVELOPMENT_TEAM = YOUR_TEAM_ID;` line, and enter your team id.
 
 ## Run Android Application
-- As we are using nativescript firebase plugin in the project, we need to perform below two steps before staring app on android.
-  1. Copy nativescript/app/App_Resources/Android/google-services.json to platforms/android folder.
-  2. Changes in nativescript/platforms/android/build.gradle file.
+- As we are using nativescript firebase plugin in the project, we need to perform below two steps before starting app on android.
+  1. Copy `nativescript/app/App_Resources/Android/google-services.json` to `platforms/android` folder.
+  2. Changes in `nativescript/platforms/android/build.gradle` file.
+  
       Near the top there's a dependencies section, add classpath "com.google.gms:google-services:3.0.0" so it becomes something like:
-        ```
-        dependencies {
-          classpath "com.android.tools.build:gradle:X.X.X"
-          classpath "com.google.gms:google-services:3.0.0"
-        }
-        ```
+
+      ```
+      dependencies {
+        classpath "com.android.tools.build:gradle:X.X.X"
+        classpath "com.google.gms:google-services:3.0.0"
+      }
+      ```
+
       At the very bottom of the same file add
-        ```
-        apply plugin: "com.google.gms.google-services"
-        ```
+      
+      ```
+      apply plugin: "com.google.gms.google-services"
+      ```
   3. Now execute `npm run start.android`
   
 ## Commands
-You can execute any valid command of angular-cli from web/ folder and any valid command of nativescript-cli from nativescript/ folder.
+You can execute any valid command of angular-cli from `web/` folder and any valid command of nativescript-cli from `nativescript/` folder.
 For convenince below are the commands which you can execute from root directory.
 
 ### Common
@@ -89,7 +96,7 @@ For convenince below are the commands which you can execute from root directory.
   // ]
   ```
 
-  - **NOTE**: When you execute `npm test` or `npm run test-cc` commands, make sure you uncomment above lines, otherwise test cases will give errors.
+  - **Note**: When you execute `npm test` or `npm run test-cc` commands, make sure you uncomment above lines, otherwise test cases will give errors.
 
 2. Angular dependencies at two levels for AOT support
   - Currently we have added angular dependencies in root level package.json and web/package.json. Because, AOT does not work properly when we use path mapping and this issue is reported and can be traked at https://github.com/angular/angular-cli/issues/1732 and PR:https://github.com/angular/angular-cli/pull/2470. Once this issue is resolved we can add path mapping as shown below and remove the angular dependencies from web/package.json, so in case of any version update we just need to change the version at root directory level.
