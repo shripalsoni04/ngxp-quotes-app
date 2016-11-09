@@ -1,5 +1,6 @@
 // -----------------------------------------------------------
-// version 0.0.1
+// version 1.0.0
+// Copied some code from https://github.com/NathanWalker/angular-seed-advanced/tools/install.js
 // -----------------------------------------------------------
 "use strict";
 
@@ -123,14 +124,14 @@ function createSymLink() {
  * Display final help screen!
  */
 function displayFinalHelp() {
-  console.log("------------------------ Angular Cross Platform Starter is Ready. ----------------------------");
+  console.log("------------------------ Cross Platform Quotes Application is Ready to use. ----------------------------");
   console.log("");
   console.log("Run your web app with:");
   console.log("  npm start");
   console.log("");
   console.log("Run your Mobile app via NativeScript with:");
   console.log("  iOS:     npm run start.ios");
-  console.log("  Android: npm run start.android");
+  console.log("  Android (After performing some steps mentioned in Documentation): npm run start.android");
   console.log("");
   console.log("-----------------------------------------------------------------------------------------");
   console.log("");

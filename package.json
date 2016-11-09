@@ -1,7 +1,7 @@
 {
   "name": "ngxp-quotes-app",
   "version": "1.0.0",
-  "description": "A cross platform starter application.",
+  "description": "A cross platform quotes application.",
   "scripts": {
     "ngxp-install": "npm install && cd web && npm install && cd ../nativescript && tns install && node ../tools/install.js && cd .. && typings install",
     "build": "cd web && ng build",
@@ -28,7 +28,7 @@
     "angular"
   ],
   "author": "Shripal Soni",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "codelyzer": "0.0.28",
     "@types/jasmine": "^2.2.30",
