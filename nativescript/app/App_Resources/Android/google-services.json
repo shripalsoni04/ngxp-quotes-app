@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "18201924065",
+    "firebase_url": "https://ngxp-quotes-app-a975f.firebaseio.com",
+    "project_id": "ngxp-quotes-app-a975f",
+    "storage_bucket": "ngxp-quotes-app-a975f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:18201924065:android:a9782e5eecfd3d7f",
+        "android_client_info": {
+          "package_name": "io.ngxp.quotesapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "18201924065-cpiqrk5vb1scrbpgkted6jbspmfeupqu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "000000000000000000000000000000"
+        }
+      ]
+    }
+  ],
+  "configuration_version": "1"
+}

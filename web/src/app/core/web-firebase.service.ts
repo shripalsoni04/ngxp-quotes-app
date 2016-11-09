@@ -10,9 +10,8 @@ export class WebFirebaseService extends FirebaseService {
     super();
 
     const config = {
-      apiKey: 'AIzaSyAyqaNzMgUki_CNomeoCvGA7hMBrcip2bg',
-      authDomain: 'ngxp-quotes-app.firebaseapp.com',
-      databaseURL: 'https://ngxp-quotes-app.firebaseio.com'
+      authDomain: 'ngxp-quotes-app-a975f.firebaseapp.com',
+      databaseURL: 'https://ngxp-quotes-app-a975f.firebaseio.com'
     };
 
     this.initializeFirebase(config);
