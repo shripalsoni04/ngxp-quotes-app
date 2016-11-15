@@ -1,5 +1,7 @@
 # NGXP Quotes App
-Quotes application for Web and Mobile (Android, iOS) with single code base buit with Angular and Nativescript.
+Quotes application for Web and Mobile (Android, iOS) with single code base buit with Angular and Nativescript. 
+
+If you want to create your own cross-platform app similar to this, check this starter: [nativescript-angular-web-starter](https://github.com/shripalsoni04/nativescript-angular-web-starter).
 
 ## Previews and Screenshots
 You can check previews and screenshots of this application for Web, Android and iOS platforms at [ngxp.io](http://ngxp.io/product/quotes-application/) 
@@ -120,7 +122,3 @@ For convenince below are the commands which you can execute from root directory.
 9. nativescript-theme-core
 10. angular2-mdl
 11. Awesome framework and toolchain of Nativescript and Angular.
-
-## Coming Soon
-- A starter project to quickly create your own cross platform application for web and native mobile platform similar to this application.
-- A blog post explaining the folder structure of this application.
