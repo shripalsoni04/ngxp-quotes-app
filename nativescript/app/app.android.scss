@@ -1,14 +1,14 @@
 // Theme variables cusomizations
-@import "variables";
+@import "scss/variables";
 
 // Core CSS
-@import 'theme-core-scss/index';
+@import "nativescript-theme-core/scss/index";
 
-// Platform adjustments
-@import 'theme-core-scss/themes/core/platforms/index.android';
+// Style adjustments for Android
+@import "nativescript-theme-core/scss/themes/core/platforms/index.android";
 
-// App styles
-@import "app-common";
+// App styles common to Android and iOS platforms.
+@import "scss/app-common";
 
 // Android specific app styles
 .action-bar-icon {
