@@ -70,8 +70,8 @@ For convenince below are the commands which you can execute from root directory.
 |------------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | npm start              | Starts web application at http://localhost:4200                                                                                    |
 | npm run start.prod     | Starts web application in production mode. Runs uglification and minification.                                                     |
-| npm run start.aot      | Performs AOT for web application templates and starts web application. (Before executing this command refer Point 1 of [Known Issues](https://github.com/shripalsoni04/ngxp-quotes-app#known-issues-and-solution))                                                            |
-| npm run start.aot.prod | Performs AOT, minification, uglification and starts web application. (Before executing this command refer Point 1 of [Known Issues](https://github.com/shripalsoni04/ngxp-quotes-app#known-issues-and-solution))                                                              |
+| npm run start.aot      | Performs AOT for web application templates and starts web application.                                                             |
+| npm run start.aot.prod | Performs AOT, minification, uglification and starts web application.                                                               |
 | npm run build          | Builds the web application and copy the built project in web/dist folder.                                                          |
 | npm run build.prod     | Builds the web application in production mode and copy the built project in web/dist folder.                                       |
 | npm run build.aot      | Performs AOT, build the project and then copy the built project in web/dist folder.                                                |
@@ -89,18 +89,7 @@ For convenince below are the commands which you can execute from root directory.
 | npm run livesync.android | Starts application in livesync mode on Android emulator/device.       
 
 ## Known Issues and Solution
-1. Regarding AOT
-  - When you prepare aot build or serve project in aot mode, make sure you comment the exclude configuration in web/src/tsconfig.json file. Because currently AOT build also trying to compile test files and failing .This is know issue and can be tracked at https://github.com/angular/angular-cli/issues/2736. Once it is resolved, we can keep this uncommented for better unit testing support.
-  ```
-  // "exclude": [
-  //   "**/*.spec.ts",
-  //   "testing/**/*.ts"
-  // ]
-  ```
-
-  - **Note**: When you execute `npm test` or `npm run test-cc` commands, make sure you uncomment above lines, otherwise test cases will give errors.
-
-2. Angular dependencies at two levels for AOT support
+1. Angular dependencies at two levels for AOT support
   - Currently we have added angular dependencies in root level package.json and web/package.json. Because, AOT does not work properly when we use path mapping and this issue is reported and can be traked at https://github.com/angular/angular-cli/issues/1732 and PR:https://github.com/angular/angular-cli/pull/2470. Once this issue is resolved we can add path mapping as shown below and remove the angular dependencies from web/package.json, so in case of any version update we just need to change the version at root directory level.
 
     **web/src/tsconfig.json**

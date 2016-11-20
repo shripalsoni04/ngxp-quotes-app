@@ -5,7 +5,7 @@ import { By, Title } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import {
-  RouterOutletStubComponent, RouterLinkStubDirective, click
+  RoutingStubsModule, RouterLinkStubDirective, click
 } from '../testing';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
@@ -19,12 +19,11 @@ describe('App Component', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent,
-        RouterOutletStubComponent,
-        RouterLinkStubDirective
+        AppComponent
       ],
       imports: [
-        SharedModule
+        SharedModule,
+        RoutingStubsModule
       ],
       providers: [
         AppService

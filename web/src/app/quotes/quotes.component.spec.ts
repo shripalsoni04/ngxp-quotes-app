@@ -7,7 +7,7 @@ import {
   fakeQuotesServiceProvider, fakeMyFavouriteServiceProvider
 } from '@xapp/quotes/testing';
 import {
-  advance, fakeRouterServiceProvider, ActivatedRouteStub, ActivatedRoute, Router
+  advance, ActivatedRouteStub, ActivatedRoute, Router, RoutingStubsModule
 } from '../../testing';
 
 import { QuotesComponent } from './quotes.component';
@@ -39,7 +39,8 @@ describe('QuotesComponent', () => {
         CategoriesListComponent
       ],
       imports: [
-        SharedModule
+        SharedModule,
+        RoutingStubsModule
       ],
       providers: [
         AppService,
@@ -48,7 +49,6 @@ describe('QuotesComponent', () => {
         fakeCategoryServiceProvider,
         fakeQuotesServiceProvider,
         fakeMyFavouriteServiceProvider,
-        fakeRouterServiceProvider,
         { provide: ActivatedRoute, useValue: activatedRoute }
       ]
     });
