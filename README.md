@@ -36,25 +36,7 @@ You can check previews and screenshots of this application for Web, Android and 
       - Uncomment `DEVELOPMENT_TEAM = YOUR_TEAM_ID;` line, and enter your team id.
 
 ## Run Android Application
-- As we are using nativescript firebase plugin in the project, we need to perform below two steps before starting app on android.
-  1. Copy `nativescript/app/App_Resources/Android/google-services.json` to `platforms/android` folder.
-  2. Changes in `nativescript/platforms/android/build.gradle` file.
-  
-      Near the top there's a dependencies section, add classpath "com.google.gms:google-services:3.0.0" so it becomes something like:
-
-      ```
-      dependencies {
-        classpath "com.android.tools.build:gradle:X.X.X"
-        classpath "com.google.gms:google-services:3.0.0"
-      }
-      ```
-
-      At the very bottom of the same file add
-      
-      ```
-      apply plugin: "com.google.gms.google-services"
-      ```
-  3. Now execute `npm run start.android`
+- Execute `npm run start.android`
   
 ## Commands
 You can execute any valid command of angular-cli from `web/` folder and any valid command of nativescript-cli from `nativescript/` folder.
