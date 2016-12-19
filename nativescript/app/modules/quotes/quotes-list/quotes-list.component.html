@@ -20,7 +20,7 @@
                 textWrap="true"></Label>
               <Label
                   class="quote-author text-light"
-                  *ngIf="quotesBy !== 'author'"
+                  [visibility]="quotesBy !== 'author' ? 'visible' : 'collapsed'"
                   [text]="'- '+item.authorName">
               </Label>
               <StackLayout class="hr-light"></StackLayout>
@@ -43,7 +43,7 @@
         <ActivityIndicator
           #activityIndicator
           class="activity-indicator"
-          *ngIf="i === cvm.lstQuotes.length -1 && i !== cvm.pagination.count -1 && quotesBy === 'all'"
+          [visibility]="i === cvm.lstQuotes.length -1 && i !== cvm.pagination.count -1 && quotesBy === 'all' ? 'visible' : 'collapsed'"
           [busy]="i === cvm.lstQuotes.length -1">
         </ActivityIndicator>
       </StackLayout>
