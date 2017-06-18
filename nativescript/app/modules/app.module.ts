@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 
-import { NativeScriptModule } from 'nativescript-angular/platform';
+import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 
-import { TNSFontIconModule } from 'nativescript-ng2-fonticon';
+import { TNSFontIconModule } from 'nativescript-ngx-fonticon';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { QuotesModule } from './quotes/quotes.module';

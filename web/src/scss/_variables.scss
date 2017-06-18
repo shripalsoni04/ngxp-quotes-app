@@ -1,5 +1,5 @@
 @import "../x-shared/scss/variables";
-@import "./funcitons";
+@import "./functions";
 
 // Setting mdl variables. As mdl library requires colors in "r,g,b" format, converting theme's hex colors to "r,g,b" format.
 $color-primary: hex-to-rgb-string($c-primary);

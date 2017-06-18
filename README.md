@@ -86,7 +86,7 @@ For convenince below are the commands which you can execute from root directory.
 2. nativescript-floatingactionbutton
 3. nativescript-iqkeyboardmanager
 4. nativescript-material-icons
-5. nativescript-ng2-fonticon
+5. nativescript-ngx-fonticon
 6. nativescript-plugin-firebase
 7. nativescript-social-share
 8. nativescript-swiss-army-knife

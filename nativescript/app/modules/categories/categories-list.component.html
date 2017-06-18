@@ -7,7 +7,7 @@
         class="list-group"
         [items]="cvm.categories$ | async"
         [visibility]="cvm.lstCategories.length ? 'visible' : 'collapsed'">
-      <template let-item="item">
+      <ng-template let-item="item">
         <StackLayout
             class="list-group-item"
             (tap)="showQuotesByCategory(item.id)">
@@ -17,7 +17,7 @@
               textWrap="true">
           </Label>
         </StackLayout>
-      </template>
+      </ng-template>
     </ListView>
     <ActivityIndicator
       class="activity-indicator"

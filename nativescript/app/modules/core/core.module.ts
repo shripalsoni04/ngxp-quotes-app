@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NativeScriptModule } from 'nativescript-angular/platform';
+import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 
 import {
   FirebaseService, StorageService, LocalDatabaseService

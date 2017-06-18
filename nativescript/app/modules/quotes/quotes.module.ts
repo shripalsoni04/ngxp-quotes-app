@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { NativeScriptModule } from 'nativescript-angular/platform';
+import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 import { LISTVIEW_DIRECTIVES } from 'nativescript-telerik-ui/listview/angular';
 
 import { QuoteService, MyFavouritesService } from '../../x-shared/app/quotes';
