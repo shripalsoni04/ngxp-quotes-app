@@ -91,5 +91,5 @@ For convenince below are the commands which you can execute from root directory.
 7. nativescript-social-share
 8. nativescript-swiss-army-knife
 9. nativescript-theme-core
-10. angular2-mdl
+10. angular-mdl
 11. Awesome framework and toolchain of Nativescript and Angular.
