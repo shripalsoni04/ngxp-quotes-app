@@ -5,7 +5,7 @@
       (itemLoading)="onItemLoading($event)"
       separatorColor="transparent"
       >
-    <template
+    <ng-template
         let-item="item"
         let-i="index">
       <StackLayout class="quote-card-container" #quoteCardContainer>
@@ -47,7 +47,7 @@
           [busy]="i === cvm.lstQuotes.length -1">
         </ActivityIndicator>
       </StackLayout>
-    </template>
+    </ng-template>
   </ListView>
   <ActivityIndicator
       class="activity-indicator"

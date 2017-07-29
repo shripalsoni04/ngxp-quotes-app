@@ -16,7 +16,7 @@
           [items]="cvm.quotes$ | async"
           (itemLoading)="onItemLoading($event)"
           separatorColor="transparent">
-        <template let-item="item">
+        <ng-template let-item="item">
           <StackLayout>
             <CardView
                 margin="10"
@@ -50,7 +50,7 @@
               </StackLayout>
             </CardView>
           </StackLayout>
-        </template>
+        </ng-template>
       </ListView>
       <Fab
           *ngIf="isAndroid"

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TNSFontIconService } from 'nativescript-ng2-fonticon';
+import { TNSFontIconService } from 'nativescript-ngx-fonticon';
 
 import { SwissArmyKnife } from 'nativescript-swiss-army-knife';
 

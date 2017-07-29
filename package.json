@@ -1,6 +1,6 @@
 {
   "name": "ngxp-quotes-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A cross platform quotes application.",
   "scripts": {
     "ngxp-install": "npm install && cd web && npm install && cd ../nativescript && tns install && node ../tools/install.js && cd .. && typings install",
@@ -23,30 +23,30 @@
   },
   "keywords": [
     "nativescript",
-    "angular2",
-    "ng2",
+    "angular4",
+    "ng4",
     "angular"
   ],
   "author": "Shripal Soni",
   "license": "MIT",
   "devDependencies": {
-    "codelyzer": "~1.0.0-beta.4",
+    "codelyzer": "^3.0.1",
     "@types/jasmine": "^2.2.30",
     "typings": "^1.4.0",
-    "tslint": "^3.15.1"
+    "tslint": "^5.2.0"
   },
   "dependencies": {
-    "@angular/core": "~2.2.1",
-    "@angular/common": "~2.2.1",
-    "@angular/compiler": "~2.2.1",
-    "@angular/forms": "~2.2.1",
-    "@angular/http": "~2.2.1",
-    "@angular/platform-browser": "~2.2.1",
-    "@angular/platform-browser-dynamic": "~2.2.1",
-    "@angular/router": "~3.2.1",
+    "@angular/core": "^4.2.3",
+    "@angular/common": "^4.2.3",
+    "@angular/compiler": "^4.2.3",
+    "@angular/forms": "^4.2.3",
+    "@angular/http": "^4.2.3",
+    "@angular/platform-browser": "^4.2.3",
+    "@angular/platform-browser-dynamic": "^4.2.3",
+    "@angular/router": "^4.2.3",
     "core-js": "^2.4.1",
-    "rxjs": "5.0.0-beta.12",
-    "zone.js": "^0.6.25",
+    "rxjs": "^5.2.0",
+    "zone.js": "^0.8.10",
     "ts-helpers": "^1.1.1"
   }
 }

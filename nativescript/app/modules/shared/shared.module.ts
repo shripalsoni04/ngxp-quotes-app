@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { NativeScriptModule } from 'nativescript-angular/platform';
+import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 import { NativeScriptRouterModule } from 'nativescript-angular/router';
 
-import { TNSFontIconModule, TNSFontIconPipe } from 'nativescript-ng2-fonticon';
+import { TNSFontIconModule, TNSFontIconPipe } from 'nativescript-ngx-fonticon';
 import { SIDEDRAWER_DIRECTIVES } from 'nativescript-telerik-ui/sidedrawer/angular';
 
 import { NGXPSideDrawerComponent } from './side-drawer.component';

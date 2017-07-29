@@ -1,7 +1,7 @@
 {
   "project": {
-    "version": "1.0.0-beta.15",
-    "name": "web"
+    "version": "1.0.1",
+    "name": "ngxp-quotes-app-web"
   },
   "apps": [
     {
@@ -18,8 +18,8 @@
         "styles.scss"
       ],
       "scripts": [],
+      "environmentSource": "environments/environment.ts",
       "environments": {
-        "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }

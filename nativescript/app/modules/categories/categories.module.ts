@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { NativeScriptModule } from 'nativescript-angular/platform';
+import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 
 import { SharedModule } from '../shared/shared.module';
 import { CategoryService } from '../../x-shared/app/categories';
