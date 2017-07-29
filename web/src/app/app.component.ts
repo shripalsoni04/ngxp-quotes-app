@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 
 import {
   MdlDialogOutletService
-} from 'angular2-mdl/components/dialog-outlet/mdl-dialog-outlet.service';
+} from '@angular-mdl/core/components/dialog-outlet/mdl-dialog-outlet.service';
 
 import { AppService } from './app.service';
 

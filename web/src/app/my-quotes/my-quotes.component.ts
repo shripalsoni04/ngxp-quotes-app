@@ -5,7 +5,7 @@ import {
 import 'rxjs/add/operator/toPromise';
 import { MyQuotesCommonVM, MyQuoteModel } from '../../x-shared/app/my-quotes';
 import { AppService } from '../app.service';
-import { MdlDialogComponent, MdlDialogService } from 'angular2-mdl';
+import { MdlDialogComponent, MdlDialogService } from '@angular-mdl/core/components/dialog';
 import { UtilityService } from '../core/utility.service';
 
 @Component({

@@ -13,6 +13,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-mdl/core": "^4.0.8",
     "@angular/common": "^4.2.3",
     "@angular/compiler": "^4.2.3",
     "@angular/core": "^4.2.3",
@@ -21,7 +22,6 @@
     "@angular/platform-browser": "^4.2.3",
     "@angular/platform-browser-dynamic": "^4.2.3",
     "@angular/router": "^4.2.3",
-    "angular2-mdl": "^2.13.2",
     "core-js": "^2.4.1",
     "firebase": "^3.4.1",
     "rxjs": "^5.2.0",

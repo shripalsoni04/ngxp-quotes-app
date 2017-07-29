@@ -6,7 +6,7 @@ import { WebFirebaseService } from './web-firebase.service';
 import { LocalStorageService } from './local-storage.service';
 import { LocalDatabaseService } from '../../x-shared/app/core/local-database.service';
 import { UtilityService } from './utility.service';
-import { DISABLE_NATIVE_VALIDITY_CHECKING } from 'angular2-mdl';
+import { DISABLE_NATIVE_VALIDITY_CHECKING } from '@angular-mdl/core';
 
 @NgModule({
   providers: [
